@@ -1,0 +1,65 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven {
+            url "https://maven.google.com"
+        }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.0-beta2'
+
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        maven {
+            url "https://maven.google.com"
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+    projectName = 'dynamic-dialogs'
+    projectDesc = 'A simple library to display improved app compat dialogs on Android ' +
+            'devices.'
+    versionDesc = 'A simple library to display improved app compat dialogs on Android 14+ ' +
+            '(ICS or above) devices.'
+    siteUrl = 'https://github.com/pranavpandey/dynamic-dialogs'
+    gitUrl = 'https://github.com/pranavpandey/dynamic-dialogs'
+    issueUrl = 'https://github.com/pranavpandey/dynamic-dialogs/issues'
+
+    githubUrl = 'pranavpandey/dynamic-dialogs'
+
+    mavenGroup = 'com.pranavpandey.android'
+    mavenVersion = '0.4.0'
+    mavenInceptionYear = 2017
+    mavenArtifactId = 'dynamic-dialogs'
+    bintrayRepo = 'android'
+
+    developerId = 'pranavpandey'
+    developerName = 'Pranav Pandey'
+    developerEmail = 'pranavpande92@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    licenseDistribution = 'repo'
+    allLicenses = ["Apache-2.0"]
+
+    versionCode = 4
+
+    buildTools = '26.0.1'
+    minSdk = 14
+    compileSdk = 26
+    targetSdk = 25
+
+    androidSupport = '26.0.1'
+}
