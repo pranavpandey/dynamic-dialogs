@@ -743,12 +743,12 @@ class DynamicAlertController {
             View titleTemplate = mWindow.findViewById(android.support.v7.appcompat.R.id.title_template);
             titleTemplate.setVisibility(View.GONE);
         } else {
-            mIconView = (ImageView) mWindow.findViewById(android.R.id.icon);
+            mIconView = mWindow.findViewById(android.R.id.icon);
 
             final boolean hasTextTitle = !TextUtils.isEmpty(mTitle);
             if (hasTextTitle && mShowTitle) {
                 // Display the title if a title is supplied, else hide it.
-                mTitleView = (TextView) mWindow.findViewById(android.support.v7.appcompat.R.id.alertTitle);
+                mTitleView = mWindow.findViewById(android.support.v7.appcompat.R.id.alertTitle);
                 mTitleView.setText(mTitle);
 
                 // Do this last so that if the user has supplied any icons we

@@ -85,6 +85,15 @@ public class DynamicDialogFragment extends DialogFragment {
     }
 
     @Override
+    public void onPause() {
+        super.onPause();
+
+        if (mAutoDismiss) {
+            dismiss();
+        }
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -231,15 +240,6 @@ public class DynamicDialogFragment extends DialogFragment {
     public void showDialog(@NonNull FragmentActivity fragmentActivity) {
         show(fragmentActivity.getSupportFragmentManager(),
                 DynamicDialogFragment.class.getName());
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-
-        if (mAutoDismiss) {
-            dismiss();
-        }
     }
 }
 
