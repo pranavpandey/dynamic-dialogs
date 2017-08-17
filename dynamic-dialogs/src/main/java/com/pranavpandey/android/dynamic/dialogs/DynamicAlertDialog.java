@@ -842,19 +842,6 @@ public class DynamicAlertDialog extends AppCompatDialog implements DialogInterfa
         }
 
         /**
-         * Set the view root to add scroll indicators if the content can
-         * be scrolled.
-         *
-         * @param viewRoot Root view of the custom view.
-         * @return this Builder object to allow for chaining of calls to set
-         *         methods
-         */
-        public Builder setViewRoot(View viewRoot) {
-            P.mViewRoot = viewRoot;
-            return this;
-        }
-
-        /**
          * Sets a custom view to be the contents of the alert dialog.
          * <p>
          * When using a pre-Holo theme, if the supplied view is an instance of
@@ -872,6 +859,34 @@ public class DynamicAlertDialog extends AppCompatDialog implements DialogInterfa
             P.mView = view;
             P.mViewLayoutResId = 0;
             P.mViewSpacingSpecified = false;
+            return this;
+        }
+
+        /**
+         * Set the view root id to add scroll indicators if the content can
+         * be scrolled.
+         *
+         * @param viewRootId Root view id of the custom view.
+         * @return this Builder object to allow for chaining of calls to set
+         *         methods
+         */
+        public Builder setViewRoot(int viewRootId) {
+            P.mViewRoot = null;
+            P.mViewRootId = viewRootId;
+            return this;
+        }
+
+        /**
+         * Set the view root to add scroll indicators if the content can
+         * be scrolled.
+         *
+         * @param viewRoot Root view of the custom view.
+         * @return this Builder object to allow for chaining of calls to set
+         *         methods
+         */
+        public Builder setViewRoot(View viewRoot) {
+            P.mViewRoot = viewRoot;
+            P.mViewRootId = 0;
             return this;
         }
 

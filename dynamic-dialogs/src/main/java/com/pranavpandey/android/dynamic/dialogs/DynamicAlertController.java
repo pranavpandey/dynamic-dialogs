@@ -74,6 +74,7 @@ class DynamicAlertController {
     private View mView;
     private View mViewRoot;
 
+    private int mViewRootId;
     private int mViewLayoutResId;
 
     private int mViewSpacingLeft;
@@ -271,19 +272,28 @@ class DynamicAlertController {
     }
 
     /**
-     * Set the view root to add scroll indicators if the content can be scrolled.
-     */
-    public void setViewRoot(View viewRoot) {
-        mViewRoot = viewRoot;
-    }
-
-    /**
      * Set the view to display in the dialog.
      */
     public void setView(View view) {
         mView = view;
         mViewLayoutResId = 0;
         mViewSpacingSpecified = false;
+    }
+
+    /**
+     * Set the view root id to add scroll indicators if the content can be
+     * scrolled.
+     */
+    public void setViewRoot(int viewRootId) {
+        mViewRootId = viewRootId;
+    }
+
+    /**
+     * Set the view root to add scroll indicators if the content can be
+     * scrolled.
+     */
+    public void setViewRoot(View viewRoot) {
+        mViewRoot = viewRoot;
     }
 
     /**
@@ -708,6 +718,17 @@ class DynamicAlertController {
             customView = null;
         }
 
+        if (customView != null && mViewRoot == null) {
+            if (mViewRootId != 0) {
+                mViewRoot = customView.findViewById(mViewRootId);
+
+                if (mViewRoot == null) {
+                    throw new NullPointerException("Unable to find root view for the supplied id "
+                            + mViewRootId + ".");
+                }
+            }
+        }
+
         final boolean hasCustomView = customView != null;
         if (!hasCustomView || !canTextInput(customView)) {
             mWindow.setFlags(WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM,
@@ -939,6 +960,7 @@ class DynamicAlertController {
         public DialogInterface.OnClickListener mOnClickListener;
         public int mViewLayoutResId;
         public View mView;
+        public int mViewRootId;
         public View mViewRoot;
         public int mViewSpacingLeft;
         public int mViewSpacingTop;
@@ -1026,6 +1048,8 @@ class DynamicAlertController {
             }
             if (mViewRoot != null) {
                 dialog.setViewRoot(mViewRoot);
+            } else if (mViewRootId != 0) {
+                dialog.setViewRoot(mViewRootId);
             }
 
             /*

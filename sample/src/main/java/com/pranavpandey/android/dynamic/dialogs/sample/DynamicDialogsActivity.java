@@ -72,10 +72,14 @@ public class DynamicDialogsActivity extends AppCompatActivity implements View.On
         findViewById(R.id.dialog_list).setOnClickListener(this);
         findViewById(R.id.dialog_single_choice).setOnClickListener(this);
         findViewById(R.id.dialog_multi_choice).setOnClickListener(this);
+        findViewById(R.id.dialog_custom_simple).setOnClickListener(this);
+        findViewById(R.id.dialog_custom_list).setOnClickListener(this);
         findViewById(R.id.fragment_message).setOnClickListener(this);
         findViewById(R.id.fragment_list).setOnClickListener(this);
         findViewById(R.id.fragment_single_choice).setOnClickListener(this);
         findViewById(R.id.fragment_multi_choice).setOnClickListener(this);
+        findViewById(R.id.fragment_custom_simple).setOnClickListener(this);
+        findViewById(R.id.fragment_custom_list).setOnClickListener(this);
     }
 
     @Override
@@ -152,6 +156,22 @@ public class DynamicDialogsActivity extends AppCompatActivity implements View.On
                         .show();
                 break;
 
+            // Custom simple dialog.
+            case R.id.dialog_custom_simple:
+                (new DynamicAlertDialog.Builder(this))
+                        .setTitle(R.string.custom_simple_dialog)
+                        .setNegativeButton(android.R.string.cancel, null)
+                        // Set a custom view.
+                        .setView(R.layout.dialog_custom_simple)
+                        // Set view root to automatically add scroll dividers.
+                        .setViewRoot(R.id.dialog_custom_simple_root)
+                        .show();
+                break;
+
+            // Custom list dialog.
+            case R.id.dialog_custom_list:
+                break;
+
             // Message dialog fragment.
             case R.id.fragment_message:
                 DynamicDialogFragment.newInstance().setBuilder(
@@ -221,6 +241,23 @@ public class DynamicDialogsActivity extends AppCompatActivity implements View.On
                                 })
                         .setNegativeButton(android.R.string.cancel, null))
                         .showDialog(this);
+                break;
+
+            // Custom simple dialog fragment.
+            case R.id.fragment_custom_simple:
+                DynamicDialogFragment.newInstance().setBuilder(
+                        new DynamicAlertDialog.Builder(this)
+                        .setTitle(R.string.custom_simple_dialog_fragment)
+                        .setNegativeButton(android.R.string.cancel, null)
+                        // Set a custom view.
+                        .setView(R.layout.dialog_custom_simple)
+                        // Set view root to automatically add scroll dividers.
+                        .setViewRoot(R.id.dialog_custom_simple_root))
+                        .showDialog(this);
+                break;
+
+            // Custom list dialog fragment.
+            case R.id.fragment_custom_list:
                 break;
         }
     }

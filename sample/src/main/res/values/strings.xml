@@ -41,11 +41,14 @@ Ut eget pharetra urna. Aenean eu consequat turpis. Cras tellus nunc, vehicula eg
     <string name="single_choice_dialog">Single choice dialog</string>
     <string name="multi_choice">Multi choice</string>
     <string name="multi_choice_dialog">Multi choice dialog</string>
+    <string name="simple">Simple</string>
+    <string name="custom_simple_dialog">Custom simple dialog</string>
     <string name="message_dialog_fragment">Message dialog fragment</string>
     <string name="message_dialog_fragment_content">A simple message dialog fragment. Dialog fragments will maintain their state on configuration changes like device rotation, etc.</string>
     <string name="list_dialog_fragment">List dialog fragment</string>
     <string name="single_choice_dialog_fragment">Single choice dialog fragment</string>
     <string name="multi_choice_dialog_fragment">Multi choice dialog fragment</string>
+    <string name="custom_simple_dialog_fragment">Custom simple dialog fragment</string>
 
     <string name="list_click_format">#%1$d item clicked!</string>
     <string name="single_choice_click_format">#%1$d item selected!</string>
