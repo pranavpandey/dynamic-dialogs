@@ -28,6 +28,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.pranavpandey.android.dynamic.dialogs.DynamicAlertDialog;
+import com.pranavpandey.android.dynamic.dialogs.fragment.DynamicDialogFragment;
 import com.pranavpandey.android.dynamic.utils.DynamicColorUtils;
 import com.pranavpandey.android.dynamic.utils.DynamicLinkUtils;
 import com.pranavpandey.android.dynamic.utils.DynamicPackageUtils;
@@ -71,6 +72,10 @@ public class DynamicDialogsActivity extends AppCompatActivity implements View.On
         findViewById(R.id.dialog_list).setOnClickListener(this);
         findViewById(R.id.dialog_single_choice).setOnClickListener(this);
         findViewById(R.id.dialog_multi_choice).setOnClickListener(this);
+        findViewById(R.id.fragment_message).setOnClickListener(this);
+        findViewById(R.id.fragment_list).setOnClickListener(this);
+        findViewById(R.id.fragment_single_choice).setOnClickListener(this);
+        findViewById(R.id.fragment_multi_choice).setOnClickListener(this);
     }
 
     @Override
@@ -145,6 +150,77 @@ public class DynamicDialogsActivity extends AppCompatActivity implements View.On
                                 })
                         .setNegativeButton(android.R.string.cancel, null)
                         .show();
+                break;
+
+            // Message dialog fragment.
+            case R.id.fragment_message:
+                DynamicDialogFragment.newInstance().setBuilder(
+                        new DynamicAlertDialog.Builder(this)
+                        .setTitle(R.string.message_dialog_fragment)
+                        .setMessage(R.string.message_dialog_fragment_content)
+                        .setNegativeButton(android.R.string.cancel, null))
+                        .showDialog(this);
+                break;
+
+            // List dialog fragment.
+            case R.id.fragment_list:
+                DynamicDialogFragment.newInstance().setBuilder(
+                        new DynamicAlertDialog.Builder(this)
+                        .setTitle(R.string.list_dialog_fragment)
+                        .setItems(R.array.dialog_array,
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        Toast.makeText(DynamicDialogsActivity.this,
+                                                String.format(getString(
+                                                        R.string.list_click_format), i + 1),
+                                                Toast.LENGTH_SHORT).show();
+                                    }
+                                })
+                        .setNegativeButton(android.R.string.cancel, null))
+                        .showDialog(this);
+                break;
+
+            // Single choice dialog fragment.
+            case R.id.fragment_single_choice:
+                DynamicDialogFragment.newInstance().setBuilder(
+                        new DynamicAlertDialog.Builder(this)
+                        .setTitle(R.string.single_choice_dialog_fragment)
+                        .setSingleChoiceItems(R.array.dialog_array, 1,
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        Toast.makeText(DynamicDialogsActivity.this,
+                                                String.format(getString(
+                                                        R.string.single_choice_click_format), i + 1),
+                                                Toast.LENGTH_SHORT).show();
+                                    }
+                                })
+                        .setNegativeButton(android.R.string.cancel, null))
+                        .showDialog(this);
+                break;
+
+            // Multi choice dialog fragment.
+            case R.id.fragment_multi_choice:
+                DynamicDialogFragment.newInstance().setBuilder(
+                        new DynamicAlertDialog.Builder(this)
+                        .setTitle(R.string.multi_choice_dialog_fragment)
+                        .setMultiChoiceItems(R.array.dialog_array,
+                                new boolean[]{true, false, true, false, true, false, true},
+                                new DialogInterface.OnMultiChoiceClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface,
+                                                        int i, boolean b) {
+                                        Toast.makeText(DynamicDialogsActivity.this,
+                                                String.format(getString(
+                                                        R.string.multi_choice_click_format), i + 1,
+                                                        getString(b ? R.string.checked
+                                                                : R.string.unchecked)),
+                                                Toast.LENGTH_SHORT).show();
+                                    }
+                                })
+                        .setNegativeButton(android.R.string.cancel, null))
+                        .showDialog(this);
                 break;
         }
     }

@@ -93,6 +93,60 @@
 
         </android.support.constraint.ConstraintLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:text="@string/simple_dialog_fragments" />
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/fragment_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/message"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/fragment_list" />
+
+            <Button
+                android:id="@+id/fragment_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/list"
+                app:layout_constraintStart_toEndOf="@+id/fragment_message" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:text="@string/choice_dialog_fragments" />
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/fragment_single_choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/single_choice"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/fragment_multi_choice" />
+
+            <Button
+                android:id="@+id/fragment_multi_choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/multi_choice"
+                app:layout_constraintStart_toEndOf="@id/fragment_single_choice" />
+
+        </android.support.constraint.ConstraintLayout>
+
     </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>

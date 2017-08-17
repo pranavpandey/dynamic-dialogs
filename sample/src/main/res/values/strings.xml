@@ -26,10 +26,14 @@
     <string name="simple_dialogs">Simple dialogs</string>
     <string name="choice_dialogs">Choice dialogs</string>
     <string name="custom_dialogs">Custom dialogs</string>
+    <string name="simple_dialog_fragments">Simple dialog fragments</string>
+    <string name="choice_dialog_fragments">Choice dialog fragments</string>
+    <string name="custom_dialog_fragments">Custom dialog fragments</string>
 
     <string name="message">Message</string>
     <string name="message_dialog">Message dialog</string>
-    <string name="message_dialog_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et erat eu arcu ullamcorper pellentesque vel vitae lectus. Curabitur aliquam, massa non lobortis pellentesque, orci odio porta metus, fermentum pretium leo diam a dui. Quisque et tortor metus. Nunc venenatis leo sit amet turpis iaculis rutrum. Nunc non est dui. Phasellus felis augue, tempor et rutrum eget, semper eu enim. Maecenas vitae posuere tortor.
+    <string name="message_dialog_content">A simple message dialog. Normal dialogs will not maintain their state and will be destroyed on configuration changes like device rotation, etc.</string>
+    <string name="message_dialog_content_long">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et erat eu arcu ullamcorper pellentesque vel vitae lectus. Curabitur aliquam, massa non lobortis pellentesque, orci odio porta metus, fermentum pretium leo diam a dui. Quisque et tortor metus. Nunc venenatis leo sit amet turpis iaculis rutrum. Nunc non est dui. Phasellus felis augue, tempor et rutrum eget, semper eu enim. Maecenas vitae posuere tortor.
 Ut eget pharetra urna. Aenean eu consequat turpis. Cras tellus nunc, vehicula eget sapien eget, interdum commodo purus. Nulla facilisi. Nulla cursus nibh diam. Sed quam nunc, semper a varius a, dictum a tellus. Fusce eu urna vel leo placerat feugiat. Donec venenatis metus vel velit fermentum venenatis. Nunc lacus purus, consequat non est congue, sagittis luctus magna. Cras accumsan purus et elit maximus rutrum. Praesent volutpat, sem nec elementum vulputate, tortor quam ultricies massa, sed volutpat turpis eros sed erat. Praesent risus urna, eleifend sed semper a, venenatis et tortor. Phasellus lorem eros, convallis vitae ligula dignissim, suscipit tincidunt mi. Interdum et malesuada fames ac ante ipsum primis in faucibus.</string>
     <string name="list">list</string>
     <string name="list_dialog">List dialog</string>
@@ -37,6 +41,11 @@ Ut eget pharetra urna. Aenean eu consequat turpis. Cras tellus nunc, vehicula eg
     <string name="single_choice_dialog">Single choice dialog</string>
     <string name="multi_choice">Multi choice</string>
     <string name="multi_choice_dialog">Multi choice dialog</string>
+    <string name="message_dialog_fragment">Message dialog fragment</string>
+    <string name="message_dialog_fragment_content">A simple message dialog fragment. Dialog fragments will maintain their state on configuration changes like device rotation, etc.</string>
+    <string name="list_dialog_fragment">List dialog fragment</string>
+    <string name="single_choice_dialog_fragment">Single choice dialog fragment</string>
+    <string name="multi_choice_dialog_fragment">Multi choice dialog fragment</string>
 
     <string name="list_click_format">#%1$d item clicked!</string>
     <string name="single_choice_click_format">#%1$d item selected!</string>
