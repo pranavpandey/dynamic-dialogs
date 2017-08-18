@@ -23,6 +23,8 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -80,6 +82,23 @@ public class DynamicDialogsActivity extends AppCompatActivity implements View.On
         findViewById(R.id.fragment_multi_choice).setOnClickListener(this);
         findViewById(R.id.fragment_custom_simple).setOnClickListener(this);
         findViewById(R.id.fragment_custom_list).setOnClickListener(this);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return super.onCreateOptionsMenu(menu);
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.menu_about) {
+            AboutDialog.newInstance().showDialog(this);
+
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

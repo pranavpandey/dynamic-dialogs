@@ -22,6 +22,22 @@
     <string name="gradle">Gradle dependency</string>
     <string name="version_format">com.pranavpandey.android:dynamic-dialogs:%1$s</string>
 
+    <string name="about">About</string>
+    <string name="about_content"><![CDATA[
+        <b>dynamic-dialogs</b><br/>
+        A simple library to display improved app compat dialogs on Android devices.<br/><br/>
+        Written and designed by<br/>
+        <b>&#169; Pranav Pandey</b><br/><br/>
+        <a href=\'https://pranavpandey.com\'>Website</a>&nbsp;&nbsp;
+        <a href=\'https://twitter.com/pranavpandeydev\'>Twitter</a>&nbsp;&nbsp;
+        <a href=\'https://www.facebook.com/pranavpandeydev\'>Facebook</a>&nbsp;&nbsp;
+        <a href=\'https://google.com/+pranavpandeydev\'>Google+</a>&nbsp;&nbsp;
+        <a href=\'https://www.linkedin.com/in/pranav-pandey-09032974\'>LinkedIn</a>&nbsp;&nbsp;
+        <a href=\'https://github.com/pranavpandey\'>GitHub</a><br/><br/>
+        Download my other apps from Google Play to support the development.
+    ]]></string>
+    <string name="more_apps">Google Play</string>
+
     <string name="inbuilt_dialogs">In-built dialogs</string>
     <string name="simple_dialogs">Simple dialogs</string>
     <string name="choice_dialogs">Choice dialogs</string>
@@ -29,7 +45,6 @@
     <string name="simple_dialog_fragments">Simple dialog fragments</string>
     <string name="choice_dialog_fragments">Choice dialog fragments</string>
     <string name="custom_dialog_fragments">Custom dialog fragments</string>
-
     <string name="message">Message</string>
     <string name="message_dialog">Message dialog</string>
     <string name="message_dialog_content">A simple message dialog. Normal dialogs will not maintain their state and will be destroyed on configuration changes like device rotation, etc.</string>
@@ -49,7 +64,6 @@ Ut eget pharetra urna. Aenean eu consequat turpis. Cras tellus nunc, vehicula eg
     <string name="single_choice_dialog_fragment">Single choice dialog fragment</string>
     <string name="multi_choice_dialog_fragment">Multi choice dialog fragment</string>
     <string name="custom_simple_dialog_fragment">Custom simple dialog fragment</string>
-
     <string name="list_click_format">#%1$d item clicked!</string>
     <string name="single_choice_click_format">#%1$d item selected!</string>
     <string name="multi_choice_click_format">#%1$d item is %2$s!</string>
