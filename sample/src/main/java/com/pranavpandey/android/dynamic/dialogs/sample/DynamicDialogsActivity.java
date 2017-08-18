@@ -26,6 +26,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -66,7 +67,7 @@ public class DynamicDialogsActivity extends AppCompatActivity implements View.On
                 ContextCompat.getColor(this, R.color.colorAccent)));
 
         ((TextView) findViewById(R.id.gradle)).setText(String.format(
-                getString(R.string.version_format),
+                getString(R.string.format_version),
                 DynamicPackageUtils.getAppVersion(this)));
 
         fab.setOnClickListener(this);
@@ -94,7 +95,7 @@ public class DynamicDialogsActivity extends AppCompatActivity implements View.On
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.menu_about) {
-            AboutDialog.newInstance().showDialog(this);
+            AboutDialogFragment.newInstance().showDialog(this);
 
             return true;
         }
@@ -177,14 +178,27 @@ public class DynamicDialogsActivity extends AppCompatActivity implements View.On
 
             // Custom simple dialog.
             case R.id.dialog_custom_simple:
-                new DynamicDialog.Builder(this)
+                final DynamicDialog dialog = new DynamicDialog.Builder(this)
                         .setTitle(R.string.custom_simple_dialog)
-                        .setNegativeButton(android.R.string.cancel, null)
+                        .setPositiveButton(android.R.string.ok, null)
                         // Set a custom view.
                         .setView(R.layout.dialog_custom_simple)
                         // Set view root to automatically add scroll dividers.
                         .setViewRoot(R.id.dialog_custom_simple_root)
-                        .show();
+                        .create();
+
+                dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                    @Override
+                    public void onDismiss(DialogInterface dialogInterface) {
+                        String password = ((EditText) dialog.getWindow().findViewById(
+                                R.id.dialog_custom_simple_edit)).getText().toString();
+
+                        Toast.makeText(DynamicDialogsActivity.this, String.format(getString(
+                                R.string.format_password), password), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                dialog.show();
                 break;
 
             // Custom list dialog.
@@ -264,15 +278,7 @@ public class DynamicDialogsActivity extends AppCompatActivity implements View.On
 
             // Custom simple dialog fragment.
             case R.id.fragment_custom_simple:
-                DynamicDialogFragment.newInstance().setBuilder(
-                        new DynamicDialog.Builder(this)
-                        .setTitle(R.string.custom_simple_dialog_fragment)
-                        .setNegativeButton(android.R.string.cancel, null)
-                        // Set a custom view.
-                        .setView(R.layout.dialog_custom_simple)
-                        // Set view root to automatically add scroll dividers.
-                        .setViewRoot(R.id.dialog_custom_simple_root))
-                        .showDialog(this);
+                CustomDialogFragment.newInstance().showDialog(this);
                 break;
 
             // Custom list dialog fragment.

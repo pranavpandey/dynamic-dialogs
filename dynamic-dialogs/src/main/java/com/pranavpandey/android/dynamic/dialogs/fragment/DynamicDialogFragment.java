@@ -21,9 +21,11 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AlertDialog;
+import android.view.KeyEvent;
 
 import com.pranavpandey.android.dynamic.dialogs.DynamicDialog;
 
@@ -66,6 +68,26 @@ public class DynamicDialogFragment extends DialogFragment {
     private DynamicDialog.Builder mDynamicDialogBuilder;
 
     /**
+     * Callback when this dialog fragment is displayed.
+     */
+    private DynamicDialog.OnShowListener mOnShowListener;
+
+    /**
+     * Callback when this dialog fragment has been dismissed.
+     */
+    private DynamicDialog.OnDismissListener mOnDismissListener;
+
+    /**
+     * Callback when this dialog fragment has been cancelled.
+     */
+    private DynamicDialog.OnCancelListener mOnCancelListener;
+
+    /**
+     * Callback when a key is pressed in this dialog fragment.
+     */
+    private DynamicDialog.OnKeyListener mOnKeyListener;
+
+    /**
      * Initialize the new instance of this fragment.
      *
      * @return A instance of {@link DynamicDialogFragment}.
@@ -82,15 +104,6 @@ public class DynamicDialogFragment extends DialogFragment {
             dialog.setDismissMessage(null);
         }
         super.onDestroyView();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-
-        if (mAutoDismiss) {
-            dismiss();
-        }
     }
 
     @Override
@@ -129,10 +142,53 @@ public class DynamicDialogFragment extends DialogFragment {
                                 .setTextColor(mButtonColor);
                     }
                 }
+
+                if (mOnShowListener != null) {
+                    mOnShowListener.onShow(getDialog());
+                }
+            }
+        });
+
+        alertDialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
+            @Override
+            public boolean onKey(DialogInterface dialogInterface,
+                                 int i, KeyEvent keyEvent) {
+                if (mOnKeyListener != null) {
+                    mOnKeyListener.onKey(dialogInterface, i, keyEvent);
+                }
+
+                return false;
             }
         });
 
         return onCustomiseDialog(alertDialog);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        if (mAutoDismiss) {
+            dismiss();
+        }
+    }
+
+    @Override
+    public void onDismiss(final DialogInterface dialog) {
+        super.onDismiss(dialog);
+
+        if (mOnDismissListener != null) {
+            mOnDismissListener.onDismiss(dialog);
+        }
+    }
+
+    @Override
+    public void onCancel(final DialogInterface dialog) {
+        super.onCancel(dialog);
+
+        if (mOnCancelListener != null) {
+            mOnCancelListener.onCancel(dialog);
+        }
     }
 
     /**
@@ -164,19 +220,6 @@ public class DynamicDialogFragment extends DialogFragment {
     }
 
     /**
-     * Setter for {@link #mIsCancelable}.
-     *
-     * @return {@link DynamicDialogFragment} object to allow for chaining of
-     *         calls to set methods.
-     */
-    public DynamicDialogFragment setIsCancelable(boolean isCancelable) {
-        this.mIsCancelable = isCancelable;
-        setCancelable(isCancelable);
-
-        return this;
-    }
-
-    /**
      * Setter for {@link #mButtonColor}.
      *
      * @return {@link DynamicDialogFragment} object to allow for chaining of
@@ -196,9 +239,22 @@ public class DynamicDialogFragment extends DialogFragment {
     }
 
     /**
+     * Setter for {@link #mIsCancelable}.
+     *
+     * @return {@link DynamicDialogFragment} object to allow for chaining of
+     *         calls to set methods.
+     */
+    public DynamicDialogFragment setIsCancelable(boolean isCancelable) {
+        this.mIsCancelable = isCancelable;
+        setCancelable(isCancelable);
+
+        return this;
+    }
+
+    /**
      * Getter for {@link #mAutoDismiss}.
      */
-    public boolean isAutoDismiss() {
+    protected boolean isAutoDismiss() {
         return mAutoDismiss;
     }
 
@@ -217,7 +273,7 @@ public class DynamicDialogFragment extends DialogFragment {
     /**
      * Getter for {@link #mDynamicDialogBuilder}.
      */
-    public DynamicDialog.Builder getBuilder() {
+    protected DynamicDialog.Builder getBuilder() {
         return mDynamicDialogBuilder;
     }
 
@@ -230,6 +286,86 @@ public class DynamicDialogFragment extends DialogFragment {
     public DynamicDialogFragment setBuilder(
             @NonNull DynamicDialog.Builder dynamicAlertDialogBuilder) {
         this.mDynamicDialogBuilder = dynamicAlertDialogBuilder;
+
+        return this;
+    }
+
+    /**
+     * Getter for {@link #mOnShowListener}.
+     */
+    protected DynamicDialog.OnShowListener getOnShowListener() {
+        return mOnShowListener;
+    }
+
+    /**
+     * Setter for {@link #mOnShowListener}.
+     *
+     * @return {@link DynamicDialogFragment} object to allow for chaining of
+     *         calls to set methods.
+     */
+    public DynamicDialogFragment setOnShowListener(
+            @Nullable DynamicDialog.OnShowListener onShowListener) {
+        this.mOnShowListener = onShowListener;
+
+        return this;
+    }
+
+    /**
+     * Getter for {@link #mOnDismissListener}.
+     */
+    protected DynamicDialog.OnDismissListener getOnDismissListener() {
+        return mOnDismissListener;
+    }
+
+    /**
+     * Setter for {@link #mOnDismissListener}.
+     *
+     * @return {@link DynamicDialogFragment} object to allow for chaining of
+     *         calls to set methods.
+     */
+    public DynamicDialogFragment setOnDismissListener(
+            @Nullable DynamicDialog.OnDismissListener onDismissListener) {
+        this.mOnDismissListener = onDismissListener;
+
+        return this;
+    }
+
+    /**
+     * Getter for {@link #mOnCancelListener}.
+     */
+    protected DynamicDialog.OnCancelListener getOnCancelListener() {
+        return mOnCancelListener;
+    }
+
+    /**
+     * Setter for {@link #mOnCancelListener}.
+     *
+     * @return {@link DynamicDialogFragment} object to allow for chaining of
+     *         calls to set methods.
+     */
+    public DynamicDialogFragment setOnCancelListener(
+            @Nullable DynamicDialog.OnCancelListener onCancelListener) {
+        this.mOnCancelListener = onCancelListener;
+
+        return this;
+    }
+
+    /**
+     * Getter for {@link #mOnKeyListener}.
+     */
+    protected DynamicDialog.OnKeyListener getOnKeyListener() {
+        return mOnKeyListener;
+    }
+
+    /**
+     * Setter for {@link #mOnKeyListener}.
+     *
+     * @return {@link DynamicDialogFragment} object to allow for chaining of
+     *         calls to set methods.
+     */
+    public DynamicDialogFragment setOnKeyListener(
+            @Nullable DynamicDialog.OnKeyListener onKeyListener) {
+        this.mOnKeyListener = onKeyListener;
 
         return this;
     }

@@ -34,7 +34,7 @@ import com.pranavpandey.android.dynamic.utils.DynamicLinkUtils;
 /**
  * About dialog to show library info.
  */
-public class AboutDialog extends DynamicDialogFragment {
+public class AboutDialogFragment extends DynamicDialogFragment {
 
     /**
      * Text size for the about dialog.
@@ -49,8 +49,8 @@ public class AboutDialog extends DynamicDialogFragment {
     private static final String GOOGLE_PLAY_URL =
             "https://play.google.com/store/apps/dev?id=6608630615059087491";
 
-    public static AboutDialog newInstance() {
-        return new AboutDialog();
+    public static AboutDialogFragment newInstance() {
+        return new AboutDialogFragment();
     }
 
     @NonNull

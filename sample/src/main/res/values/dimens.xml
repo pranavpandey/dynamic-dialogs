@@ -21,5 +21,6 @@
     <dimen name="activity_margin_fab">64dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="dialog_margin_horizontal">24dp</dimen>
+    <dimen name="font_size_medium">16sp</dimen>
 
 </resources>

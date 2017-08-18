@@ -29,9 +29,9 @@ task clean(type: Delete) {
 
 ext {
     projectName = 'dynamic-dialogs'
-    projectDesc = 'A simple library to display improved app compat dialogs on Android ' +
+    projectDesc = 'A simple library to display dialogs and dialog fragments on Android ' +
             'devices.'
-    versionDesc = 'A simple library to display improved app compat dialogs on Android 14+ ' +
+    versionDesc = 'A simple library to display dialogs and dialog fragments on Android 14+ ' +
             '(ICS or above) devices.'
     siteUrl = 'https://github.com/pranavpandey/dynamic-dialogs'
     gitUrl = 'https://github.com/pranavpandey/dynamic-dialogs'

@@ -6,7 +6,7 @@
 [![Build Status](https://travis-ci.org/pranavpandey/dynamic-dialogs.svg?branch=master)](https://travis-ci.org/pranavpandey/dynamic-dialogs)
 [![Download](https://api.bintray.com/packages/pranavpandey/android/dynamic-dialogs/images/download.svg)](https://bintray.com/pranavpandey/android/dynamic-dialogs/_latestVersion)
 
-A simple library to display improved app compat dialogs on Android 14+ (ICS or above) devices.
+A simple library to display dialogs and dialog fragments on Android 14+ (ICS or above) devices.
 
 <img src="https://raw.githubusercontent.com/pranavpandey/dynamic-dialogs/master/graphics/dynamic-dialogs-preview.png">
 
@@ -19,6 +19,10 @@ A simple library to display improved app compat dialogs on Android 14+ (ICS or a
     - [Setup](https://github.com/pranavpandey/dynamic-dialogs#setup)
     - [DynamicDialog](https://github.com/pranavpandey/dynamic-dialogs#dynamicdialog)
     - [DynamicDialogFragment](https://github.com/pranavpandey/dynamic-dialogs#dynamicdialogfragment)
+        - [Show dialog](https://github.com/pranavpandey/dynamic-dialogs#show-dialog)
+        - [Dialog state](https://github.com/pranavpandey/dynamic-dialogs#dialog-state)
+        - [Dialog builder](https://github.com/pranavpandey/dynamic-dialogs#dialog-builder)
+        - [Dialog callbacks](https://github.com/pranavpandey/dynamic-dialogs#dialog-callbacks)
 - [License](https://github.com/pranavpandey/dynamic-dialogs#license)
 
 ---
@@ -107,11 +111,12 @@ public CustomDialogFragment extends DynamicDialogFragment {
 }
 ```
 
-> Show the `DynamicDialogFragment` by using `showDialog(fragmentActivity)` method.
+#### Show dialog
+Show the `DynamicDialogFragment` by using `showDialog(fragmentActivity)` method.
 
-For better understanding, please check `AboutDialog` in the `sample` project.
+>For better understanding, please check `AboutDialogFragment` in the `sample` project.
 
-#### State
+#### Dialog state
 It will automatically maintain its state on configuration changes (like device rotation, etc.) 
 by calling `setRetainInstance(true)` in `onCreate()` method. If you don't want to use this feature 
 (generally, if you are displaying it in `onResume()` method) then, call `setAutoDismiss(true)` to 
@@ -125,7 +130,7 @@ DynamicDialogFragment.newInstance().
 
 ```
 
-#### Builder
+#### Dialog builder
 To show quick `DynamicDialogFragment`, you can use its `setBuilder(DynamicDialog.Builder)` method
 and pass `DynamicDialog.Builder` with all the customisations. It will automatically wrap it in a 
 `DialogFragment` and use `showDialog(fragmentActivity)` method to display it.
@@ -138,6 +143,27 @@ DynamicDialogFragment.newInstance().setBuilder(
                 .setNegativeButton(..., clickListener))
         .showDialog(fragmentActivity);
 ```
+
+#### Dialog callbacks
+As `DialogFragment` has required some extra work to get the event callbacks, it already has all the 
+listeners of `DynamicDialog.Builder` built-in so that there is no extra effort is required.
+
+```java
+DynamicDialogFragment.newInstance()
+        ...
+        // Callback when this dialog fragment is displayed.
+        .setOnShowListener(onShowListener)
+        // Callback when this dialog fragment has been dismissed.
+        .setOnDismissListener(onDismissListener)
+        // Callback when this dialog fragment has been canceled.
+        .setOnCancelListener(onCancelListener)
+        // Callback when a key is pressed in this dialog fragment.
+        .setOnKeyListener(onKeyListener)
+        .showDialog(fragmentActivity);
+        
+```
+
+>For better understanding, please check `CustomDialogFragment` in the `sample` project.
 
 ---
 
