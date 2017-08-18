@@ -8,6 +8,8 @@
 
 A simple library to display improved app compat dialogs on Android 14+ (ICS or above) devices.
 
+<img src="https://raw.githubusercontent.com/pranavpandey/dynamic-dialogs/master/graphics/dynamic-dialogs-preview.png">
+
 ---
 
 ## Contents
@@ -106,6 +108,8 @@ public CustomDialogFragment extends DynamicDialogFragment {
 ```
 
 > Show the `DynamicDialogFragment` by using `showDialog(fragmentActivity)` method.
+
+For better understanding, please check `AboutDialog` in the `sample` project.
 
 ---
 
