@@ -39,4 +39,19 @@
         <item name="android:textSize">14dp</item>
     </style>
 
+    <!-- Custom dialog theme. -->
+    <style name="CustomDialogStyle" parent="Theme.AppCompat.Dialog">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:background">?colorPrimary</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowAnimationStyle">@style/CustomDialogAnimation</item>
+    </style>
+
+    <!-- Custom dialog animation. -->
+    <style name="CustomDialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/abc_slide_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/abc_slide_out_bottom</item>
+    </style>
+
 </resources>

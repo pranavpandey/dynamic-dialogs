@@ -57,12 +57,16 @@
     <string name="multi_choice_dialog">Multi choice dialog</string>
     <string name="simple">Simple</string>
     <string name="custom_simple_dialog">Custom simple dialog</string>
+    <string name="theme">Theme</string>
+    <string name="custom_theme_dialog">Custom theme dialog</string>
+    <string name="custom_theme_dialog_content">This is a dialog with custom theme supplied to its builder.\n\nBy using dynamic-dialogs you can easily create such kind of dialogs.</string>
     <string name="message_dialog_fragment">Message dialog fragment</string>
     <string name="message_dialog_fragment_content">A simple message dialog fragment. Dialog fragments will maintain their state on configuration changes like device rotation, etc.</string>
     <string name="list_dialog_fragment">List dialog fragment</string>
     <string name="single_choice_dialog_fragment">Single choice dialog fragment</string>
     <string name="multi_choice_dialog_fragment">Multi choice dialog fragment</string>
     <string name="custom_simple_dialog_fragment">Custom simple dialog fragment</string>
+    <string name="custom_theme_dialog_fragment">Custom theme dialog fragment</string>
     <string name="list_click_format">#%1$d item clicked!</string>
     <string name="single_choice_click_format">#%1$d item selected!</string>
     <string name="multi_choice_click_format">#%1$d item is %2$s!</string>

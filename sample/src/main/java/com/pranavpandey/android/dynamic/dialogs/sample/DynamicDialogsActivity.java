@@ -37,10 +37,13 @@ import com.pranavpandey.android.dynamic.utils.DynamicLinkUtils;
 import com.pranavpandey.android.dynamic.utils.DynamicPackageUtils;
 
 /**
- * @author Pranav Pandey
+ * Main activity to show the implementation of {@link DynamicDialog}.
  */
 public class DynamicDialogsActivity extends AppCompatActivity implements View.OnClickListener {
 
+    /**
+     * Open source repository link.
+     */
     public static final String GITHUB_LINK =
             "https://github.com/pranavpandey/dynamic-dialogs";
 
@@ -76,13 +79,13 @@ public class DynamicDialogsActivity extends AppCompatActivity implements View.On
         findViewById(R.id.dialog_single_choice).setOnClickListener(this);
         findViewById(R.id.dialog_multi_choice).setOnClickListener(this);
         findViewById(R.id.dialog_custom_simple).setOnClickListener(this);
-        findViewById(R.id.dialog_custom_list).setOnClickListener(this);
+        findViewById(R.id.dialog_custom_theme).setOnClickListener(this);
         findViewById(R.id.fragment_message).setOnClickListener(this);
         findViewById(R.id.fragment_list).setOnClickListener(this);
         findViewById(R.id.fragment_single_choice).setOnClickListener(this);
         findViewById(R.id.fragment_multi_choice).setOnClickListener(this);
         findViewById(R.id.fragment_custom_simple).setOnClickListener(this);
-        findViewById(R.id.fragment_custom_list).setOnClickListener(this);
+        findViewById(R.id.fragment_custom_theme).setOnClickListener(this);
     }
 
     @Override
@@ -201,8 +204,13 @@ public class DynamicDialogsActivity extends AppCompatActivity implements View.On
                 dialog.show();
                 break;
 
-            // Custom list dialog.
-            case R.id.dialog_custom_list:
+            // Custom theme dialog.
+            case R.id.dialog_custom_theme:
+                new DynamicDialog.Builder(this, R.style.CustomDialogStyle)
+                        .setTitle(R.string.custom_theme_dialog)
+                        .setMessage(R.string.custom_theme_dialog_content)
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .show();
                 break;
 
             // Message dialog fragment.
@@ -281,8 +289,14 @@ public class DynamicDialogsActivity extends AppCompatActivity implements View.On
                 CustomDialogFragment.newInstance().showDialog(this);
                 break;
 
-            // Custom list dialog fragment.
-            case R.id.fragment_custom_list:
+            // Custom theme dialog fragment.
+            case R.id.fragment_custom_theme:
+                DynamicDialogFragment.newInstance().setBuilder(
+                        new DynamicDialog.Builder(this, R.style.CustomDialogStyle)
+                        .setTitle(R.string.custom_theme_dialog_fragment)
+                        .setMessage(R.string.custom_theme_dialog_content)
+                        .setNegativeButton(android.R.string.cancel, null))
+                        .showDialog(this);
                 break;
         }
     }

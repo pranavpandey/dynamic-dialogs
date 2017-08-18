@@ -17,6 +17,7 @@
 
 <resources>
 
+    <!-- Default dialog array. -->
     <string-array name="dialog_array">
         <item>One</item>
         <item>Two</item>
