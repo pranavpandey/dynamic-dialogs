@@ -4,6 +4,7 @@
 
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg?)](https://www.apache.org/licenses/LICENSE-2.0.html)
 [![Build Status](https://travis-ci.org/pranavpandey/dynamic-dialogs.svg?branch=master)](https://travis-ci.org/pranavpandey/dynamic-dialogs)
+[![Download](https://api.bintray.com/packages/pranavpandey/android/dynamic-dialogs/images/download.svg)](https://bintray.com/pranavpandey/android/dynamic-dialogs/_latestVersion)
 
 A simple library to display improved app compat dialogs on Android 14+ (ICS or above) devices.
 
@@ -11,13 +12,107 @@ A simple library to display improved app compat dialogs on Android 14+ (ICS or a
 
 ## Contents
 
+- [Installation](https://github.com/pranavpandey/dynamic-dialogs#installation)
+- [Usage](https://github.com/pranavpandey/dynamic-dialogs#usage)
+    - [Setup](https://github.com/pranavpandey/dynamic-dialogs#setup)
+    - [DynamicDialog](https://github.com/pranavpandey/dynamic-dialogs#dynamicdialog)
+    - [DynamicDialogFragment](https://github.com/pranavpandey/dynamic-dialogs#dynamicdialogfragment)
 - [License](https://github.com/pranavpandey/dynamic-dialogs#license)
+
+---
+
+## Installation
+
+It can be installed by adding the following dependency to your `build.gradle` file:
+
+```groovy
+dependencies {
+    compile 'com.pranavpandey.android:dynamic-dialogs:0.4.0'
+}
+```
+
+---
+
+## Usage
+It has some improvements over `appcompat-v7` dialogs and share the same behavior and methods.
+It can be used with any UI/UX framework or library and also has built-in fragment class to display
+`DialogFragment` with ease.
+
+### Setup
+First add `alertDialogStyle` in the base application theme to make `dynamic-dialogs` working.
+
+```xml
+<!-- Base application theme. -->
+<style name="AppTheme" parent="...">
+    <!-- Customize your theme here. -->
+    ...
+    
+    <!-- Add dynamic dialogs style in the base app theme. -->
+    <item name="alertDialogStyle">@style/Base.DynamicDialogs.AlertDialog</item>
+</style>
+```
+
+### DynamicDialog
+It is almost identical to the `AppCompatDialog` but provides scroll indicators at top and bottom 
+for the custom dialogs also. So, if you are using any scrollable view in your custom dialog like
+`NestedScrollView` or `RecyclerView`, it can be set as `root view` and the scroll indicators will be 
+added automatically if the view can be scrolled.
+ 
+```java
+new DynamicDialog.Builder(context)
+        .setTitle(...)
+        ...
+        // Set a custom view.
+        .setView(int layoutResId)
+        // OR
+        setView(View view)
+        // Set view root to automatically add scroll dividers.
+        .setViewRoot(int viewRootId)
+        // OR
+        .setViewRoot(View viewRoot)
+        .show();
+``` 
+
+### DynamicDialogFragment
+Base dialog fragment to provide all the functionality of `DynamicDialog` inside a fragment. It can 
+be extended to customise it further by overriding the supported methods.
+
+```java
+public CustomDialogFragment extends DynamicDialogFragment {
+    
+    ...
+    
+    @NonNull
+    @Override
+    protected DynamicDialog onCustomiseDialog(@NonNull DynamicDialog alertDialog) {
+        // Customise the dialog here.
+        ...
+        
+        return alretDialog;
+    }
+    
+    @NonNull
+    @Override
+    protected DynamicDialog.Builder onCustomiseBuilder(
+            @NonNull DynamicDialog.Builder alertDialogBuilder) {
+        // Customise the dialog builder here.
+        ...
+        
+        return alertDialogBuilder;
+    }
+    
+    ...
+}
+```
+
+> Show the `DynamicDialogFragment` by using `showDialog(fragmentActivity)` method.
 
 ---
 
 ## License
 
     Copyright (c) 2017 Pranav Pandey
+    Copyright (C) 2015 The Android Open Source Project
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

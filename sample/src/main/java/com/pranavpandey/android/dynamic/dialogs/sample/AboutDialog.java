@@ -27,7 +27,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.pranavpandey.android.dynamic.dialogs.DynamicAlertDialog;
+import com.pranavpandey.android.dynamic.dialogs.DynamicDialog;
 import com.pranavpandey.android.dynamic.dialogs.fragment.DynamicDialogFragment;
 import com.pranavpandey.android.dynamic.utils.DynamicLinkUtils;
 
@@ -55,7 +55,7 @@ public class AboutDialog extends DynamicDialogFragment {
 
     @NonNull
     @Override
-    protected DynamicAlertDialog onCustomiseDialog(@NonNull DynamicAlertDialog alertDialog) {
+    protected DynamicDialog onCustomiseDialog(@NonNull DynamicDialog alertDialog) {
         View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_about,
                 new LinearLayout(getContext()), false);
         TextView message = view.findViewById(R.id.dialog_about_text);
@@ -73,8 +73,8 @@ public class AboutDialog extends DynamicDialogFragment {
 
     @NonNull
     @Override
-    protected DynamicAlertDialog.Builder onCustomiseBuilder(
-            @NonNull DynamicAlertDialog.Builder alertDialogBuilder) {
+    protected DynamicDialog.Builder onCustomiseBuilder(
+            @NonNull DynamicDialog.Builder alertDialogBuilder) {
         return alertDialogBuilder.setTitle(R.string.about)
                 .setPositiveButton(R.string.more_apps, new DialogInterface.OnClickListener() {
                     @Override

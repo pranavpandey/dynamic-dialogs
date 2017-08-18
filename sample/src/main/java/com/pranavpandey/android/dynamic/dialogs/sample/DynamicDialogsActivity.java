@@ -29,7 +29,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.pranavpandey.android.dynamic.dialogs.DynamicAlertDialog;
+import com.pranavpandey.android.dynamic.dialogs.DynamicDialog;
 import com.pranavpandey.android.dynamic.dialogs.fragment.DynamicDialogFragment;
 import com.pranavpandey.android.dynamic.utils.DynamicColorUtils;
 import com.pranavpandey.android.dynamic.utils.DynamicLinkUtils;
@@ -110,7 +110,7 @@ public class DynamicDialogsActivity extends AppCompatActivity implements View.On
 
             // Message dialog.
             case R.id.dialog_message:
-                (new DynamicAlertDialog.Builder(this))
+                new DynamicDialog.Builder(this)
                         .setTitle(R.string.message_dialog)
                         .setMessage(R.string.message_dialog_content)
                         .setNegativeButton(android.R.string.cancel, null)
@@ -119,7 +119,7 @@ public class DynamicDialogsActivity extends AppCompatActivity implements View.On
 
             // List dialog.
             case R.id.dialog_list:
-                (new DynamicAlertDialog.Builder(this))
+                new DynamicDialog.Builder(this)
                         .setTitle(R.string.list_dialog)
                         .setItems(R.array.dialog_array,
                                 new DialogInterface.OnClickListener() {
@@ -137,7 +137,7 @@ public class DynamicDialogsActivity extends AppCompatActivity implements View.On
 
             // Single choice dialog.
             case R.id.dialog_single_choice:
-                (new DynamicAlertDialog.Builder(this))
+                new DynamicDialog.Builder(this)
                         .setTitle(R.string.single_choice_dialog)
                         .setSingleChoiceItems(R.array.dialog_array, 1,
                                 new DialogInterface.OnClickListener() {
@@ -155,7 +155,7 @@ public class DynamicDialogsActivity extends AppCompatActivity implements View.On
 
             // Multi choice dialog.
             case R.id.dialog_multi_choice:
-                (new DynamicAlertDialog.Builder(this))
+                new DynamicDialog.Builder(this)
                         .setTitle(R.string.multi_choice_dialog)
                         .setMultiChoiceItems(R.array.dialog_array,
                                 new boolean[]{true, false, true, false, true, false, true},
@@ -177,7 +177,7 @@ public class DynamicDialogsActivity extends AppCompatActivity implements View.On
 
             // Custom simple dialog.
             case R.id.dialog_custom_simple:
-                (new DynamicAlertDialog.Builder(this))
+                new DynamicDialog.Builder(this)
                         .setTitle(R.string.custom_simple_dialog)
                         .setNegativeButton(android.R.string.cancel, null)
                         // Set a custom view.
@@ -194,7 +194,7 @@ public class DynamicDialogsActivity extends AppCompatActivity implements View.On
             // Message dialog fragment.
             case R.id.fragment_message:
                 DynamicDialogFragment.newInstance().setBuilder(
-                        new DynamicAlertDialog.Builder(this)
+                        new DynamicDialog.Builder(this)
                         .setTitle(R.string.message_dialog_fragment)
                         .setMessage(R.string.message_dialog_fragment_content)
                         .setNegativeButton(android.R.string.cancel, null))
@@ -204,7 +204,7 @@ public class DynamicDialogsActivity extends AppCompatActivity implements View.On
             // List dialog fragment.
             case R.id.fragment_list:
                 DynamicDialogFragment.newInstance().setBuilder(
-                        new DynamicAlertDialog.Builder(this)
+                        new DynamicDialog.Builder(this)
                         .setTitle(R.string.list_dialog_fragment)
                         .setItems(R.array.dialog_array,
                                 new DialogInterface.OnClickListener() {
@@ -223,7 +223,7 @@ public class DynamicDialogsActivity extends AppCompatActivity implements View.On
             // Single choice dialog fragment.
             case R.id.fragment_single_choice:
                 DynamicDialogFragment.newInstance().setBuilder(
-                        new DynamicAlertDialog.Builder(this)
+                        new DynamicDialog.Builder(this)
                         .setTitle(R.string.single_choice_dialog_fragment)
                         .setSingleChoiceItems(R.array.dialog_array, 1,
                                 new DialogInterface.OnClickListener() {
@@ -242,7 +242,7 @@ public class DynamicDialogsActivity extends AppCompatActivity implements View.On
             // Multi choice dialog fragment.
             case R.id.fragment_multi_choice:
                 DynamicDialogFragment.newInstance().setBuilder(
-                        new DynamicAlertDialog.Builder(this)
+                        new DynamicDialog.Builder(this)
                         .setTitle(R.string.multi_choice_dialog_fragment)
                         .setMultiChoiceItems(R.array.dialog_array,
                                 new boolean[]{true, false, true, false, true, false, true},
@@ -265,7 +265,7 @@ public class DynamicDialogsActivity extends AppCompatActivity implements View.On
             // Custom simple dialog fragment.
             case R.id.fragment_custom_simple:
                 DynamicDialogFragment.newInstance().setBuilder(
-                        new DynamicAlertDialog.Builder(this)
+                        new DynamicDialog.Builder(this)
                         .setTitle(R.string.custom_simple_dialog_fragment)
                         .setNegativeButton(android.R.string.cancel, null)
                         // Set a custom view.

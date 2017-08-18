@@ -118,7 +118,7 @@ class DynamicAlertController {
 
     private boolean mShowTitle;
 
-    private int mButtonPanelLayoutHint = DynamicAlertDialog.LAYOUT_HINT_NONE;
+    private int mButtonPanelLayoutHint = DynamicDialog.LAYOUT_HINT_NONE;
 
     Handler mHandler;
 
@@ -235,7 +235,7 @@ class DynamicAlertController {
         if (mButtonPanelSideLayout == 0) {
             return mAlertDialogLayout;
         }
-        if (mButtonPanelLayoutHint == DynamicAlertDialog.LAYOUT_HINT_SIDE) {
+        if (mButtonPanelLayoutHint == DynamicDialog.LAYOUT_HINT_SIDE) {
             return mButtonPanelSideLayout;
         }
         return mAlertDialogLayout;
@@ -249,7 +249,7 @@ class DynamicAlertController {
     }
 
     /**
-     * @see DynamicAlertDialog.Builder#setCustomTitle(View)
+     * @see DynamicDialog.Builder#setCustomTitle(View)
      */
     public void setCustomTitle(View customTitleView) {
         mCustomTitleView = customTitleView;

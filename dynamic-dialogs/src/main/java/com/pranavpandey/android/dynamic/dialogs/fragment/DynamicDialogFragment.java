@@ -25,15 +25,15 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AlertDialog;
 
-import com.pranavpandey.android.dynamic.dialogs.DynamicAlertDialog;
+import com.pranavpandey.android.dynamic.dialogs.DynamicDialog;
 
 /**
  * Base dialog fragment to provide all the functionality of
- * {@link DynamicAlertDialog} inside a fragment. It can be extended to
+ * {@link DynamicDialog} inside a fragment. It can be extended to
  * customise it further by overriding the supported methods.
  *
- * @see #onCustomiseBuilder(DynamicAlertDialog.Builder)
- * @see #onCustomiseDialog(DynamicAlertDialog)
+ * @see #onCustomiseBuilder(DynamicDialog.Builder)
+ * @see #onCustomiseDialog(DynamicDialog)
  */
 public class DynamicDialogFragment extends DialogFragment {
 
@@ -63,7 +63,7 @@ public class DynamicDialogFragment extends DialogFragment {
     /**
      * Dialog builder to customise this fragment according to the need.
      */
-    private DynamicAlertDialog.Builder mDynamicAlertDialogBuilder;
+    private DynamicDialog.Builder mDynamicDialogBuilder;
 
     /**
      * Initialize the new instance of this fragment.
@@ -103,12 +103,12 @@ public class DynamicDialogFragment extends DialogFragment {
     @Override
     @NonNull
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        if (mDynamicAlertDialogBuilder == null) {
-            mDynamicAlertDialogBuilder = new DynamicAlertDialog.Builder(getContext());
+        if (mDynamicDialogBuilder == null) {
+            mDynamicDialogBuilder = new DynamicDialog.Builder(getContext());
         }
 
-        final DynamicAlertDialog alertDialog = onCustomiseBuilder(
-                mDynamicAlertDialogBuilder).create();
+        final DynamicDialog alertDialog = onCustomiseBuilder(
+                mDynamicDialogBuilder).create();
 
         alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
             @Override
@@ -136,30 +136,30 @@ public class DynamicDialogFragment extends DialogFragment {
     }
 
     /**
-     * Override this method to customise the {@link #mDynamicAlertDialogBuilder}
+     * Override this method to customise the {@link #mDynamicDialogBuilder}
      * before creating the dialog.
      *
-     * @param alertDialogBuilder The current builder to be customised.
+     * @param dialogBuilder The current builder to be customised.
      *
-     * @return Customised {@link DynamicAlertDialog.Builder}.
+     * @return Customised {@link DynamicDialog.Builder}.
      */
     @NonNull
-    protected DynamicAlertDialog.Builder onCustomiseBuilder(
-            @NonNull DynamicAlertDialog.Builder alertDialogBuilder) {
-        return alertDialogBuilder;
+    protected DynamicDialog.Builder onCustomiseBuilder(
+            @NonNull DynamicDialog.Builder dialogBuilder) {
+        return dialogBuilder;
     }
 
     /**
-     * Override this method to customise the {@link DynamicAlertDialog}
+     * Override this method to customise the {@link DynamicDialog}
      * before attaching it with this fragment.
      *
      * @param alertDialog The current dialog to be customised.
      *
-     * @return Customised {@link DynamicAlertDialog}.
+     * @return Customised {@link DynamicDialog}.
      */
     @NonNull
-    protected DynamicAlertDialog onCustomiseDialog(
-            @NonNull DynamicAlertDialog alertDialog) {
+    protected DynamicDialog onCustomiseDialog(
+            @NonNull DynamicDialog alertDialog) {
         return alertDialog;
     }
 
@@ -215,21 +215,21 @@ public class DynamicDialogFragment extends DialogFragment {
     }
 
     /**
-     * Getter for {@link #mDynamicAlertDialogBuilder}.
+     * Getter for {@link #mDynamicDialogBuilder}.
      */
-    public DynamicAlertDialog.Builder getBuilder() {
-        return mDynamicAlertDialogBuilder;
+    public DynamicDialog.Builder getBuilder() {
+        return mDynamicDialogBuilder;
     }
 
     /**
-     * Setter for {@link #mDynamicAlertDialogBuilder}.
+     * Setter for {@link #mDynamicDialogBuilder}.
      *
      * @return {@link DynamicDialogFragment} object to allow for chaining of
      *         calls to set methods.
      */
     public DynamicDialogFragment setBuilder(
-            @NonNull DynamicAlertDialog.Builder dynamicAlertDialogBuilder) {
-        this.mDynamicAlertDialogBuilder = dynamicAlertDialogBuilder;
+            @NonNull DynamicDialog.Builder dynamicAlertDialogBuilder) {
+        this.mDynamicDialogBuilder = dynamicAlertDialogBuilder;
 
         return this;
     }

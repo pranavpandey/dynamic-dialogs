@@ -55,7 +55,7 @@ import static android.support.annotation.RestrictTo.Scope.LIBRARY_GROUP;
  * fl.addView(myView, new LayoutParams(MATCH_PARENT, WRAP_CONTENT));
  * </pre>
  *
- * <p>The DynamicAlertDialog class takes care of automatically setting
+ * <p>The DynamicDialog class takes care of automatically setting
  * {@link android.view.WindowManager.LayoutParams#FLAG_ALT_FOCUSABLE_IM
  * android.view.WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM} for you based on whether
  * any views in the dialog return true from {@link View#onCheckIsTextEditor()
@@ -70,7 +70,7 @@ import static android.support.annotation.RestrictTo.Scope.LIBRARY_GROUP;
  * <a href="{@docRoot}guide/topics/ui/dialogs.html">Dialogs</a> developer guide.</p>
  * </div>
  */
-public class DynamicAlertDialog extends AppCompatDialog implements DialogInterface {
+public class DynamicDialog extends AppCompatDialog implements DialogInterface {
 
     final DynamicAlertController mAlert;
 
@@ -84,23 +84,23 @@ public class DynamicAlertDialog extends AppCompatDialog implements DialogInterfa
      */
     static final int LAYOUT_HINT_SIDE = 1;
 
-    protected DynamicAlertDialog(@NonNull Context context) {
+    protected DynamicDialog(@NonNull Context context) {
         this(context, 0);
     }
 
     /**
-     * Construct an DynamicAlertDialog that uses an explicit theme.  The actual style
-     * that an DynamicAlertDialog uses is a private implementation, however you can
+     * Construct an DynamicDialog that uses an explicit theme.  The actual style
+     * that an DynamicDialog uses is a private implementation, however you can
      * here supply either the name of an attribute in the theme from which
      * to get the dialog's style (such as {@link R.attr#alertDialogTheme}.
      */
-    protected DynamicAlertDialog(@NonNull Context context, @StyleRes int themeResId) {
+    protected DynamicDialog(@NonNull Context context, @StyleRes int themeResId) {
         super(context, resolveDialogTheme(context, themeResId));
         mAlert = new DynamicAlertController(getContext(), this, getWindow());
     }
 
-    protected DynamicAlertDialog(@NonNull Context context, boolean cancelable,
-                                 @Nullable OnCancelListener cancelListener) {
+    protected DynamicDialog(@NonNull Context context, boolean cancelable,
+                            @Nullable OnCancelListener cancelListener) {
         this(context, 0);
         setCancelable(cancelable);
         setOnCancelListener(cancelListener);
@@ -953,17 +953,17 @@ public class DynamicAlertDialog extends AppCompatDialog implements DialogInterfa
 
 
         /**
-         * Creates an {@link DynamicAlertDialog} with the arguments supplied to this
+         * Creates an {@link DynamicDialog} with the arguments supplied to this
          * builder.
          * <p>
          * Calling this method does not display the dialog. If no additional
          * processing is needed, {@link #show()} may be called instead to both
          * create and display the dialog.
          */
-        public DynamicAlertDialog create() {
+        public DynamicDialog create() {
             // We can't use Dialog's 3-arg constructor with the createThemeContextWrapper param,
             // so we always have to re-set the theme
-            final DynamicAlertDialog dialog = new DynamicAlertDialog(P.mContext, mTheme);
+            final DynamicDialog dialog = new DynamicDialog(P.mContext, mTheme);
             P.apply(dialog.mAlert);
             dialog.setCancelable(P.mCancelable);
             if (P.mCancelable) {
@@ -978,17 +978,17 @@ public class DynamicAlertDialog extends AppCompatDialog implements DialogInterfa
         }
 
         /**
-         * Creates an {@link DynamicAlertDialog} with the arguments supplied to this
+         * Creates an {@link DynamicDialog} with the arguments supplied to this
          * builder and immediately displays the dialog.
          * <p>
          * Calling this method is functionally identical to:
          * <pre>
-         *     DynamicAlertDialog dialog = builder.create();
+         *     DynamicDialog dialog = builder.create();
          *     dialog.show();
          * </pre>
          */
-        public DynamicAlertDialog show() {
-            final DynamicAlertDialog dialog = create();
+        public DynamicDialog show() {
+            final DynamicDialog dialog = create();
             dialog.show();
             return dialog;
         }
