@@ -111,6 +111,34 @@ public CustomDialogFragment extends DynamicDialogFragment {
 
 For better understanding, please check `AboutDialog` in the `sample` project.
 
+#### State
+It will automatically maintain its state on configuration changes (like device rotation, etc.) 
+by calling `setRetainInstance(true)` in `onCreate()` method. If you don't want to use this feature 
+(generally, if you are displaying it in `onResume()` method) then, call `setAutoDismiss(true)` to 
+dismiss it in `onPause()` method.
+
+```java
+DynamicDialogFragment.newInstance().
+        ...
+        .setAutoDismiss(true)
+        .showDialog(fragmentActivity);
+
+```
+
+#### Builder
+To show quick `DynamicDialogFragment`, you can use its `setBuilder(DynamicDialog.Builder)` method
+and pass `DynamicDialog.Builder` with all the customisations. It will automatically wrap it in a 
+`DialogFragment` and use `showDialog(fragmentActivity)` method to display it.
+
+```java
+DynamicDialogFragment.newInstance().setBuilder(
+        new DynamicDialog.Builder(context)
+                .setTitle(...)
+                .setMessage(...)
+                .setNegativeButton(..., clickListener))
+        .showDialog(fragmentActivity);
+```
+
 ---
 
 ## License
