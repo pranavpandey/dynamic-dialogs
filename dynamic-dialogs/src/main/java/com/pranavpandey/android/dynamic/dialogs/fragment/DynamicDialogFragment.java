@@ -214,8 +214,7 @@ public class DynamicDialogFragment extends DialogFragment {
      * @return Customised {@link DynamicDialog}.
      */
     @NonNull
-    protected DynamicDialog onCustomiseDialog(
-            @NonNull DynamicDialog alertDialog) {
+    protected DynamicDialog onCustomiseDialog(@NonNull DynamicDialog alertDialog) {
         return alertDialog;
     }
 
@@ -376,6 +375,13 @@ public class DynamicDialogFragment extends DialogFragment {
     public void showDialog(@NonNull FragmentActivity fragmentActivity) {
         show(fragmentActivity.getSupportFragmentManager(),
                 DynamicDialogFragment.class.getName());
+    }
+
+    /**
+     * @return {@link DynamicDialog} created by this fragment.
+     */
+    public DynamicDialog getDynamicDialog() {
+        return (DynamicDialog) getDialog();
     }
 }
 
