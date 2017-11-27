@@ -17,7 +17,9 @@
 package com.pranavpandey.android.dynamic.dialogs.sample;
 
 import android.content.DialogInterface;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -33,9 +35,9 @@ public class CustomDialogFragment extends DynamicDialogFragment {
         return new CustomDialogFragment();
     }
 
-    @NonNull
     @Override
-    protected DynamicDialog onCustomiseDialog(@NonNull final DynamicDialog alertDialog) {
+    protected @NonNull DynamicDialog onCustomiseDialog(@NonNull final DynamicDialog alertDialog,
+                                                       @Nullable Bundle savedInstanceState) {
          // Set on dismiss listener using dialog fragment method.
         setOnDismissListener(new DialogInterface.OnDismissListener() {
             @Override
@@ -52,10 +54,10 @@ public class CustomDialogFragment extends DynamicDialogFragment {
     }
 
 
-    @NonNull
     @Override
-    protected DynamicDialog.Builder onCustomiseBuilder(
-            @NonNull DynamicDialog.Builder alertDialogBuilder) {
+    protected @NonNull DynamicDialog.Builder onCustomiseBuilder(
+            @NonNull DynamicDialog.Builder alertDialogBuilder,
+            @Nullable Bundle savedInstanceState) {
         return alertDialogBuilder.setTitle(R.string.custom_simple_dialog_fragment)
                 .setPositiveButton(android.R.string.ok, null)
                 // Set a custom view.
