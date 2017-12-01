@@ -33,7 +33,7 @@ It can be installed by adding the following dependency to your `build.gradle` fi
 
 ```groovy
 dependencies {
-    compile 'com.pranavpandey.android:dynamic-dialogs:0.6.0'
+    implementation 'com.pranavpandey.android:dynamic-dialogs:0.7.0'
 }
 ```
 
@@ -164,6 +164,11 @@ DynamicDialogFragment.newInstance()
 ```
 
 >For better understanding, please check `CustomDialogFragment` in the `sample` project.
+
+### Dependency
+
+It depends on the [Dynamic Utils](https://github.com/pranavpandey/dynamic-utils) to perform
+various internal operations. So, its functions can also be used to perform other useful operations.
 
 ---
 

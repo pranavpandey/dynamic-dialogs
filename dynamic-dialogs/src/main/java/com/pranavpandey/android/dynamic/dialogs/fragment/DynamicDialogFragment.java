@@ -216,8 +216,8 @@ public class DynamicDialogFragment extends DialogFragment {
      *
      * @deprecated Use {@link #onCustomiseBuilder(DynamicDialog.Builder, Bundle)}
      */
-    @NonNull
-    protected DynamicDialog.Builder onCustomiseBuilder(
+    @Deprecated
+    protected @NonNull DynamicDialog.Builder onCustomiseBuilder(
             @NonNull DynamicDialog.Builder dialogBuilder) {
         return dialogBuilder;
     }
@@ -247,8 +247,8 @@ public class DynamicDialogFragment extends DialogFragment {
      *
      * @deprecated Use {@link #onCustomiseDialog(DynamicDialog, Bundle)}
      */
-    @NonNull
-    protected DynamicDialog onCustomiseDialog(@NonNull DynamicDialog alertDialog) {
+    @Deprecated
+    protected @NonNull DynamicDialog onCustomiseDialog(@NonNull DynamicDialog alertDialog) {
         return alertDialog;
     }
 
