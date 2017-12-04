@@ -23,6 +23,7 @@ A simple library to display dialogs and dialog fragments on Android 14+ (ICS or 
         - [Dialog state](https://github.com/pranavpandey/dynamic-dialogs#dialog-state)
         - [Dialog builder](https://github.com/pranavpandey/dynamic-dialogs#dialog-builder)
         - [Dialog callbacks](https://github.com/pranavpandey/dynamic-dialogs#dialog-callbacks)
+    - [Dependency](https://github.com/pranavpandey/dynamic-dialogs#dependency)
 - [License](https://github.com/pranavpandey/dynamic-dialogs#license)
 
 ---
@@ -167,7 +168,7 @@ DynamicDialogFragment.newInstance()
 
 ### Dependency
 
-It depends on the [Dynamic Utils](https://github.com/pranavpandey/dynamic-utils) to perform
+It depends on the [dynamic-utils](https://github.com/pranavpandey/dynamic-utils) to perform
 various internal operations. So, its functions can also be used to perform other useful operations.
 
 ---
