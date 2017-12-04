@@ -34,8 +34,8 @@ import com.pranavpandey.android.dynamic.dialogs.DynamicDialog;
  * {@link DynamicDialog} inside a fragment. It can be extended to
  * customise it further by overriding the supported methods.
  *
- * @see #onCustomiseBuilder(DynamicDialog.Builder)
- * @see #onCustomiseDialog(DynamicDialog)
+ * @see #onCustomiseBuilder(DynamicDialog.Builder, Bundle)
+ * @see #onCustomiseBuilder(DynamicDialog.Builder, Bundle)
  */
 public class DynamicDialogFragment extends DialogFragment {
 
@@ -114,8 +114,7 @@ public class DynamicDialogFragment extends DialogFragment {
     }
 
     @Override
-    @NonNull
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
+    public @NonNull Dialog onCreateDialog(Bundle savedInstanceState) {
         if (mDynamicDialogBuilder == null) {
             mDynamicDialogBuilder = new DynamicDialog.Builder(getContext());
         }
