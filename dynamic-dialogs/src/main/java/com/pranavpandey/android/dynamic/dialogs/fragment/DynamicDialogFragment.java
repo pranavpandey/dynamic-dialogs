@@ -43,12 +43,12 @@ public class DynamicDialogFragment extends DialogFragment {
      * Default button color. it will be used internally if there is
      * no button color is applied.
      */
-    public static final int DEFAULT_BUTTON_COLOR = -1;
+    public static final int DAD_DEFAULT_BUTTON_COLOR = -1;
 
     /**
      * Custom button color to be used by this dialog fragment.
      */
-    private @ColorInt int mButtonColor = DEFAULT_BUTTON_COLOR;
+    private @ColorInt int mButtonColor = DAD_DEFAULT_BUTTON_COLOR;
 
     /**
      * {@code true} to make the dialog cancelable. The default value
@@ -107,14 +107,14 @@ public class DynamicDialogFragment extends DialogFragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setRetainInstance(true);
     }
 
     @Override
-    public @NonNull Dialog onCreateDialog(Bundle savedInstanceState) {
+    public @NonNull Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         if (mDynamicDialogBuilder == null) {
             mDynamicDialogBuilder = new DynamicDialog.Builder(getContext());
         }
@@ -125,7 +125,7 @@ public class DynamicDialogFragment extends DialogFragment {
         alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
             @Override
             public void onShow(DialogInterface dialog) {
-                if (mButtonColor != DEFAULT_BUTTON_COLOR) {
+                if (mButtonColor != DAD_DEFAULT_BUTTON_COLOR) {
                     if (alertDialog.getButton(AlertDialog.BUTTON_POSITIVE) != null) {
                         alertDialog.getButton(AlertDialog.BUTTON_POSITIVE)
                                 .setTextColor(mButtonColor);
@@ -173,7 +173,7 @@ public class DynamicDialogFragment extends DialogFragment {
     }
 
     @Override
-    public void onDismiss(final DialogInterface dialog) {
+    public void onDismiss(@Nullable DialogInterface dialog) {
         super.onDismiss(dialog);
 
         if (mOnDismissListener != null) {
@@ -182,7 +182,7 @@ public class DynamicDialogFragment extends DialogFragment {
     }
 
     @Override
-    public void onCancel(final DialogInterface dialog) {
+    public void onCancel(@Nullable DialogInterface dialog) {
         super.onCancel(dialog);
 
         if (mOnCancelListener != null) {
@@ -413,7 +413,7 @@ public class DynamicDialogFragment extends DialogFragment {
     /**
      * @return {@link DynamicDialog} created by this fragment.
      */
-    public DynamicDialog getDynamicDialog() {
+    public @Nullable DynamicDialog getDynamicDialog() {
         return (DynamicDialog) getDialog();
     }
 }

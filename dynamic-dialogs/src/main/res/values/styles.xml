@@ -18,11 +18,11 @@
 <resources>
 
     <style name="Base.DynamicDialogs.AlertDialog" parent="android:Widget">
-        <item name="android:layout">@layout/add_alert_dialog</item>
-        <item name="listLayout">@layout/add_alert_dialog_list</item>
+        <item name="android:layout">@layout/dad_alert_dialog</item>
+        <item name="listLayout">@layout/dad_alert_dialog_list</item>
         <item name="listItemLayout">@layout/select_dialog_item_material</item>
-        <item name="multiChoiceItemLayout">@layout/add_alert_dialog_multi_choice</item>
-        <item name="singleChoiceItemLayout">@layout/add_alert_dialog_single_choice</item>
+        <item name="multiChoiceItemLayout">@layout/dad_alert_dialog_multi_choice</item>
+        <item name="singleChoiceItemLayout">@layout/dad_alert_dialog_single_choice</item>
     </style>
 
 </resources>
