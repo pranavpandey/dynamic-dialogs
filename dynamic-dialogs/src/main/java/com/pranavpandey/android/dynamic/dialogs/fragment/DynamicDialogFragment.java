@@ -43,12 +43,12 @@ public class DynamicDialogFragment extends DialogFragment {
      * Default button color. it will be used internally if there is
      * no button color is applied.
      */
-    public static final int DAD_DEFAULT_BUTTON_COLOR = -1;
+    public static final int ADD_DEFAULT_BUTTON_COLOR = -1;
 
     /**
      * Custom button color to be used by this dialog fragment.
      */
-    private @ColorInt int mButtonColor = DAD_DEFAULT_BUTTON_COLOR;
+    private @ColorInt int mButtonColor = ADD_DEFAULT_BUTTON_COLOR;
 
     /**
      * {@code true} to make the dialog cancelable. The default value
@@ -125,7 +125,7 @@ public class DynamicDialogFragment extends DialogFragment {
         alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
             @Override
             public void onShow(DialogInterface dialog) {
-                if (mButtonColor != DAD_DEFAULT_BUTTON_COLOR) {
+                if (mButtonColor != ADD_DEFAULT_BUTTON_COLOR) {
                     if (alertDialog.getButton(AlertDialog.BUTTON_POSITIVE) != null) {
                         alertDialog.getButton(AlertDialog.BUTTON_POSITIVE)
                                 .setTextColor(mButtonColor);
