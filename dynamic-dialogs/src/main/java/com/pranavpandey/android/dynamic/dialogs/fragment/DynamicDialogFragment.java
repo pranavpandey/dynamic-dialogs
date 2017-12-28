@@ -120,7 +120,7 @@ public class DynamicDialogFragment extends DialogFragment {
         }
 
         final DynamicDialog alertDialog = onCustomiseBuilder(
-                onCustomiseBuilder(mDynamicDialogBuilder), savedInstanceState).create();
+                mDynamicDialogBuilder, savedInstanceState).create();
 
         alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
             @Override
@@ -160,7 +160,7 @@ public class DynamicDialogFragment extends DialogFragment {
             }
         });
 
-        return onCustomiseDialog(onCustomiseDialog(alertDialog), savedInstanceState);
+        return onCustomiseDialog(alertDialog, savedInstanceState);
     }
 
     @Override
@@ -206,22 +206,6 @@ public class DynamicDialogFragment extends DialogFragment {
     }
 
     /**
-     * Override this method to customise the {@link #mDynamicDialogBuilder}
-     * before creating the dialog.
-     *
-     * @param dialogBuilder The current builder to be customised.
-     *
-     * @return Customised {@link DynamicDialog.Builder}.
-     *
-     * @deprecated Use {@link #onCustomiseBuilder(DynamicDialog.Builder, Bundle)}
-     */
-    @Deprecated
-    protected @NonNull DynamicDialog.Builder onCustomiseBuilder(
-            @NonNull DynamicDialog.Builder dialogBuilder) {
-        return dialogBuilder;
-    }
-
-    /**
      * Override this method to customise the {@link DynamicDialog}
      * before attaching it with this fragment.
      *
@@ -233,21 +217,6 @@ public class DynamicDialogFragment extends DialogFragment {
      */
     protected @NonNull DynamicDialog onCustomiseDialog(@NonNull DynamicDialog alertDialog,
                                                        @Nullable Bundle savedInstanceState) {
-        return alertDialog;
-    }
-
-    /**
-     * Override this method to customise the {@link DynamicDialog}
-     * before attaching it with this fragment.
-     *
-     * @param alertDialog The current dialog to be customised.
-     *
-     * @return Customised {@link DynamicDialog}.
-     *
-     * @deprecated Use {@link #onCustomiseDialog(DynamicDialog, Bundle)}
-     */
-    @Deprecated
-    protected @NonNull DynamicDialog onCustomiseDialog(@NonNull DynamicDialog alertDialog) {
         return alertDialog;
     }
 
