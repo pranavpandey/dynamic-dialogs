@@ -16,15 +16,16 @@
 
 package com.pranavpandey.android.dynamic.dialogs.fragment;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatDialogFragment;
 import android.view.KeyEvent;
 
 import com.pranavpandey.android.dynamic.dialogs.DynamicDialog;
@@ -37,18 +38,18 @@ import com.pranavpandey.android.dynamic.dialogs.DynamicDialog;
  * @see #onCustomiseBuilder(DynamicDialog.Builder, Bundle)
  * @see #onCustomiseBuilder(DynamicDialog.Builder, Bundle)
  */
-public class DynamicDialogFragment extends DialogFragment {
+public class DynamicDialogFragment extends AppCompatDialogFragment {
 
     /**
      * Default button color. it will be used internally if there is
      * no button color is applied.
      */
-    public static final int ADD_DEFAULT_BUTTON_COLOR = -1;
+    public static final int ADS_DEFAULT_BUTTON_COLOR = -1;
 
     /**
      * Custom button color to be used by this dialog fragment.
      */
-    private @ColorInt int mButtonColor = ADD_DEFAULT_BUTTON_COLOR;
+    private @ColorInt int mButtonColor = ADS_DEFAULT_BUTTON_COLOR;
 
     /**
      * {@code true} to make the dialog cancelable. The default value
@@ -97,16 +98,6 @@ public class DynamicDialogFragment extends DialogFragment {
     }
 
     @Override
-    public void onDestroyView() {
-        Dialog dialog = getDialog();
-        // handles https://code.google.com/p/android/issues/detail?id=17423
-        if (dialog != null && getRetainInstance()) {
-            dialog.setDismissMessage(null);
-        }
-        super.onDestroyView();
-    }
-
-    @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -125,7 +116,7 @@ public class DynamicDialogFragment extends DialogFragment {
         alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
             @Override
             public void onShow(DialogInterface dialog) {
-                if (mButtonColor != ADD_DEFAULT_BUTTON_COLOR) {
+                if (mButtonColor != ADS_DEFAULT_BUTTON_COLOR) {
                     if (alertDialog.getButton(AlertDialog.BUTTON_POSITIVE) != null) {
                         alertDialog.getButton(AlertDialog.BUTTON_POSITIVE)
                                 .setTextColor(mButtonColor);
@@ -170,6 +161,16 @@ public class DynamicDialogFragment extends DialogFragment {
         if (mAutoDismiss) {
             dismiss();
         }
+    }
+
+    @Override
+    public void onDestroyView() {
+        Dialog dialog = getDialog();
+        // handles https://code.google.com/p/android/issues/detail?id=17423
+        if (dialog != null && getRetainInstance()) {
+            dialog.setDismissMessage(null);
+        }
+        super.onDestroyView();
     }
 
     @Override
@@ -221,6 +222,15 @@ public class DynamicDialogFragment extends DialogFragment {
     }
 
     /**
+     * Finish the parent activity by calling {@link Activity#finish()}.
+     */
+    protected void finishActivity() {
+        if (getActivity() != null && !getActivity().isFinishing()) {
+            finishActivity();
+        }
+    }
+
+    /**
      * Setter for {@link #mButtonColor}.
      *
      * @return {@link DynamicDialogFragment} object to allow for chaining of
@@ -245,9 +255,9 @@ public class DynamicDialogFragment extends DialogFragment {
      * @return {@link DynamicDialogFragment} object to allow for chaining of
      *         calls to set methods.
      */
-    public DynamicDialogFragment setIsCancelable(boolean isCancelable) {
-        this.mIsCancelable = isCancelable;
-        setCancelable(isCancelable);
+    public DynamicDialogFragment setIsCancelable(boolean cancelable) {
+        this.mIsCancelable = cancelable;
+        setCancelable(cancelable);
 
         return this;
     }
@@ -274,7 +284,7 @@ public class DynamicDialogFragment extends DialogFragment {
     /**
      * Getter for {@link #mDynamicDialogBuilder}.
      */
-    protected DynamicDialog.Builder getBuilder() {
+    protected @Nullable DynamicDialog.Builder getBuilder() {
         return mDynamicDialogBuilder;
     }
 
@@ -294,7 +304,7 @@ public class DynamicDialogFragment extends DialogFragment {
     /**
      * Getter for {@link #mOnShowListener}.
      */
-    protected DynamicDialog.OnShowListener getOnShowListener() {
+    protected @Nullable DynamicDialog.OnShowListener getOnShowListener() {
         return mOnShowListener;
     }
 
@@ -314,7 +324,7 @@ public class DynamicDialogFragment extends DialogFragment {
     /**
      * Getter for {@link #mOnDismissListener}.
      */
-    protected DynamicDialog.OnDismissListener getOnDismissListener() {
+    protected @Nullable DynamicDialog.OnDismissListener getOnDismissListener() {
         return mOnDismissListener;
     }
 
@@ -334,7 +344,7 @@ public class DynamicDialogFragment extends DialogFragment {
     /**
      * Getter for {@link #mOnCancelListener}.
      */
-    protected DynamicDialog.OnCancelListener getOnCancelListener() {
+    protected @Nullable DynamicDialog.OnCancelListener getOnCancelListener() {
         return mOnCancelListener;
     }
 
@@ -354,7 +364,7 @@ public class DynamicDialogFragment extends DialogFragment {
     /**
      * Getter for {@link #mOnKeyListener}.
      */
-    protected DynamicDialog.OnKeyListener getOnKeyListener() {
+    protected @Nullable DynamicDialog.OnKeyListener getOnKeyListener() {
         return mOnKeyListener;
     }
 
@@ -375,8 +385,7 @@ public class DynamicDialogFragment extends DialogFragment {
      * Show this dialog fragment and attach it to the supplied activity.
      */
     public void showDialog(@NonNull FragmentActivity fragmentActivity) {
-        show(fragmentActivity.getSupportFragmentManager(),
-                DynamicDialogFragment.class.getName());
+        show(fragmentActivity.getSupportFragmentManager(), getClass().getName());
     }
 
     /**
@@ -386,4 +395,3 @@ public class DynamicDialogFragment extends DialogFragment {
         return (DynamicDialog) getDialog();
     }
 }
-
