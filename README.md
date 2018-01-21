@@ -175,8 +175,8 @@ various internal operations. So, its functions can also be used to perform other
 
 ## License
 
-    Copyright (c) 2017 Pranav Pandey
-    Copyright (C) 2015 The Android Open Source Project
+    Copyright 2017 Pranav Pandey
+    Copyright 2015 The Android Open Source Project
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
