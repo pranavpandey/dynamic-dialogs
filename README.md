@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/pranavpandey/dynamic-dialogs/master/graphics/dynamic-dialogs_512x512.png" width="160" height="160" align="right" hspace="20">
+<img src="https://raw.githubusercontent.com/pranavpandey/dynamic-dialogs/master/graphics/dynamic-dialogs.png" width="160" height="160" align="right" hspace="20">
 
 # Dynamic Dialogs
 

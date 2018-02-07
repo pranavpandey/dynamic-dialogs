@@ -20,6 +20,6 @@
     <!-- App color palette. -->
     <color name="colorPrimary">#673AB7</color>
     <color name="colorPrimaryDark">#512DA8</color>
-    <color name="colorAccent">#4CAF50</color>
+    <color name="colorAccent">#8BC34A</color>
 
 </resources>
