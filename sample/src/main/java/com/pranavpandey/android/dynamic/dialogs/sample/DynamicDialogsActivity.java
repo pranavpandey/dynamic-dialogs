@@ -21,7 +21,6 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -46,15 +45,6 @@ public class DynamicDialogsActivity extends AppCompatActivity implements View.On
      */
     public static final String GITHUB_LINK =
             "https://github.com/pranavpandey/dynamic-dialogs";
-
-    /*
-      Enable vector drawable support for this activity. Please consider
-      adding {@code vectorDrawables.useSupportLibrary = true} in the
-      project's {@code build.gradle} file.
-     */
-    static {
-        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -17,15 +17,15 @@
 
 <resources>
 
-    <!-- Default margins. -->
+    <!-- Default margins -->
     <dimen name="activity_margin">16dp</dimen>
     <dimen name="activity_margin_fab">64dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
 
-    <!-- Dialog margin. -->
+    <!-- Dialog margin -->
     <dimen name="dialog_margin_horizontal">24dp</dimen>
 
-    <!-- Font size. -->
+    <!-- Font sizes -->
     <dimen name="font_size_medium">16sp</dimen>
 
 </resources>

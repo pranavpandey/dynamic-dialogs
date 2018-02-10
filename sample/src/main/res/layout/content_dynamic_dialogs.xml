@@ -15,207 +15,223 @@
 	limitations under the License.
 -->
 
-<android.support.v4.widget.NestedScrollView
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <LinearLayout
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="@dimen/activity_margin"
-        android:paddingStart="@dimen/activity_margin"
-        android:paddingEnd="@dimen/activity_margin"
-        android:paddingBottom="@dimen/activity_margin_fab"
-        android:orientation="vertical">
+        android:scrollbars="vertical"
+        android:scrollbarStyle="outsideOverlay"
+        android:clipToPadding="false">
 
-        <android.support.v7.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/gradle" />
-
-        <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/gradle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp" />
-
-        <android.support.v7.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_margin"
-            android:text="@string/simple_dialogs" />
-
-        <android.support.constraint.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/activity_margin"
+            android:paddingLeft="@dimen/activity_margin"
+            android:paddingRight="@dimen/activity_margin"
+            android:paddingBottom="@dimen/activity_margin_fab"
+            android:orientation="vertical">
 
-            <android.support.v7.widget.AppCompatButton
-                android:id="@+id/dialog_message"
+            <android.support.v7.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/message"
-                style="@style/Button"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/dialog_list" />
+                android:text="@string/gradle" />
 
-            <android.support.v7.widget.AppCompatButton
-                android:id="@+id/dialog_list"
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/gradle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/list"
-                style="@style/Button"
-                app:layout_constraintStart_toEndOf="@+id/dialog_message" />
+                android:textSize="16sp" />
 
-        </android.support.constraint.ConstraintLayout>
-
-        <android.support.v7.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_margin"
-            android:text="@string/choice_dialogs" />
-
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <android.support.v7.widget.AppCompatButton
-                android:id="@+id/dialog_single_choice"
+            <android.support.v7.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/single_choice"
-                style="@style/Button"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/dialog_multi_choice" />
+                android:layout_marginTop="@dimen/activity_margin"
+                android:text="@string/simple_dialogs" />
 
-            <android.support.v7.widget.AppCompatButton
-                android:id="@+id/dialog_multi_choice"
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/dialog_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/message"
+                    style="@style/Button"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/dialog_list" />
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/dialog_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/list"
+                    style="@style/Button"
+                    app:layout_constraintLeft_toRightOf="@+id/dialog_message" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.v7.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/multi_choice"
-                style="@style/Button"
-                app:layout_constraintStart_toEndOf="@id/dialog_single_choice" />
+                android:layout_marginTop="@dimen/activity_margin"
+                android:text="@string/choice_dialogs" />
 
-        </android.support.constraint.ConstraintLayout>
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <android.support.v7.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_margin"
-            android:text="@string/custom_dialogs" />
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/dialog_single_choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/single_choice"
+                    style="@style/Button"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/dialog_multi_choice" />
 
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/dialog_multi_choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/multi_choice"
+                    style="@style/Button"
+                    app:layout_constraintLeft_toRightOf="@id/dialog_single_choice" />
 
-            <android.support.v7.widget.AppCompatButton
-                android:id="@+id/dialog_custom_simple"
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.v7.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/simple"
-                style="@style/Button"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/dialog_custom_theme" />
+                android:layout_marginTop="@dimen/activity_margin"
+                android:text="@string/custom_dialogs" />
 
-            <android.support.v7.widget.AppCompatButton
-                android:id="@+id/dialog_custom_theme"
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/dialog_custom_simple"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/simple"
+                    style="@style/Button"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/dialog_custom_theme" />
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/dialog_custom_theme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/theme"
+                    style="@style/Button"
+                    app:layout_constraintLeft_toRightOf="@+id/dialog_custom_simple" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.v7.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/theme"
-                style="@style/Button"
-                app:layout_constraintStart_toEndOf="@+id/dialog_custom_simple" />
+                android:layout_marginTop="@dimen/activity_margin"
+                android:text="@string/simple_dialog_fragments" />
 
-        </android.support.constraint.ConstraintLayout>
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <android.support.v7.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_margin"
-            android:text="@string/simple_dialog_fragments" />
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/fragment_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/message"
+                    style="@style/Button"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/fragment_list" />
 
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/fragment_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/list"
+                    style="@style/Button"
+                    app:layout_constraintLeft_toRightOf="@+id/fragment_message" />
 
-            <android.support.v7.widget.AppCompatButton
-                android:id="@+id/fragment_message"
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.v7.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/message"
-                style="@style/Button"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/fragment_list" />
+                android:layout_marginTop="@dimen/activity_margin"
+                android:text="@string/choice_dialog_fragments" />
 
-            <android.support.v7.widget.AppCompatButton
-                android:id="@+id/fragment_list"
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/fragment_single_choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/single_choice"
+                    style="@style/Button"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/fragment_multi_choice" />
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/fragment_multi_choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/multi_choice"
+                    style="@style/Button"
+                    app:layout_constraintLeft_toRightOf="@id/fragment_single_choice" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.v7.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/list"
-                style="@style/Button"
-                app:layout_constraintStart_toEndOf="@+id/fragment_message" />
+                android:layout_marginTop="@dimen/activity_margin"
+                android:text="@string/custom_dialog_fragments" />
 
-        </android.support.constraint.ConstraintLayout>
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <android.support.v7.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_margin"
-            android:text="@string/choice_dialog_fragments" />
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/fragment_custom_simple"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/simple"
+                    style="@style/Button"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/fragment_custom_theme" />
 
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/fragment_custom_theme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/theme"
+                    style="@style/Button"
+                    app:layout_constraintLeft_toRightOf="@+id/fragment_custom_simple" />
 
-            <android.support.v7.widget.AppCompatButton
-                android:id="@+id/fragment_single_choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/single_choice"
-                style="@style/Button"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/fragment_multi_choice" />
+            </android.support.constraint.ConstraintLayout>
 
-            <android.support.v7.widget.AppCompatButton
-                android:id="@+id/fragment_multi_choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/multi_choice"
-                style="@style/Button"
-                app:layout_constraintStart_toEndOf="@id/fragment_single_choice" />
+        </LinearLayout>
 
-        </android.support.constraint.ConstraintLayout>
+    </android.support.v4.widget.NestedScrollView>
 
-        <android.support.v7.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_margin"
-            android:text="@string/custom_dialog_fragments" />
+    <View
+        android:id="@+id/ads_app_bar_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="@drawable/app_bar_shadow" />
 
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <android.support.v7.widget.AppCompatButton
-                android:id="@+id/fragment_custom_simple"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/simple"
-                style="@style/Button"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/fragment_custom_theme" />
-
-            <android.support.v7.widget.AppCompatButton
-                android:id="@+id/fragment_custom_theme"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/theme"
-                style="@style/Button"
-                app:layout_constraintStart_toEndOf="@+id/fragment_custom_simple" />
-
-        </android.support.constraint.ConstraintLayout>
-
-    </LinearLayout>
-
-</android.support.v4.widget.NestedScrollView>
+</FrameLayout>
