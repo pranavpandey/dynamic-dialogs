@@ -39,16 +39,20 @@ import com.pranavpandey.android.dynamic.utils.DynamicLinkUtils;
 public class AboutDialogFragment extends DynamicDialogFragment {
 
     /**
-     * Text size for the about dialog.
+     * Text size for this about dialog.
      * 15 SP
      */
     private static final int TEXT_SIZE = 15;
 
     /**
-     * Text size for the about dialog.
-     * 15 SP
+     * Url to donate via PayPal.
      */
-    private static final String GOOGLE_PLAY_URL =
+    public static final String URL_DONATE = "https://www.paypal.me/pranavpandeydev";
+
+    /**
+     * Url for other apps on Play Store.
+     */
+    private static final String URL_PLAY_STORE =
             "https://play.google.com/store/apps/dev?id=6608630615059087491";
 
     public static AboutDialogFragment newInstance() {
@@ -58,6 +62,7 @@ public class AboutDialogFragment extends DynamicDialogFragment {
     @Override
     protected @NonNull DynamicDialog onCustomiseDialog(@NonNull DynamicDialog alertDialog,
                                                        @Nullable Bundle savedInstanceState) {
+        // Customise dialog to add a custom view.
         View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_about,
                 new LinearLayout(getContext()), false);
         TextView message = view.findViewById(R.id.dialog_about_text);
@@ -77,11 +82,19 @@ public class AboutDialogFragment extends DynamicDialogFragment {
     protected @NonNull DynamicDialog.Builder onCustomiseBuilder(
             @NonNull DynamicDialog.Builder alertDialogBuilder,
             @Nullable Bundle savedInstanceState) {
+        // Customise dialog builder to add neutral, positive and negative buttons.
+        // Also, set a view root to add top and bottom scroll indicators.
         return alertDialogBuilder.setTitle(R.string.about)
+                .setNeutralButton(R.string.donate, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        DynamicLinkUtils.viewUrl(getContext(), URL_DONATE);
+                    }
+                })
                 .setPositiveButton(R.string.more_apps, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        DynamicLinkUtils.viewUrl(getContext(), GOOGLE_PLAY_URL);
+                        DynamicLinkUtils.viewUrl(getContext(), URL_PLAY_STORE);
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, null)
