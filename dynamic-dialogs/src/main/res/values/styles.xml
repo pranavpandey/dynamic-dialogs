@@ -17,8 +17,8 @@
 
 <resources>
 
-    <!-- Base dialog theme -->
-    <style name="Base.DynamicDialogs.AlertDialog" parent="android:Widget">
+    <!-- Base dynamic dialog theme. -->
+    <style name="DynamicDialog" parent="android:Widget">
         <item name="android:layout">@layout/add_alert_dialog</item>
         <item name="listLayout">@layout/add_alert_dialog_list</item>
         <item name="listItemLayout">@layout/select_dialog_item_material</item>

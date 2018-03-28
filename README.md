@@ -55,7 +55,7 @@ First add `alertDialogStyle` in the base application theme to make `dynamic-dial
     ...
     
     <!-- Add dynamic dialogs style in the base app theme. -->
-    <item name="alertDialogStyle">@style/Base.DynamicDialogs.AlertDialog</item>
+    <item name="alertDialogStyle">@style/DynamicDialog</item>
 </style>
 ```
 
