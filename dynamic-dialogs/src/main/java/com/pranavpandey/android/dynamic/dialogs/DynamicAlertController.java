@@ -922,6 +922,8 @@ class DynamicAlertController {
                     R.styleable.RecycleListView_paddingBottomNoButtons, -1);
             mPaddingTopNoTitle = ta.getDimensionPixelOffset(
                     R.styleable.RecycleListView_paddingTopNoTitle, -1);
+
+            ta.recycle();
         }
 
         public void setHasDecor(boolean hasTitle, boolean hasButtons) {

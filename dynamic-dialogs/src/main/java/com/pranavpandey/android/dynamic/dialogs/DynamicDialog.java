@@ -17,6 +17,7 @@
 
 package com.pranavpandey.android.dynamic.dialogs;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -106,6 +107,7 @@ public class DynamicDialog extends AppCompatDialog implements DialogInterface {
         setOnCancelListener(cancelListener);
     }
 
+    @SuppressLint("ResourceType")
     static int resolveDialogTheme(@NonNull Context context, @StyleRes int resid) {
         if (resid >= 0x01000000) {   // start of real resource IDs.
             return resid;

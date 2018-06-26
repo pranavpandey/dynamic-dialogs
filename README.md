@@ -45,6 +45,8 @@ It has some improvements over `appcompat-v7` dialogs and share the same behavior
 It can be used with any UI/UX framework or library and also has built-in fragment class to display
 `DialogFragment` with ease.
 
+> For complete reference, please read the [documentation](https://pranavpandey.github.io/dynamic-dialogs).
+
 ### Setup
 First add `alertDialogStyle` in the base application theme to make `dynamic-dialogs` working.
 
