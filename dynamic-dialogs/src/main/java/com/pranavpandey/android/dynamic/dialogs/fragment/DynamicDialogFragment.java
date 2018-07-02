@@ -227,7 +227,7 @@ public class DynamicDialogFragment extends AppCompatDialogFragment {
      */
     protected void finishActivity() {
         if (getActivity() != null && !getActivity().isFinishing()) {
-            finishActivity();
+            getActivity().finish();
         }
     }
 
