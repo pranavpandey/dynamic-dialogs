@@ -66,6 +66,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/message"
                     style="@style/Button"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toLeftOf="@+id/dialog_list" />
 
@@ -75,6 +77,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/list"
                     style="@style/Button"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toRightOf="@+id/dialog_message" />
 
             </android.support.constraint.ConstraintLayout>
@@ -95,6 +99,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/single_choice"
                     style="@style/Button"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toLeftOf="@+id/dialog_multi_choice" />
 
@@ -104,6 +110,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/multi_choice"
                     style="@style/Button"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toRightOf="@id/dialog_single_choice" />
 
             </android.support.constraint.ConstraintLayout>
@@ -124,6 +132,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/simple"
                     style="@style/Button"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toLeftOf="@+id/dialog_custom_theme" />
 
@@ -133,6 +143,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/theme"
                     style="@style/Button"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toRightOf="@+id/dialog_custom_simple" />
 
             </android.support.constraint.ConstraintLayout>
@@ -153,6 +165,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/message"
                     style="@style/Button"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toLeftOf="@+id/fragment_list" />
 
@@ -162,6 +176,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/list"
                     style="@style/Button"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toRightOf="@+id/fragment_message" />
 
             </android.support.constraint.ConstraintLayout>
@@ -182,6 +198,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/single_choice"
                     style="@style/Button"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toLeftOf="@+id/fragment_multi_choice" />
 
@@ -191,6 +209,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/multi_choice"
                     style="@style/Button"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toRightOf="@id/fragment_single_choice" />
 
             </android.support.constraint.ConstraintLayout>
@@ -211,6 +231,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/simple"
                     style="@style/Button"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toLeftOf="@+id/fragment_custom_theme" />
 
@@ -220,6 +242,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/theme"
                     style="@style/Button"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toRightOf="@+id/fragment_custom_simple" />
 
             </android.support.constraint.ConstraintLayout>
