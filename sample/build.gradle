@@ -18,13 +18,13 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion compileSdk
-    buildToolsVersion buildTools
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
 
     defaultConfig {
         applicationId "com.pranavpandey.android.dynamic.dialogs.sample"
-        minSdkVersion minSdk
-        targetSdkVersion targetSdk
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
         versionCode versionCode
         versionName mavenVersion
 
@@ -41,7 +41,7 @@ android {
 
 dependencies {
     implementation project(':dynamic-dialogs')
-    implementation "com.android.support:design:$androidSupport"
-    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "com.android.support:design:${versions.androidSupport}"
+    implementation "com.android.support.constraint:constraint-layout:${versions.constraintLayout}"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}"
 }

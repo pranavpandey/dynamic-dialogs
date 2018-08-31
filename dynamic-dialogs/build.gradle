@@ -17,13 +17,13 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion compileSdk
-    buildToolsVersion buildTools
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
 
     defaultConfig {
-        minSdkVersion minSdk
-        targetSdkVersion targetSdk
-        versionCode versionCode
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode mavenVersionCode
         versionName mavenVersion
     }
 
@@ -35,9 +35,9 @@ android {
 }
 
 dependencies {
-    implementation "com.android.support:appcompat-v7:$androidSupport"
-    implementation "com.android.support:recyclerview-v7:$androidSupport"
-    api "com.pranavpandey.android:dynamic-utils:$mavenVersion"
+    api "com.pranavpandey.android:dynamic-utils:${mavenVersion}"
+    implementation "com.android.support:appcompat-v7:${versions.androidSupport}"
+    implementation "com.android.support:recyclerview-v7:${versions.androidSupport}"
 }
 
 if (project.rootProject.file('local.properties').exists()) {
