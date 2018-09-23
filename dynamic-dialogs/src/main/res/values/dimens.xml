@@ -17,13 +17,11 @@
 
 <resources>
 
-    <!-- Base dynamic dialog theme. -->
-    <style name="DynamicDialog" parent="android:Widget">
-        <item name="android:layout">@layout/add_alert_dialog</item>
-        <item name="listLayout">@layout/add_dialog_list</item>
-        <item name="listItemLayout">@layout/add_dialog_select_item</item>
-        <item name="multiChoiceItemLayout">@layout/add_dialog_multi_choice</item>
-        <item name="singleChoiceItemLayout">@layout/add_dialog_single_choice</item>
-    </style>
+    <!-- Dialog margins -->
+    <dimen name="add_dialog_margin_title_top">18dp</dimen>
+    <dimen name="add_dialog_margin_title_bottom">12dp</dimen>
+    <dimen name="add_dialog_list_margin_no_title_top">8dp</dimen>
+    <dimen name="add_dialog_list_margin_no_buttons_button">8dp</dimen>
+    <dimen name="add_dialog_select_margin_start">20dp</dimen>
 
 </resources>
