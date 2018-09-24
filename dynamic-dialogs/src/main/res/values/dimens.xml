@@ -18,10 +18,10 @@
 <resources>
 
     <!-- Dialog margins -->
+    <dimen name="add_dialog_margin_select_start">20dp</dimen>
     <dimen name="add_dialog_margin_title_top">18dp</dimen>
     <dimen name="add_dialog_margin_title_bottom">12dp</dimen>
-    <dimen name="add_dialog_list_margin_no_title_top">8dp</dimen>
-    <dimen name="add_dialog_list_margin_no_buttons_button">8dp</dimen>
-    <dimen name="add_dialog_select_margin_start">20dp</dimen>
+    <dimen name="add_dialog_margin_list_no_title_top">8dp</dimen>
+    <dimen name="add_dialog_margin_list_no_buttons_button">8dp</dimen>
 
 </resources>

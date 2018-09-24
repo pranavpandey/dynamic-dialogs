@@ -61,6 +61,6 @@
         android:id="@+id/titleDividerNoCustom"
         android:layout_width="match_parent"
         android:layout_height="@dimen/add_dialog_margin_title_bottom"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 
 </LinearLayout>
