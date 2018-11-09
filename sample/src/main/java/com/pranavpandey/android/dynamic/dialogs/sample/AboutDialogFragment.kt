@@ -18,7 +18,7 @@ package com.pranavpandey.android.dynamic.dialogs.sample
 
 import android.os.Build
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
+import androidx.core.content.ContextCompat
 import android.text.Html
 import android.text.Spanned
 import android.text.method.LinkMovementMethod

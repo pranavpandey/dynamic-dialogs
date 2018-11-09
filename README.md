@@ -10,6 +10,9 @@ A simple library to display dialogs and dialog fragments on Android 14+ (ICS or 
 
 <img src="https://raw.githubusercontent.com/pranavpandey/dynamic-dialogs/master/graphics/dynamic-dialogs-preview.png">
 
+>Since v2.0.0, it uses [AndroidX](https://developer.android.com/jetpack/androidx/) so, first
+[migrate](https://developer.android.com/jetpack/androidx/migrate) your project to AndroidX.
+
 ---
 
 ## Contents
@@ -34,6 +37,10 @@ It can be installed by adding the following dependency to your `build.gradle` fi
 
 ```groovy
 dependencies {
+    // For AndroidX enabled projects
+    implementation 'com.pranavpandey.android:dynamic-dialogs:2.0.0'
+
+    // For legacy projects
     implementation 'com.pranavpandey.android:dynamic-dialogs:1.3.0'
 }
 ```
