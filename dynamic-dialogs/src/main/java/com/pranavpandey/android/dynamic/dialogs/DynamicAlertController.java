@@ -25,12 +25,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
-import android.support.annotation.RestrictTo;
-import android.support.v4.view.ViewCompat;
-import android.support.v4.widget.NestedScrollView;
-import android.support.v7.app.AppCompatDialog;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.TypedValue;
@@ -59,8 +53,15 @@ import android.widget.TextView;
 
 import java.lang.ref.WeakReference;
 
-import static android.support.annotation.RestrictTo.Scope.LIBRARY_GROUP;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.appcompat.app.AppCompatDialog;
+import androidx.core.view.ViewCompat;
+import androidx.core.widget.NestedScrollView;
+import androidx.recyclerview.widget.RecyclerView;
+
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
+import static androidx.annotation.RestrictTo.Scope.LIBRARY_GROUP;
 
 @RestrictTo(LIBRARY_GROUP)
 class DynamicAlertController {
@@ -174,7 +175,7 @@ class DynamicAlertController {
 
     private static boolean shouldCenterSingleButton(Context context) {
         final TypedValue outValue = new TypedValue();
-        context.getTheme().resolveAttribute(android.support.v7.appcompat.R.attr.alertDialogCenterButtons, outValue, true);
+        context.getTheme().resolveAttribute(R.attr.alertDialogCenterButtons, outValue, true);
         return outValue.data != 0;
     }
 
@@ -185,7 +186,7 @@ class DynamicAlertController {
         mHandler = new DynamicAlertController.ButtonHandler(di);
 
         final TypedArray a = context.obtainStyledAttributes(null, R.styleable.DynamicDialog,
-                android.support.v7.appcompat.R.attr.alertDialogStyle, 0);
+                R.attr.alertDialogStyle, 0);
 
         mAlertDialogLayout = a.getResourceId(R.styleable.DynamicDialog_android_layout, 0);
         mButtonPanelSideLayout = a.getResourceId(R.styleable.DynamicDialog_buttonPanelSideLayout, 0);
@@ -474,18 +475,18 @@ class DynamicAlertController {
 
     private void setupView() {
         final View parentPanel = mWindow.findViewById(R.id.parentPanel);
-        final View defaultTopPanel = parentPanel.findViewById(android.support.v7.appcompat.R.id.topPanel);
+        final View defaultTopPanel = parentPanel.findViewById(R.id.topPanel);
         final View defaultContentPanel = parentPanel.findViewById(R.id.contentPanel);
-        final View defaultButtonPanel = parentPanel.findViewById(android.support.v7.appcompat.R.id.buttonPanel);
+        final View defaultButtonPanel = parentPanel.findViewById(R.id.buttonPanel);
 
         // Install custom content before setting up the title or buttons so
         // that we can handle panel overrides.
         final ViewGroup customPanel = (ViewGroup) parentPanel.findViewById(R.id.customPanel);
         setupCustomContent(customPanel);
 
-        final View customTopPanel = customPanel.findViewById(android.support.v7.appcompat.R.id.topPanel);
-        final View customContentPanel = customPanel.findViewById(android.support.v7.appcompat.R.id.contentPanel);
-        final View customButtonPanel = customPanel.findViewById(android.support.v7.appcompat.R.id.buttonPanel);
+        final View customTopPanel = customPanel.findViewById(R.id.topPanel);
+        final View customContentPanel = customPanel.findViewById(R.id.contentPanel);
+        final View customButtonPanel = customPanel.findViewById(R.id.buttonPanel);
 
         // Resolve the correct panels and remove the defaults, if needed.
         final ViewGroup topPanel = resolvePanel(customTopPanel, defaultTopPanel);
@@ -523,7 +524,7 @@ class DynamicAlertController {
             View divider = null;
             if (mMessage != null || mListView != null || hasCustomPanel) {
                 divider = topPanel.findViewById(
-                        android.support.v7.appcompat.R.id.titleDividerNoCustom);
+                        R.id.titleDividerNoCustom);
             }
 
             if (divider != null) {
@@ -761,7 +762,7 @@ class DynamicAlertController {
             topPanel.addView(mCustomTitleView, 0, lp);
 
             // Hide the title template
-            View titleTemplate = mWindow.findViewById(android.support.v7.appcompat.R.id.title_template);
+            View titleTemplate = mWindow.findViewById(R.id.title_template);
             titleTemplate.setVisibility(View.GONE);
         } else {
             mIconView = mWindow.findViewById(android.R.id.icon);
@@ -769,7 +770,7 @@ class DynamicAlertController {
             final boolean hasTextTitle = !TextUtils.isEmpty(mTitle);
             if (hasTextTitle && mShowTitle) {
                 // Display the title if a title is supplied, else hide it.
-                mTitleView = mWindow.findViewById(android.support.v7.appcompat.R.id.alertTitle);
+                mTitleView = mWindow.findViewById(R.id.alertTitle);
                 mTitleView.setText(mTitle);
 
                 // Do this last so that if the user has supplied any icons we
@@ -790,7 +791,7 @@ class DynamicAlertController {
                 }
             } else {
                 // Hide the title template
-                final View titleTemplate = mWindow.findViewById(android.support.v7.appcompat.R.id.title_template);
+                final View titleTemplate = mWindow.findViewById(R.id.title_template);
                 titleTemplate.setVisibility(View.GONE);
                 mIconView.setVisibility(View.GONE);
                 topPanel.setVisibility(View.GONE);
