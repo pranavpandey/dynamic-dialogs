@@ -28,9 +28,7 @@ android {
     }
 
     sourceSets {
-        main.res.srcDirs = [
-            'src/main/res'
-        ]
+        main.res.srcDirs 'res'
     }
 }
 
