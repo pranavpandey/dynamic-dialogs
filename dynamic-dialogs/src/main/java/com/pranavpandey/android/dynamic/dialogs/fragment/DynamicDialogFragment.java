@@ -22,14 +22,14 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.KeyEvent;
 
-import com.pranavpandey.android.dynamic.dialogs.DynamicDialog;
-
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDialogFragment;
 import androidx.fragment.app.FragmentActivity;
+
+import com.pranavpandey.android.dynamic.dialogs.DynamicDialog;
 
 /**
  * Base dialog fragment to provide all the functionality of,{@link DynamicDialog} inside a
@@ -172,7 +172,7 @@ public class DynamicDialogFragment extends AppCompatDialogFragment {
     }
 
     @Override
-    public void onDismiss(@Nullable DialogInterface dialog) {
+    public void onDismiss(@NonNull DialogInterface dialog) {
         super.onDismiss(dialog);
 
         if (mOnDismissListener != null) {
@@ -181,7 +181,7 @@ public class DynamicDialogFragment extends AppCompatDialogFragment {
     }
 
     @Override
-    public void onCancel(@Nullable DialogInterface dialog) {
+    public void onCancel(@NonNull DialogInterface dialog) {
         super.onCancel(dialog);
 
         if (mOnCancelListener != null) {

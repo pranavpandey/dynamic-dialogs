@@ -36,8 +36,7 @@ android {
 
 dependencies {
     api "com.pranavpandey.android:dynamic-utils:${mavenVersion}"
-    implementation "androidx.appcompat:appcompat:${versions.androidx}"
-    implementation "androidx.recyclerview:recyclerview:${versions.recyclerview}"
+    api "com.google.android.material:material:${versions.material}"
 }
 
 if (project.rootProject.file('local.properties').exists()) {

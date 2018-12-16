@@ -51,14 +51,14 @@ import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
-import java.lang.ref.WeakReference;
-
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.app.AppCompatDialog;
 import androidx.core.view.ViewCompat;
 import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.lang.ref.WeakReference;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static androidx.annotation.RestrictTo.Scope.LIBRARY_GROUP;
@@ -68,6 +68,7 @@ class DynamicAlertController {
     private final Context mContext;
     final AppCompatDialog mDialog;
     private final Window mWindow;
+    private final int mButtonIconDimen;
 
     private CharSequence mTitle;
     private CharSequence mMessage;
@@ -75,8 +76,8 @@ class DynamicAlertController {
     private View mView;
     private View mViewRoot;
 
-    private int mViewRootId;
     private int mViewLayoutResId;
+    private int mViewRootId;
 
     private int mViewSpacingLeft;
     private int mViewSpacingTop;
@@ -87,14 +88,17 @@ class DynamicAlertController {
     Button mButtonPositive;
     private CharSequence mButtonPositiveText;
     Message mButtonPositiveMessage;
+    private Drawable mButtonPositiveIcon;
 
     Button mButtonNegative;
     private CharSequence mButtonNegativeText;
     Message mButtonNegativeMessage;
+    private Drawable mButtonNegativeIcon;
 
     Button mButtonNeutral;
     private CharSequence mButtonNeutralText;
     Message mButtonNeutralMessage;
+    private Drawable mButtonNeutralIcon;
 
     NestedScrollView mScrollView;
 
@@ -142,7 +146,7 @@ class DynamicAlertController {
             }
 
             // Post a message so we dismiss after the above handlers are executed
-            mHandler.obtainMessage(DynamicAlertController.ButtonHandler.MSG_DISMISS_DIALOG, mDialog)
+            mHandler.obtainMessage(ButtonHandler.MSG_DISMISS_DIALOG, mDialog)
                     .sendToTarget();
         }
     };
@@ -183,9 +187,9 @@ class DynamicAlertController {
         mContext = context;
         mDialog = di;
         mWindow = window;
-        mHandler = new DynamicAlertController.ButtonHandler(di);
+        mHandler = new ButtonHandler(di);
 
-        final TypedArray a = context.obtainStyledAttributes(null, R.styleable.DynamicDialog,
+        final TypedArray a = context.obtainStyledAttributes(null, R.styleable.AlertDialog,
                 R.attr.alertDialogStyle, 0);
 
         mAlertDialogLayout = a.getResourceId(R.styleable.DynamicDialog_android_layout, 0);
@@ -197,6 +201,7 @@ class DynamicAlertController {
                 .getResourceId(R.styleable.DynamicDialog_singleChoiceItemLayout, 0);
         mListItemLayout = a.getResourceId(R.styleable.DynamicDialog_listItemLayout, 0);
         mShowTitle = a.getBoolean(R.styleable.DynamicDialog_showTitle, true);
+        mButtonIconDimen = a.getDimensionPixelSize(R.styleable.DynamicDialog_buttonIconDimen, 0);
 
         a.recycle();
 
@@ -244,6 +249,9 @@ class DynamicAlertController {
 
     public void setTitle(CharSequence title) {
         mTitle = title;
+        // Fix title not visible issue.
+        mShowTitle = true;
+
         if (mTitleView != null) {
             mTitleView.setText(title);
         }
@@ -282,26 +290,10 @@ class DynamicAlertController {
     }
 
     /**
-     * Set the view root id to add scroll indicators if the content can be
-     * scrolled.
-     */
-    public void setViewRoot(int viewRootId) {
-        mViewRootId = viewRootId;
-    }
-
-    /**
-     * Set the view root to add scroll indicators if the content can be
-     * scrolled.
-     */
-    public void setViewRoot(View viewRoot) {
-        mViewRoot = viewRoot;
-    }
-
-    /**
      * Set the view to display in the dialog along with the spacing around that view
      */
     public void setView(View view, int viewSpacingLeft, int viewSpacingTop, int viewSpacingRight,
-                        int viewSpacingBottom) {
+            int viewSpacingBottom) {
         mView = view;
         mViewLayoutResId = 0;
         mViewSpacingSpecified = true;
@@ -312,6 +304,24 @@ class DynamicAlertController {
     }
 
     /**
+     * Set the view root id to add scroll indicators if the content can be scrolled.
+     *
+     * @param viewRootId The root view id of the custom view.
+     */
+    public void setViewRoot(int viewRootId) {
+        mViewRootId = viewRootId;
+    }
+
+    /**
+     * Set the view root to add scroll indicators if the content can be scrolled.
+     *
+     * @param viewRoot The root view of the custom view.
+     */
+    public void setViewRoot(View viewRoot) {
+        mViewRoot = viewRoot;
+    }
+
+    /**
      * Sets a hint for the best button panel layout.
      */
     public void setButtonPanelLayoutHint(int layoutHint) {
@@ -319,8 +329,8 @@ class DynamicAlertController {
     }
 
     /**
-     * Sets a click listener or a message to be sent when the button is clicked.
-     * You only need to pass one of {@code listener} or {@code msg}.
+     * Sets an icon, a click listener or a message to be sent when the button is clicked.
+     * You only need to pass one of {@code icon}, {@code listener} or {@code msg}.
      *
      * @param whichButton Which button, can be one of
      *                    {@link DialogInterface#BUTTON_POSITIVE},
@@ -329,9 +339,11 @@ class DynamicAlertController {
      * @param text        The text to display in positive button.
      * @param listener    The {@link DialogInterface.OnClickListener} to use.
      * @param msg         The {@link Message} to be sent when clicked.
+     * @param icon        The (@link Drawable) to be used as an icon for the button.
+     *
      */
     public void setButton(int whichButton, CharSequence text,
-                          DialogInterface.OnClickListener listener, Message msg) {
+            DialogInterface.OnClickListener listener, Message msg, Drawable icon) {
 
         if (msg == null && listener != null) {
             msg = mHandler.obtainMessage(whichButton, listener);
@@ -342,16 +354,19 @@ class DynamicAlertController {
             case DialogInterface.BUTTON_POSITIVE:
                 mButtonPositiveText = text;
                 mButtonPositiveMessage = msg;
+                mButtonPositiveIcon = icon;
                 break;
 
             case DialogInterface.BUTTON_NEGATIVE:
                 mButtonNegativeText = text;
                 mButtonNegativeMessage = msg;
+                mButtonNegativeIcon = icon;
                 break;
 
             case DialogInterface.BUTTON_NEUTRAL:
                 mButtonNeutralText = text;
                 mButtonNeutralMessage = msg;
+                mButtonNeutralIcon = icon;
                 break;
 
             default:
@@ -481,7 +496,7 @@ class DynamicAlertController {
 
         // Install custom content before setting up the title or buttons so
         // that we can handle panel overrides.
-        final ViewGroup customPanel = (ViewGroup) parentPanel.findViewById(R.id.customPanel);
+        final ViewGroup customPanel = parentPanel.findViewById(R.id.customPanel);
         setupCustomContent(customPanel);
 
         final View customTopPanel = customPanel.findViewById(R.id.topPanel);
@@ -523,8 +538,7 @@ class DynamicAlertController {
             // Only show the divider if we have a title.
             View divider = null;
             if (mMessage != null || mListView != null || hasCustomPanel) {
-                divider = topPanel.findViewById(
-                        R.id.titleDividerNoCustom);
+                divider = topPanel.findViewById(R.id.titleDividerNoCustom);
             }
 
             if (divider != null) {
@@ -574,7 +588,7 @@ class DynamicAlertController {
     }
 
     private void setScrollIndicators(ViewGroup contentPanel, View content,
-                                     final int indicators, final int mask) {
+            final int indicators, final int mask) {
         // Set up scroll indicators (if present).
         View indicatorUp = mWindow.findViewById(R.id.scrollIndicatorUp);
         View indicatorDown = mWindow.findViewById(R.id.scrollIndicatorDown);
@@ -610,8 +624,8 @@ class DynamicAlertController {
                             new NestedScrollView.OnScrollChangeListener() {
                                 @Override
                                 public void onScrollChange(NestedScrollView v, int scrollX,
-                                                           int scrollY,
-                                                           int oldScrollX, int oldScrollY) {
+                                        int scrollY,
+                                        int oldScrollX, int oldScrollY) {
                                     manageScrollIndicators(v, top, bottom);
                                 }
                             });
@@ -630,7 +644,7 @@ class DynamicAlertController {
 
                         @Override
                         public void onScroll(AbsListView v, int firstVisibleItem,
-                                             int visibleItemCount, int totalItemCount) {
+                                int visibleItemCount, int totalItemCount) {
                             manageScrollIndicators(v, top, bottom);
                         }
                     });
@@ -647,8 +661,8 @@ class DynamicAlertController {
                                 new NestedScrollView.OnScrollChangeListener() {
                                     @Override
                                     public void onScrollChange(NestedScrollView v, int scrollX,
-                                                               int scrollY,
-                                                               int oldScrollX, int oldScrollY) {
+                                            int scrollY,
+                                            int oldScrollX, int oldScrollY) {
                                         manageScrollIndicators(v, top, bottom);
                                     }
                                 });
@@ -666,7 +680,7 @@ class DynamicAlertController {
 
                             @Override
                             public void onScroll(AbsListView v, int firstVisibleItem,
-                                                 int visibleItemCount, int totalItemCount) {
+                                    int visibleItemCount, int totalItemCount) {
                                 manageScrollIndicators(v, top, bottom);
                             }
                         });
@@ -737,7 +751,7 @@ class DynamicAlertController {
         }
 
         if (hasCustomView) {
-            final FrameLayout custom = (FrameLayout) mWindow.findViewById(R.id.custom);
+            final FrameLayout custom = mWindow.findViewById(R.id.custom);
             custom.addView(customView, new ViewGroup.LayoutParams(MATCH_PARENT, MATCH_PARENT));
 
             if (mViewSpacingSpecified) {
@@ -800,12 +814,12 @@ class DynamicAlertController {
     }
 
     private void setupContent(ViewGroup contentPanel) {
-        mScrollView = (NestedScrollView) mWindow.findViewById(R.id.scrollView);
+        mScrollView = mWindow.findViewById(R.id.scrollView);
         mScrollView.setFocusable(false);
         mScrollView.setNestedScrollingEnabled(false);
 
         // Special case for users that only want to display a String
-        mMessageView = (TextView) contentPanel.findViewById(android.R.id.message);
+        mMessageView = contentPanel.findViewById(android.R.id.message);
         if (mMessageView == null) {
             return;
         }
@@ -831,11 +845,11 @@ class DynamicAlertController {
     static void manageScrollIndicators(View v, View upIndicator, View downIndicator) {
         if (upIndicator != null) {
             upIndicator.setVisibility(
-                    ViewCompat.canScrollVertically(v, -1) ? View.VISIBLE : View.INVISIBLE);
+                    v.canScrollVertically(-1) ? View.VISIBLE : View.INVISIBLE);
         }
         if (downIndicator != null) {
             downIndicator.setVisibility(
-                    ViewCompat.canScrollVertically(v, 1) ? View.VISIBLE : View.INVISIBLE);
+                    v.canScrollVertically(1) ? View.VISIBLE : View.INVISIBLE);
         }
     }
 
@@ -847,35 +861,45 @@ class DynamicAlertController {
         mButtonPositive = (Button) buttonPanel.findViewById(android.R.id.button1);
         mButtonPositive.setOnClickListener(mButtonHandler);
 
-        if (TextUtils.isEmpty(mButtonPositiveText)) {
+        if (TextUtils.isEmpty(mButtonPositiveText) && mButtonPositiveIcon == null) {
             mButtonPositive.setVisibility(View.GONE);
         } else {
             mButtonPositive.setText(mButtonPositiveText);
+            if (mButtonPositiveIcon != null) {
+                mButtonPositiveIcon.setBounds(0, 0, mButtonIconDimen, mButtonIconDimen);
+                mButtonPositive.setCompoundDrawables(mButtonPositiveIcon, null, null, null);
+            }
             mButtonPositive.setVisibility(View.VISIBLE);
             whichButtons = whichButtons | BIT_BUTTON_POSITIVE;
         }
 
-        mButtonNegative = (Button) buttonPanel.findViewById(android.R.id.button2);
+        mButtonNegative = buttonPanel.findViewById(android.R.id.button2);
         mButtonNegative.setOnClickListener(mButtonHandler);
 
-        if (TextUtils.isEmpty(mButtonNegativeText)) {
+        if (TextUtils.isEmpty(mButtonNegativeText) && mButtonNegativeIcon == null) {
             mButtonNegative.setVisibility(View.GONE);
         } else {
             mButtonNegative.setText(mButtonNegativeText);
+            if (mButtonNegativeIcon != null) {
+                mButtonNegativeIcon.setBounds(0, 0, mButtonIconDimen, mButtonIconDimen);
+                mButtonNegative.setCompoundDrawables(mButtonNegativeIcon, null, null, null);
+            }
             mButtonNegative.setVisibility(View.VISIBLE);
-
             whichButtons = whichButtons | BIT_BUTTON_NEGATIVE;
         }
 
         mButtonNeutral = (Button) buttonPanel.findViewById(android.R.id.button3);
         mButtonNeutral.setOnClickListener(mButtonHandler);
 
-        if (TextUtils.isEmpty(mButtonNeutralText)) {
+        if (TextUtils.isEmpty(mButtonNeutralText) && mButtonNeutralIcon == null) {
             mButtonNeutral.setVisibility(View.GONE);
         } else {
             mButtonNeutral.setText(mButtonNeutralText);
+            if (mButtonPositiveIcon != null) {
+                mButtonPositiveIcon.setBounds(0, 0, mButtonIconDimen, mButtonIconDimen);
+                mButtonPositive.setCompoundDrawables(mButtonPositiveIcon, null, null, null);
+            }
             mButtonNeutral.setVisibility(View.VISIBLE);
-
             whichButtons = whichButtons | BIT_BUTTON_NEUTRAL;
         }
 
@@ -923,8 +947,6 @@ class DynamicAlertController {
                     R.styleable.RecycleListView_paddingBottomNoButtons, -1);
             mPaddingTopNoTitle = ta.getDimensionPixelOffset(
                     R.styleable.RecycleListView_paddingTopNoTitle, -1);
-
-            ta.recycle();
         }
 
         public void setHasDecor(boolean hasTitle, boolean hasButtons) {
@@ -949,10 +971,13 @@ class DynamicAlertController {
         public View mCustomTitleView;
         public CharSequence mMessage;
         public CharSequence mPositiveButtonText;
+        public Drawable mPositiveButtonIcon;
         public DialogInterface.OnClickListener mPositiveButtonListener;
         public CharSequence mNegativeButtonText;
+        public Drawable mNegativeButtonIcon;
         public DialogInterface.OnClickListener mNegativeButtonListener;
         public CharSequence mNeutralButtonText;
+        public Drawable mNeutralButtonIcon;
         public DialogInterface.OnClickListener mNeutralButtonListener;
         public boolean mCancelable;
         public DialogInterface.OnCancelListener mOnCancelListener;
@@ -980,7 +1005,7 @@ class DynamicAlertController {
         public String mIsCheckedColumn;
         public boolean mForceInverseBackground;
         public AdapterView.OnItemSelectedListener mOnItemSelectedListener;
-        public DynamicAlertController.AlertParams.OnPrepareListViewListener mOnPrepareListViewListener;
+        public OnPrepareListViewListener mOnPrepareListViewListener;
         public boolean mRecycleOnMeasure = true;
 
         /**
@@ -1022,17 +1047,17 @@ class DynamicAlertController {
             if (mMessage != null) {
                 dialog.setMessage(mMessage);
             }
-            if (mPositiveButtonText != null) {
+            if (mPositiveButtonText != null || mPositiveButtonIcon != null) {
                 dialog.setButton(DialogInterface.BUTTON_POSITIVE, mPositiveButtonText,
-                        mPositiveButtonListener, null);
+                        mPositiveButtonListener, null, mPositiveButtonIcon);
             }
-            if (mNegativeButtonText != null) {
+            if (mNegativeButtonText != null || mNegativeButtonIcon != null) {
                 dialog.setButton(DialogInterface.BUTTON_NEGATIVE, mNegativeButtonText,
-                        mNegativeButtonListener, null);
+                        mNegativeButtonListener, null, mNegativeButtonIcon);
             }
-            if (mNeutralButtonText != null) {
+            if (mNeutralButtonText != null || mNeutralButtonIcon != null) {
                 dialog.setButton(DialogInterface.BUTTON_NEUTRAL, mNeutralButtonText,
-                        mNeutralButtonListener, null);
+                        mNeutralButtonListener, null, mNeutralButtonIcon);
             }
             // For a list, the client can either supply an array of items or an
             // adapter or a cursor
@@ -1065,8 +1090,8 @@ class DynamicAlertController {
         }
 
         private void createListView(final DynamicAlertController dialog) {
-            final DynamicAlertController.RecycleListView listView =
-                    (DynamicAlertController.RecycleListView) mInflater.inflate(dialog.mListLayout, null);
+            final RecycleListView listView =
+                    (RecycleListView) mInflater.inflate(dialog.mListLayout, null);
             final ListAdapter adapter;
 
             if (mIsMultiChoice) {
@@ -1110,6 +1135,7 @@ class DynamicAlertController {
                             return mInflater.inflate(dialog.mMultiChoiceItemLayout,
                                     parent, false);
                         }
+
                     };
                 }
             } else {
@@ -1126,7 +1152,7 @@ class DynamicAlertController {
                 } else if (mAdapter != null) {
                     adapter = mAdapter;
                 } else {
-                    adapter = new DynamicAlertController.CheckedItemAdapter(mContext, layout, android.R.id.text1, mItems);
+                    adapter = new CheckedItemAdapter(mContext, layout, android.R.id.text1, mItems);
                 }
             }
 
@@ -1179,7 +1205,7 @@ class DynamicAlertController {
 
     private static class CheckedItemAdapter extends ArrayAdapter<CharSequence> {
         public CheckedItemAdapter(Context context, int resource, int textViewResourceId,
-                                  CharSequence[] objects) {
+                CharSequence[] objects) {
             super(context, resource, textViewResourceId, objects);
         }
 

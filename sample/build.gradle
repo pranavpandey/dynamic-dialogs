@@ -41,7 +41,6 @@ android {
 
 dependencies {
     implementation project(':dynamic-dialogs')
-    implementation "com.google.android.material:material:${versions.material}"
     implementation "androidx.constraintlayout:constraintlayout:${versions.constraintlayout}"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}"
 }
