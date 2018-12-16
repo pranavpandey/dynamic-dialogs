@@ -76,6 +76,7 @@ added automatically if the view can be scrolled.
  
 ```java
 new DynamicDialog.Builder(context)
+        // Set dialog title.
         .setTitle(...)
         ...
         // Set a custom view.
@@ -86,6 +87,7 @@ new DynamicDialog.Builder(context)
         .setViewRoot(int viewRootId)
         // OR
         .setViewRoot(View viewRoot)
+        // Show the dialog.
         .show();
 ``` 
 
@@ -98,23 +100,38 @@ public CustomDialogFragment extends DynamicDialogFragment {
     
     ...
     
-    @NonNull
+    /**
+     * Override this method to customise the dynamic dialog builder before creating the dialog.
+     *
+     * @param dialogBuilder The current builder to be customised.
+     * @param savedInstanceState The saved state of the fragment to restore it later.
+     *
+     * @return The customised dynamic dialog builder.
+     */
     @Override
-    protected DynamicDialog onCustomiseDialog(@NonNull DynamicDialog alertDialog) {
-        // Customise the dialog here.
+    protected @NonNull DynamicDialog.Builder onCustomiseBuilder(
+            @NonNull DynamicDialog.Builder dialogBuilder, @Nullable Bundle savedInstanceState) {
+        // TODO: Customise the dialog here.
         ...
         
-        return alretDialog;
+        return dialogBuilder;
     }
     
-    @NonNull
-    @Override
-    protected DynamicDialog.Builder onCustomiseBuilder(
-            @NonNull DynamicDialog.Builder alertDialogBuilder) {
-        // Customise the dialog builder here.
+    /**
+     * Override this method to customise the dynamic dialog before attaching it with 
+     * this fragment.
+     *
+     * @param alertDialog The current dialog to be customised.
+     * @param savedInstanceState The saved state of the fragment to restore it later.
+     *
+     * @return The customised dynamic dialog.
+     */
+    protected @NonNull DynamicDialog onCustomiseDialog(@NonNull DynamicDialog alertDialog,
+            @Nullable Bundle savedInstanceState) {
+        // TODO: Customise the dialog builder here.
         ...
         
-        return alertDialogBuilder;
+        return alertDialog;
     }
     
     ...
@@ -135,7 +152,9 @@ dismiss it in `onPause()` method.
 ```java
 DynamicDialogFragment.newInstance().
         ...
+        // Dismiss dialog fragment on configuration changes.
         .setAutoDismiss(true)
+        // Show the dialog fragment.
         .showDialog(fragmentActivity);
 
 ```
@@ -148,9 +167,13 @@ and pass `DynamicDialog.Builder` with all the customisations. It will automatica
 ```java
 DynamicDialogFragment.newInstance().setBuilder(
         new DynamicDialog.Builder(context)
+                // Set dialog title.
                 .setTitle(...)
+                // Set dialog message.
                 .setMessage(...)
+                // Set negative button with a click listener.
                 .setNegativeButton(..., clickListener))
+        // Show the dialog fragment.
         .showDialog(fragmentActivity);
 ```
 
@@ -169,6 +192,7 @@ DynamicDialogFragment.newInstance()
         .setOnCancelListener(onCancelListener)
         // Callback when a key is pressed in this dialog fragment.
         .setOnKeyListener(onKeyListener)
+        // Show the dialog fragment.
         .showDialog(fragmentActivity);
         
 ```

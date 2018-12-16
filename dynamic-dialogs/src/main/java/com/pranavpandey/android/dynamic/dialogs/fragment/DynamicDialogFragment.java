@@ -190,13 +190,12 @@ public class DynamicDialogFragment extends AppCompatDialogFragment {
     }
 
     /**
-     * Override this method to customise the {@link #mDynamicDialogBuilder} before creating
-     * the dialog.
+     * Override this method to customise the dynamic dialog builder before creating the dialog.
      *
      * @param dialogBuilder The current builder to be customised.
      * @param savedInstanceState The saved state of the fragment to restore it later.
      *
-     * @return The customised {@link DynamicDialog.Builder}.
+     * @return The customised dynamic dialog builder.
      */
     protected @NonNull DynamicDialog.Builder onCustomiseBuilder(
             @NonNull DynamicDialog.Builder dialogBuilder, @Nullable Bundle savedInstanceState) {
@@ -204,13 +203,13 @@ public class DynamicDialogFragment extends AppCompatDialogFragment {
     }
 
     /**
-     * Override this method to customise the {@link DynamicDialog} before attaching it with
+     * Override this method to customise the dynamic dialog before attaching it with
      * this fragment.
      *
      * @param alertDialog The current dialog to be customised.
      * @param savedInstanceState The saved state of the fragment to restore it later.
      *
-     * @return The customised {@link DynamicDialog}.
+     * @return The customised dynamic dialog.
      */
     protected @NonNull DynamicDialog onCustomiseDialog(@NonNull DynamicDialog alertDialog,
             @Nullable Bundle savedInstanceState) {
