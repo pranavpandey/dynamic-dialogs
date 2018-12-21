@@ -33,7 +33,7 @@ android {
 }
 
 dependencies {
-    api "com.pranavpandey.android:dynamic-utils:${mavenVersion}"
+    api "com.pranavpandey.android:dynamic-utils:${versions.dynamic}"
     api "com.google.android.material:material:${versions.material}"
 }
 
