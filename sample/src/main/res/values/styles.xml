@@ -15,7 +15,7 @@
 	limitations under the License.
 -->
 
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light">
@@ -35,10 +35,6 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="Button">
-        <item name="android:textSize">14dp</item>
-    </style>
-
     <!-- Custom dialog theme. -->
     <style name="CustomDialogStyle" parent="Theme.AppCompat.Dialog">
         <item name="colorPrimary">@color/color_primary</item>
@@ -49,7 +45,7 @@
     </style>
 
     <!-- Custom dialog animation. -->
-    <style name="CustomDialogAnimation">
+    <style name="CustomDialogAnimation" tools:ignore="PrivateResource">
         <item name="android:windowEnterAnimation">@anim/abc_slide_in_bottom</item>
         <item name="android:windowExitAnimation">@anim/abc_slide_out_bottom</item>
     </style>

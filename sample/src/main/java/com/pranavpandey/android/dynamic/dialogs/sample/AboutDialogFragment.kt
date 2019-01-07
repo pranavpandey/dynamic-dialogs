@@ -18,14 +18,13 @@ package com.pranavpandey.android.dynamic.dialogs.sample
 
 import android.os.Build
 import android.os.Bundle
-import androidx.core.content.ContextCompat
 import android.text.Html
 import android.text.Spanned
 import android.text.method.LinkMovementMethod
-import android.util.TypedValue
 import android.view.LayoutInflater
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import com.pranavpandey.android.dynamic.dialogs.DynamicDialog
 import com.pranavpandey.android.dynamic.dialogs.fragment.DynamicDialogFragment
 import com.pranavpandey.android.dynamic.utils.DynamicLinkUtils
@@ -36,12 +35,6 @@ import com.pranavpandey.android.dynamic.utils.DynamicLinkUtils
 class AboutDialogFragment : DynamicDialogFragment() {
 
     companion object {
-
-        /**
-         * Text size for this about dialog.
-         * 15 SP
-         */
-        const val TEXT_SIZE = 15
 
         /**
          * Url to donate via PayPal.
@@ -55,7 +48,9 @@ class AboutDialogFragment : DynamicDialogFragment() {
                 "https://play.google.com/store/apps/dev?id=6608630615059087491"
 
         /**
-         * @return A new instance of AboutDialogFragment.
+         * Initialize the new instance of this fragment.
+         *
+         * @return An instance of [AboutDialogFragment].
          */
         fun newInstance(): AboutDialogFragment {
             return AboutDialogFragment()
@@ -85,7 +80,6 @@ class AboutDialogFragment : DynamicDialogFragment() {
         val message = view.findViewById<TextView>(R.id.dialog_about_text)
 
         message.text = fromHtml(getString(R.string.about_content))
-        message.setTextSize(TypedValue.COMPLEX_UNIT_SP, TEXT_SIZE.toFloat())
         message.setLineSpacing(0f, 1.2f)
         message.movementMethod = LinkMovementMethod.getInstance()
         message.setLinkTextColor(ContextCompat.getColor(context!!, R.color.color_primary))
@@ -95,8 +89,7 @@ class AboutDialogFragment : DynamicDialogFragment() {
     }
 
     /**
-     * Customise [DynamicDialog.Builder] by overriding this
-     * method.
+     * Customise [DynamicDialog.Builder] by overriding this method.
      */
     override fun onCustomiseBuilder(
             alertDialogBuilder: DynamicDialog.Builder,

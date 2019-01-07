@@ -39,212 +39,223 @@
             android:paddingBottom="@dimen/activity_margin_fab"
             android:orientation="vertical">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/gradle" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/gradle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/activity_margin"
-                android:text="@string/simple_dialogs" />
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/dialog_message"
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/gradle_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/message"
-                    style="@style/Button"
+                    android:text="@string/gradle"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toLeftOf="@+id/dialog_list" />
+                    app:layout_constraintStart_toStartOf="parent" />
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/dialog_list"
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/gradle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/list"
-                    style="@style/Button"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toRightOf="@+id/dialog_message" />
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toBottomOf="@id/gradle_title"
+                    app:layout_constraintStart_toStartOf="parent" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/activity_margin"
-                android:text="@string/choice_dialogs" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/dialog_single_choice"
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/dialogs_simple"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/single_choice"
-                    style="@style/Button"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toLeftOf="@+id/dialog_multi_choice" />
+                    android:layout_marginTop="@dimen/activity_margin"
+                    android:text="@string/simple_dialogs"
+                    app:layout_constraintTop_toBottomOf="@id/gradle"
+                    app:layout_constraintStart_toStartOf="parent" />
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/dialog_multi_choice"
+                <com.google.android.flexbox.FlexboxLayout
+                    android:id="@+id/dialogs_simple_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/dialogs_simple"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:flexWrap="wrap"
+                    app:alignItems="stretch"
+                    app:alignContent="stretch">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/dialog_message"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/message" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/dialog_list"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/list" />
+
+                </com.google.android.flexbox.FlexboxLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/dialogs_choice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/multi_choice"
-                    style="@style/Button"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toRightOf="@id/dialog_single_choice" />
+                    android:layout_marginTop="@dimen/activity_margin"
+                    android:text="@string/choice_dialogs"
+                    app:layout_constraintTop_toBottomOf="@id/dialogs_simple_content"
+                    app:layout_constraintStart_toStartOf="parent" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                <com.google.android.flexbox.FlexboxLayout
+                    android:id="@+id/dialogs_choice_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/dialogs_choice"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:flexWrap="wrap"
+                    app:alignItems="stretch"
+                    app:alignContent="stretch">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/activity_margin"
-                android:text="@string/custom_dialogs" />
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/dialog_single_choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/single_choice" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/dialog_multi_choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/multi_choice" />
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/dialog_custom_simple"
+                </com.google.android.flexbox.FlexboxLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/dialogs_custom"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/simple"
-                    style="@style/Button"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toLeftOf="@+id/dialog_custom_theme" />
+                    android:layout_marginTop="@dimen/activity_margin"
+                    android:text="@string/custom_dialogs"
+                    app:layout_constraintTop_toBottomOf="@id/dialogs_choice_content"
+                    app:layout_constraintStart_toStartOf="parent" />
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/dialog_custom_theme"
+                <com.google.android.flexbox.FlexboxLayout
+                    android:id="@+id/dialogs_custom_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/dialogs_custom"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:flexWrap="wrap"
+                    app:alignItems="stretch"
+                    app:alignContent="stretch">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/dialog_custom_simple"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/simple" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/dialog_custom_theme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/theme" />
+
+                </com.google.android.flexbox.FlexboxLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/fragments_simple"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/theme"
-                    style="@style/Button"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toRightOf="@+id/dialog_custom_simple" />
+                    android:layout_marginTop="@dimen/activity_margin"
+                    android:text="@string/simple_dialog_fragments"
+                    app:layout_constraintTop_toBottomOf="@id/dialogs_custom_content"
+                    app:layout_constraintStart_toStartOf="parent" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                <com.google.android.flexbox.FlexboxLayout
+                    android:id="@+id/fragments_simple_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/fragments_simple"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:flexWrap="wrap"
+                    app:alignItems="stretch"
+                    app:alignContent="stretch">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/activity_margin"
-                android:text="@string/simple_dialog_fragments" />
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/fragment_message"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/message" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/fragment_list"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/list" />
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/fragment_message"
+                </com.google.android.flexbox.FlexboxLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/fragments_choice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/message"
-                    style="@style/Button"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toLeftOf="@+id/fragment_list" />
+                    android:layout_marginTop="@dimen/activity_margin"
+                    android:text="@string/choice_dialog_fragments"
+                    app:layout_constraintTop_toBottomOf="@id/fragments_simple_content"
+                    app:layout_constraintStart_toStartOf="parent" />
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/fragment_list"
+                <com.google.android.flexbox.FlexboxLayout
+                    android:id="@+id/fragments_choice_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/fragments_choice"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:flexWrap="wrap"
+                    app:alignItems="stretch"
+                    app:alignContent="stretch">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/fragment_single_choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/single_choice" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/fragment_multi_choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/multi_choice" />
+
+                </com.google.android.flexbox.FlexboxLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/fragments_custom"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/list"
-                    style="@style/Button"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toRightOf="@+id/fragment_message" />
+                    android:layout_marginTop="@dimen/activity_margin"
+                    android:text="@string/custom_dialog_fragments"
+                    app:layout_constraintTop_toBottomOf="@id/fragments_choice_content"
+                    app:layout_constraintStart_toStartOf="parent" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/activity_margin"
-                android:text="@string/choice_dialog_fragments" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/fragment_single_choice"
-                    android:layout_width="wrap_content"
+                <com.google.android.flexbox.FlexboxLayout
+                    android:id="@+id/fragments_custom_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/single_choice"
-                    style="@style/Button"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toLeftOf="@+id/fragment_multi_choice" />
+                    app:layout_constraintTop_toBottomOf="@id/fragments_custom"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:flexWrap="wrap"
+                    app:alignItems="stretch"
+                    app:alignContent="stretch">
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/fragment_multi_choice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/multi_choice"
-                    style="@style/Button"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toRightOf="@id/fragment_single_choice" />
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/fragment_custom_simple"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/simple" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/fragment_custom_theme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/theme" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/activity_margin"
-                android:text="@string/custom_dialog_fragments" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/fragment_custom_simple"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/simple"
-                    style="@style/Button"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toLeftOf="@+id/fragment_custom_theme" />
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/fragment_custom_theme"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/theme"
-                    style="@style/Button"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toRightOf="@+id/fragment_custom_simple" />
+                </com.google.android.flexbox.FlexboxLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -62,7 +62,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="?attr/dialogPreferredPadding"
-                    android:paddingRight="?attr/dialogPreferredPadding" />
+                    android:paddingRight="?attr/dialogPreferredPadding"
+                    android:textAlignment="viewStart"
+                    android:gravity="start" />
 
             </androidx.core.widget.NestedScrollView>
 
@@ -89,7 +91,8 @@
 
         </LinearLayout>
 
-        <View android:id="@+id/scrollIndicatorDown"
+        <View
+            android:id="@+id/scrollIndicatorDown"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_gravity="bottom"
