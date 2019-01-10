@@ -33,62 +33,72 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Email" />
+            android:text="Email"
+            style="@style/RTLText" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="@dimen/font_size_medium"
-            android:text="support@pranavpandey.com" />
+            android:text="support@pranavpandey.com"
+            style="@style/RTLText" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/activity_margin"
-            android:text="First name" />
+            android:text="First name"
+            style="@style/RTLText" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="@dimen/font_size_medium"
-            android:text="Dynamic" />
+            android:text="Dynamic"
+            style="@style/RTLText" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/activity_margin"
-            android:text="Last name" />
+            android:text="Last name"
+            style="@style/RTLText" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="@dimen/font_size_medium"
-            android:text="Dialogs" />
+            android:text="Dialogs"
+            style="@style/RTLText" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/activity_margin"
-            android:text="User name" />
+            android:text="User name"
+            style="@style/RTLText" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="@dimen/font_size_medium"
-            android:text="dynamic-dialogs" />
+            android:text="dynamic-dialogs"
+            style="@style/RTLText" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/activity_margin"
-            android:text="Password" />
+            android:text="Password"
+            style="@style/RTLText" />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/dialog_custom_simple_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="@dimen/font_size_medium"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            style="@style/RTLText" />
 
     </LinearLayout>
 

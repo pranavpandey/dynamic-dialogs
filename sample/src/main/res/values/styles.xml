@@ -15,7 +15,9 @@
 	limitations under the License.
 -->
 
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:targetApi="jelly_bean_mr1">
 
     <!-- Application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light">
@@ -42,12 +44,21 @@
         <item name="android:background">?colorPrimary</item>
         <item name="android:windowIsFloating">true</item>
         <item name="android:windowAnimationStyle">@style/CustomDialogAnimation</item>
+        <!-- Text style to support RTL layouts. -->
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:gravity">start</item>
     </style>
 
     <!-- Custom dialog animation. -->
     <style name="CustomDialogAnimation" tools:ignore="PrivateResource">
         <item name="android:windowEnterAnimation">@anim/abc_slide_in_bottom</item>
         <item name="android:windowExitAnimation">@anim/abc_slide_out_bottom</item>
+    </style>
+
+    <!-- Text style to support RTL layouts. -->
+    <style name="RTLText">
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:gravity">start</item>
     </style>
 
 </resources>

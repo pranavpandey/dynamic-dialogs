@@ -234,8 +234,7 @@ class DynamicDialogsActivity : AppCompatActivity(), View.OnClickListener {
                     .showDialog(this)
 
             // Custom simple dialog fragment.
-            R.id.fragment_custom_simple -> CustomDialogFragment
-                    .newInstance().showDialog(this)
+            R.id.fragment_custom_simple -> CustomDialogFragment.newInstance().showDialog(this)
 
             // Custom theme dialog fragment.
             R.id.fragment_custom_theme -> DynamicDialogFragment.newInstance().setBuilder(
