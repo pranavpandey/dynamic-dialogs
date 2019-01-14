@@ -48,9 +48,9 @@ dependencies {
 ---
 
 ## Usage
-It has some improvements over `appcompat-v7` dialogs and share the same behavior and methods.
-It can be used with any UI/UX framework or library and also has built-in fragment class to display
-`DialogFragment` with ease.
+`dynamic-dialogs` is a library to display dialog and dialog fragments with ease. It has some 
+improvements over `appcompat-v7` (or AndroidX) dialogs and share the same behavior and methods 
+which can be used with any other framework or library. 
 
 > For complete reference, please read the [documentation](https://pranavpandey.github.io/dynamic-dialogs).
 
