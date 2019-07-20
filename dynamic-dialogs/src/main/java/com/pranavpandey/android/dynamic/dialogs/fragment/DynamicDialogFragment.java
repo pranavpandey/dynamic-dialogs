@@ -179,6 +179,14 @@ public class DynamicDialogFragment extends AppCompatDialogFragment {
         }
     }
 
+    @Override
+    public void onDestroyView() {
+        if (getDialog() != null && getRetainInstance()) {
+            getDialog().setDismissMessage(null);
+        }
+        super.onDestroyView();
+    }
+
     /**
      * Override this method to customise the dynamic dialog builder before creating the dialog.
      *
@@ -321,7 +329,7 @@ public class DynamicDialogFragment extends AppCompatDialogFragment {
     }
 
     /**
-     * Set a on show listener for the dialog.
+     * Set an show listener for the dialog.
      *
      * @param onShowListener The on show listener to be set.
      *
@@ -345,7 +353,7 @@ public class DynamicDialogFragment extends AppCompatDialogFragment {
     }
 
     /**
-     * Set a on dismiss listener for the dialog.
+     * Set an on dismiss listener for the dialog.
      *
      * @param onDismissListener The on dismiss listener to be set.
      *
@@ -369,7 +377,7 @@ public class DynamicDialogFragment extends AppCompatDialogFragment {
     }
 
     /**
-     * Set a on cancel listener for the dialog.
+     * Set an on cancel listener for the dialog.
      *
      * @param onCancelListener The on cancel listener to be set.
      *
@@ -393,7 +401,7 @@ public class DynamicDialogFragment extends AppCompatDialogFragment {
     }
 
     /**
-     * Set a on key listener for the dialog.
+     * Set an on key listener for the dialog.
      *
      * @param onKeyListener The on key listener to be set.
      *
@@ -411,9 +419,19 @@ public class DynamicDialogFragment extends AppCompatDialogFragment {
      * Show this dialog fragment and attach it to the supplied activity.
      *
      * @param fragmentActivity The fragment activity to attach this dialog fragment.
+     * @param tag The tag for this fragment.
+     */
+    public void showDialog(@NonNull FragmentActivity fragmentActivity, @Nullable String tag) {
+        show(fragmentActivity.getSupportFragmentManager(), tag);
+    }
+
+    /**
+     * Show this dialog fragment and attach it to the supplied activity.
+     *
+     * @param fragmentActivity The fragment activity to attach this dialog fragment.
      */
     public void showDialog(@NonNull FragmentActivity fragmentActivity) {
-        show(fragmentActivity.getSupportFragmentManager(), getClass().getName());
+        showDialog(fragmentActivity, getClass().getName());
     }
 
     /**
