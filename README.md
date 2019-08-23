@@ -6,7 +6,7 @@
 [![Build Status](https://travis-ci.org/pranavpandey/dynamic-dialogs.svg?branch=master)](https://travis-ci.org/pranavpandey/dynamic-dialogs)
 [![Download](https://api.bintray.com/packages/pranavpandey/android/dynamic-dialogs/images/download.svg)](https://bintray.com/pranavpandey/android/dynamic-dialogs/_latestVersion)
 
-A simple library to display dialogs and dialog fragments on Android 14+ (ICS or above) devices.
+A simple library to display dialogs and dialog fragments on Android 4 (API 14) and above devices.
 
 <img src="https://raw.githubusercontent.com/pranavpandey/dynamic-dialogs/master/graphics/dynamic-dialogs-preview.png">
 
@@ -208,7 +208,7 @@ various internal operations. So, its functions can also be used to perform other
 
 ## License
 
-    Copyright 2017 Pranav Pandey
+    Copyright 2019 Pranav Pandey
     Copyright 2015 The Android Open Source Project
 
     Licensed under the Apache License, Version 2.0 (the "License");

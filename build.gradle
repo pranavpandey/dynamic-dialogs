@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Pranav Pandey
+ * Copyright 2019 Pranav Pandey
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -56,8 +56,8 @@ ext {
     projectName = 'dynamic-dialogs'
     projectDesc = 'A simple library to display dialogs and dialog fragments on Android ' +
             'devices.'
-    versionDesc = 'A simple library to display dialogs and dialog fragments on Android 14+ ' +
-            '(ICS or above) devices.'
+    versionDesc = 'A simple library to display dialogs and dialog fragments on Android 4 ' +
+            '(API 14) and above devices.'
     referenceTitle = 'Dynamic Dialogs Reference'
 
     siteUrl = 'https://github.com/pranavpandey/dynamic-dialogs'
