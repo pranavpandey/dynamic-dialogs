@@ -43,7 +43,8 @@
                 android:layout_height="@dimen/add_dialog_margin_title_top"
                 android:visibility="gone" />
 
-            <View android:id="@+id/scrollIndicatorUp"
+            <View
+                android:id="@+id/scrollIndicatorUp"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_gravity="top"
