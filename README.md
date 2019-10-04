@@ -6,7 +6,7 @@
 [![Build Status](https://travis-ci.org/pranavpandey/dynamic-dialogs.svg?branch=master)](https://travis-ci.org/pranavpandey/dynamic-dialogs)
 [![Download](https://api.bintray.com/packages/pranavpandey/android/dynamic-dialogs/images/download.svg)](https://bintray.com/pranavpandey/android/dynamic-dialogs/_latestVersion)
 
-A simple library to display dialogs and dialog fragments on Android 4 (API 14) and above devices.
+A simple library to display dialogs and dialog fragments on Android 4.0 (API 14) and above devices.
 
 <img src="https://raw.githubusercontent.com/pranavpandey/dynamic-dialogs/master/graphics/dynamic-dialogs-preview.png">
 
@@ -38,7 +38,7 @@ It can be installed by adding the following dependency to your `build.gradle` fi
 ```groovy
 dependencies {
     // For AndroidX enabled projects.
-    implementation 'com.pranavpandey.android:dynamic-dialogs:2.3.0'
+    implementation 'com.pranavpandey.android:dynamic-dialogs:3.0.0'
 
     // For legacy projects.
     implementation 'com.pranavpandey.android:dynamic-dialogs:1.3.0'
