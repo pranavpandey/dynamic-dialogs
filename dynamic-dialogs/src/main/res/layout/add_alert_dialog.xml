@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <androidx.legacy.widget.Space
+            <Space
                 android:id="@+id/textSpacerNoTitle"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/add_dialog_margin_title_top"
@@ -84,7 +84,7 @@
 
             </FrameLayout>
 
-            <androidx.legacy.widget.Space
+            <Space
                 android:id="@+id/textSpacerNoButtons"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/add_dialog_margin_title_top"
