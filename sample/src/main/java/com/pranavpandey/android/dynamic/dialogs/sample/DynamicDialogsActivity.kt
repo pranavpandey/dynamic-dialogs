@@ -16,18 +16,19 @@
 
 package com.pranavpandey.android.dynamic.dialogs.sample
 
+import android.content.res.Configuration
 import android.os.Bundle
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import androidx.core.content.ContextCompat
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-
+import androidx.annotation.Nullable
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.pranavpandey.android.dynamic.dialogs.DynamicDialog
 import com.pranavpandey.android.dynamic.dialogs.fragment.DynamicDialogFragment
 import com.pranavpandey.android.dynamic.utils.DynamicColorUtils
@@ -76,6 +77,20 @@ class DynamicDialogsActivity : AppCompatActivity(), View.OnClickListener {
         findViewById<View>(R.id.fragment_multi_choice).setOnClickListener(this)
         findViewById<View>(R.id.fragment_custom_simple).setOnClickListener(this)
         findViewById<View>(R.id.fragment_custom_theme).setOnClickListener(this)
+    }
+
+    /**
+     * Fix for AppCompat 1.1.0.
+     *
+     * https://issuetracker.google.com/issues/140602653
+     */
+    override fun applyOverrideConfiguration(@Nullable overrideConfiguration: Configuration?) {
+        if (overrideConfiguration != null) {
+            val uiMode = overrideConfiguration.uiMode
+            overrideConfiguration.setTo(baseContext.resources.configuration)
+            overrideConfiguration.uiMode = uiMode
+        }
+        super.applyOverrideConfiguration(resources.configuration)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
