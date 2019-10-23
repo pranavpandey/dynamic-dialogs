@@ -33,9 +33,9 @@ android {
 }
 
 dependencies {
+    api "com.pranavpandey.android:dynamic-utils:${versions.dynamic}"
     api "androidx.fragment:fragment:${versions.fragment}"
     api "com.google.android.material:material:${versions.material}"
-    api "com.pranavpandey.android:dynamic-utils:${versions.dynamic}"
 }
 
 if (project.rootProject.file('local.properties').exists()) {
