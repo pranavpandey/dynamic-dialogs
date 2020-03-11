@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Pranav Pandey
+ * Copyright 2020 Pranav Pandey
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -105,10 +105,8 @@ public class DynamicDialogFragment extends AppCompatDialogFragment {
 
     @Override
     public @NonNull Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        if (mDynamicDialogBuilder == null) {
-            mDynamicDialogBuilder = new DynamicDialog.Builder(getContext());
-        }
-
+        mDynamicDialogBuilder = new DynamicDialog.Builder(
+                requireContext(), mDynamicDialogBuilder);
         final DynamicDialog alertDialog = onCustomiseBuilder(
                 mDynamicDialogBuilder, savedInstanceState).create();
 
@@ -218,8 +216,8 @@ public class DynamicDialogFragment extends AppCompatDialogFragment {
      * Finish the parent activity by calling {@link Activity#finish()}.
      */
     protected void finishActivity() {
-        if (getActivity() != null && !getActivity().isFinishing()) {
-            getActivity().finish();
+        if (getActivity() != null && !requireActivity().isFinishing()) {
+            requireActivity().finish();
         }
     }
 
