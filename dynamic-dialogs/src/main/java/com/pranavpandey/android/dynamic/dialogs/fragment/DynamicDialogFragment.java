@@ -32,7 +32,7 @@ import androidx.fragment.app.FragmentActivity;
 import com.pranavpandey.android.dynamic.dialogs.DynamicDialog;
 
 /**
- * Base dialog fragment to provide all the functionality of,{@link DynamicDialog} inside a
+ * Base dialog fragment to provide all the functionality of {@link DynamicDialog} inside a
  * fragment. It can be extended to customise it further by overriding the supported methods.
  *
  * @see #onCustomiseBuilder(DynamicDialog.Builder, Bundle)
