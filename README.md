@@ -10,8 +10,8 @@ A simple library to display dialogs and dialog fragments on Android 4.0 (API 14)
 
 <img src="https://raw.githubusercontent.com/pranavpandey/dynamic-dialogs/master/graphics/dynamic-dialogs-preview.png">
 
->Since v2.0.0, it uses [AndroidX](https://developer.android.com/jetpack/androidx/) so, first
-[migrate](https://developer.android.com/jetpack/androidx/migrate) your project to AndroidX.
+> Since v2.0.0, it uses [AndroidX][androidx] so, first [migrate][androidx-migrate] your
+project to AndroidX.
 
 ---
 
@@ -48,6 +48,7 @@ dependencies {
 ---
 
 ## Usage
+
 `dynamic-dialogs` is a library to display dialog and dialog fragments with ease. It has some 
 improvements over `appcompat-v7` (or AndroidX) dialogs and share the same behavior and methods 
 which can be used with any other framework or library. 
@@ -55,6 +56,7 @@ which can be used with any other framework or library.
 > For complete reference, please read the [documentation](https://pranavpandey.github.io/dynamic-dialogs).
 
 ### Setup
+
 First add `alertDialogStyle` in the base application theme to make `dynamic-dialogs` working.
 
 ```xml
@@ -69,6 +71,7 @@ First add `alertDialogStyle` in the base application theme to make `dynamic-dial
 ```
 
 ### DynamicDialog
+
 It is almost identical to the `AppCompatDialog` but provides scroll indicators at top and bottom 
 for the custom dialogs also. So, if you are using any scrollable view in your custom dialog like
 `NestedScrollView` or `RecyclerView`, it can be set as `root view` and the scroll indicators will be 
@@ -92,6 +95,7 @@ new DynamicDialog.Builder(context)
 ``` 
 
 ### DynamicDialogFragment
+
 Base dialog fragment to provide all the functionality of `DynamicDialog` inside a fragment. It can 
 be extended to customise it further by overriding the supported methods.
 
@@ -139,11 +143,13 @@ public CustomDialogFragment extends DynamicDialogFragment {
 ```
 
 #### Show dialog
+
 Show the `DynamicDialogFragment` by using `showDialog(fragmentActivity)` method.
 
->For better understanding, please check `AboutDialogFragment` in the `sample` project.
+> For better understanding, please check `AboutDialogFragment` in the `sample` project.
 
 #### Dialog state
+
 It will automatically maintain its state on configuration changes (like device rotation, etc.) 
 by calling `setRetainInstance(true)` in `onCreate()` method. If you don't want to use this feature 
 (generally, if you are displaying it in `onResume()` method) then, call `setAutoDismiss(true)` to 
@@ -160,6 +166,7 @@ DynamicDialogFragment.newInstance().
 ```
 
 #### Dialog builder
+
 To show quick `DynamicDialogFragment`, you can use its `setBuilder(DynamicDialog.Builder)` method
 and pass `DynamicDialog.Builder` with all the customisations. It will automatically wrap it in a 
 `DialogFragment` and use `showDialog(fragmentActivity)` method to display it.
@@ -178,6 +185,7 @@ DynamicDialogFragment.newInstance().setBuilder(
 ```
 
 #### Dialog callbacks
+
 As `DialogFragment` has required some extra work to get the event callbacks, it already has all the 
 listeners of `DynamicDialog.Builder` built-in so that there is no extra effort is required.
 
@@ -197,12 +205,11 @@ DynamicDialogFragment.newInstance()
         
 ```
 
->For better understanding, please check `CustomDialogFragment` in the `sample` project.
+> For better understanding, please check `CustomDialogFragment` in the `sample` project.
 
 ### Dependency
 
-It depends on the [dynamic-utils](https://github.com/pranavpandey/dynamic-utils) to perform
-various internal operations. So, its functions can also be used to perform other useful operations.
+It depends on the [dynamic-utils][dynamic-utils] to perform various internal operations.
 
 ---
 
@@ -232,3 +239,8 @@ Pranav Pandey
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+
+
+[androidx]: https://developer.android.com/jetpack/androidx
+[androidx-migrate]: https://developer.android.com/jetpack/androidx/migrate
+[dynamic-utils]: https://developer.android.com/jetpack/androidx/migrate
