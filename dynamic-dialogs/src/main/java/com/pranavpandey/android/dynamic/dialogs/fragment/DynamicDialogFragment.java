@@ -92,7 +92,7 @@ public class DynamicDialogFragment extends AppCompatDialogFragment {
      *
      * @return A instance of {@link DynamicDialogFragment}.
      */
-    public static DynamicDialogFragment newInstance() {
+    public static @NonNull DynamicDialogFragment newInstance() {
         return new DynamicDialogFragment();
     }
 

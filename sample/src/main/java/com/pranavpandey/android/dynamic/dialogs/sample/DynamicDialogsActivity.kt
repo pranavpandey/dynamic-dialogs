@@ -87,10 +87,10 @@ class DynamicDialogsActivity : AppCompatActivity(), View.OnClickListener {
     override fun applyOverrideConfiguration(@Nullable overrideConfiguration: Configuration?) {
         if (overrideConfiguration != null) {
             val uiMode = overrideConfiguration.uiMode
-            overrideConfiguration.setTo(baseContext.resources.configuration)
+            overrideConfiguration.setTo(resources.configuration)
             overrideConfiguration.uiMode = uiMode
         }
-        super.applyOverrideConfiguration(resources.configuration)
+        super.applyOverrideConfiguration(overrideConfiguration)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

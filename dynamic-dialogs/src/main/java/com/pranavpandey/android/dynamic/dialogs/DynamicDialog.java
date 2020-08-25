@@ -289,7 +289,7 @@ public class DynamicDialog extends AppCompatDialog implements DialogInterface {
     }
 
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
+    public boolean onKeyDown(int keyCode, @NonNull KeyEvent event) {
         if (mAlert.onKeyDown(keyCode, event)) {
             return true;
         }
@@ -297,7 +297,7 @@ public class DynamicDialog extends AppCompatDialog implements DialogInterface {
     }
 
     @Override
-    public boolean onKeyUp(int keyCode, KeyEvent event) {
+    public boolean onKeyUp(int keyCode, @NonNull KeyEvent event) {
         if (mAlert.onKeyUp(keyCode, event)) {
             return true;
         }
