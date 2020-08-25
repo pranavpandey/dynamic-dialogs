@@ -16,10 +16,10 @@
 
 buildscript {
     ext.versions = [
-            'compileSdk'      : 29,
+            'compileSdk'      : 30,
             'minSdk'          : 14,
-            'targetSdk'       : 29,
-            'buildTools'      : '29.0.3',
+            'targetSdk'       : 30,
+            'buildTools'      : '30.0.2',
             'constraintlayout': '2.0.0',
             'dynamic'         : '3.2.0',
             'flexbox'         : '2.0.1',
