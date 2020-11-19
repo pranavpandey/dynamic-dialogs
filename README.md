@@ -53,7 +53,7 @@ dependencies {
 improvements over `appcompat-v7` (or AndroidX) dialogs and share the same behavior and methods 
 which can be used with any other framework or library. 
 
-> For complete reference, please read the [documentation](https://pranavpandey.github.io/dynamic-dialogs).
+> For complete reference, please read the [documentation][documentation].
 
 ### Setup
 
@@ -243,4 +243,5 @@ Pranav Pandey
 
 [androidx]: https://developer.android.com/jetpack/androidx
 [androidx-migrate]: https://developer.android.com/jetpack/androidx/migrate
+[documentation]: https://pranavpandey.github.io/dynamic-dialogs
 [dynamic-utils]: https://developer.android.com/jetpack/androidx/migrate
