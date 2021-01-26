@@ -20,10 +20,10 @@
     <!-- Base dynamic dialog theme. -->
     <style name="DynamicDialog" parent="android:Widget">
         <item name="android:layout">@layout/add_alert_dialog</item>
-        <item name="listLayout">@layout/add_dialog_list</item>
-        <item name="listItemLayout">@layout/add_dialog_select_item</item>
-        <item name="multiChoiceItemLayout">@layout/add_dialog_multi_choice</item>
-        <item name="singleChoiceItemLayout">@layout/add_dialog_single_choice</item>
+        <item name="add_listLayout">@layout/add_dialog_list</item>
+        <item name="add_listItemLayout">@layout/add_dialog_select_item</item>
+        <item name="add_multiChoiceItemLayout">@layout/add_dialog_multi_choice</item>
+        <item name="add_singleChoiceItemLayout">@layout/add_dialog_single_choice</item>
     </style>
 
 </resources>

@@ -191,16 +191,23 @@ class DynamicAlertController {
         final TypedArray a = context.obtainStyledAttributes(null,
                 R.styleable.DynamicDialog, R.attr.alertDialogStyle, 0);
 
-        mAlertDialogLayout = a.getResourceId(R.styleable.DynamicDialog_android_layout, 0);
-        mButtonPanelSideLayout = a.getResourceId(R.styleable.DynamicDialog_buttonPanelSideLayout, 0);
+        mAlertDialogLayout = a.getResourceId(
+                R.styleable.DynamicDialog_android_layout, 0);
+        mButtonPanelSideLayout = a.getResourceId(
+                R.styleable.DynamicDialog_add_buttonPanelSideLayout, 0);
 
-        mListLayout = a.getResourceId(R.styleable.DynamicDialog_listLayout, 0);
-        mMultiChoiceItemLayout = a.getResourceId(R.styleable.DynamicDialog_multiChoiceItemLayout, 0);
-        mSingleChoiceItemLayout = a
-                .getResourceId(R.styleable.DynamicDialog_singleChoiceItemLayout, 0);
-        mListItemLayout = a.getResourceId(R.styleable.DynamicDialog_listItemLayout, 0);
-        mShowTitle = a.getBoolean(R.styleable.DynamicDialog_showTitle, true);
-        mButtonIconDimen = a.getDimensionPixelSize(R.styleable.DynamicDialog_buttonIconDimen, 0);
+        mListLayout = a.getResourceId(
+                R.styleable.DynamicDialog_add_listLayout, 0);
+        mMultiChoiceItemLayout = a.getResourceId(
+                R.styleable.DynamicDialog_add_multiChoiceItemLayout, 0);
+        mSingleChoiceItemLayout = a.getResourceId(
+                R.styleable.DynamicDialog_add_singleChoiceItemLayout, 0);
+        mListItemLayout = a.getResourceId(
+                R.styleable.DynamicDialog_add_listItemLayout, 0);
+        mShowTitle = a.getBoolean(
+                R.styleable.DynamicDialog_add_showTitle, true);
+        mButtonIconDimen = a.getDimensionPixelSize(
+                R.styleable.DynamicDialog_add_buttonIconDimen, 0);
 
         a.recycle();
 
@@ -944,9 +951,9 @@ class DynamicAlertController {
                     attrs, R.styleable.RecycleListView);
             try {
                 mPaddingBottomNoButtons = ta.getDimensionPixelOffset(
-                        R.styleable.RecycleListView_paddingBottomNoButtons, -1);
+                        R.styleable.RecycleListView_add_paddingBottomNoButtons, -1);
                 mPaddingTopNoTitle = ta.getDimensionPixelOffset(
-                        R.styleable.RecycleListView_paddingTopNoTitle, -1);
+                        R.styleable.RecycleListView_add_paddingTopNoTitle, -1);
             } finally {
                 ta.recycle();
             }

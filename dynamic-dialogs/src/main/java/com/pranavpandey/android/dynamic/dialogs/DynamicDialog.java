@@ -1064,7 +1064,6 @@ public class DynamicDialog extends AppCompatDialog implements DialogInterface {
             return this;
         }
 
-
         /**
          * Creates an {@link DynamicDialog} with the arguments supplied to this
          * builder.
