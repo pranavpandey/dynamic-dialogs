@@ -51,6 +51,7 @@ import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.core.view.ViewCompat;
@@ -62,6 +63,7 @@ import java.lang.ref.WeakReference;
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static androidx.annotation.RestrictTo.Scope.LIBRARY_GROUP;
 
+@SuppressWarnings("deprecation")
 @RestrictTo(LIBRARY_GROUP)
 class DynamicAlertController {
     private final Context mContext;
@@ -698,15 +700,18 @@ class DynamicAlertController {
                             }
                         });
                     } else if (mViewRoot instanceof RecyclerView) {
-                        ((RecyclerView) mViewRoot).addOnScrollListener(new RecyclerView.OnScrollListener() {
-                            @Override
-                            public void onScrollStateChanged(RecyclerView view, int scrollState) {}
+                        ((RecyclerView) mViewRoot).addOnScrollListener(
+                                new RecyclerView.OnScrollListener() {
+                                    @Override
+                                    public void onScrollStateChanged(
+                                            @NonNull RecyclerView view, int scrollState) { }
 
-                            @Override
-                            public void onScrolled(RecyclerView v, int dx, int dy) {
-                                manageScrollIndicators(v, top, bottom);
-                            }
-                        });
+                                    @Override
+                                    public void onScrolled(@NonNull RecyclerView view,
+                                            int dx, int dy) {
+                                        manageScrollIndicators(view, top, bottom);
+                                    }
+                                });
 
                         mViewRoot.post(new Runnable() {
                             @Override
