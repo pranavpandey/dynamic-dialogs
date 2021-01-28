@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.pranavpandey.android.dynamic.dialogs"},{"l":"com.pranavpandey.android.dynamic.dialogs.fragment"}]
