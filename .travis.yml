@@ -31,3 +31,4 @@ deploy:
   local-dir: dynamic-dialogs/build/docs/javadoc/release
   on:
     branch: master
+    tags: true
