@@ -57,7 +57,7 @@ ext {
             'devices.'
     versionDesc = 'A simple library to display dialogs and dialog fragments on Android 4.0 ' +
             '(API 14) and above devices.'
-    referenceTitle = 'Dynamic Dialogs Reference'
+    referenceTitle = 'Dynamic Dialogs API reference'
 
     siteUrl = 'https://github.com/pranavpandey/dynamic-dialogs'
     gitUrl = 'https://github.com/pranavpandey/dynamic-dialogs'
