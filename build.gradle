@@ -21,7 +21,7 @@ buildscript {
             'targetSdk'       : 30,
             'buildTools'      : '30.0.3',
             'constraintlayout': '2.0.4',
-            'dynamic'         : '3.4.0',
+            'dynamic'         : '3.4.1',
             'flexbox'         : '2.0.1',
             'fragment'        : '1.2.5',
             'kotlin'          : '1.4.21',
@@ -69,9 +69,9 @@ ext {
     mavenGroup = 'com.pranavpandey.android'
     mavenDir = 'com/pranavpandey/android'
     mavenInceptionYear = 2017
-    mavenVersion = '3.3.0'
-    mavenVersionCode = 26
-    sampleVersionCode = 27
+    mavenVersion = '3.3.1'
+    mavenVersionCode = 27
+    sampleVersionCode = 28
 
     developerId = 'pranavpandey'
     developerName = 'Pranav Pandey'
