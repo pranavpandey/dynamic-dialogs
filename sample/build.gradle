@@ -47,5 +47,5 @@ dependencies {
     implementation project(':dynamic-dialogs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}"
     implementation "androidx.constraintlayout:constraintlayout:${versions.constraintlayout}"
-    implementation "com.google.android:flexbox:${versions.flexbox}"
+    implementation "com.google.android.flexbox:flexbox:${versions.flexbox}"
 }
