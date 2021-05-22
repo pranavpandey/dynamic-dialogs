@@ -4,9 +4,9 @@
 
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg?)](https://www.apache.org/licenses/LICENSE-2.0.html)
 [![Build Status](https://travis-ci.org/pranavpandey/dynamic-dialogs.svg?branch=master)](https://travis-ci.org/pranavpandey/dynamic-dialogs)
-[![Download](https://api.bintray.com/packages/pranavpandey/android/dynamic-dialogs/images/download.svg)](https://bintray.com/pranavpandey/android/dynamic-dialogs/_latestVersion)
+[![Release](https://img.shields.io/maven-central/v/com.pranavpandey.android/dynamic-dialogs)](https://search.maven.org/artifact/com.pranavpandey.android/dynamic-dialogs)
 
-A simple library to display dialogs and dialog fragments on Android 4.0 (API 14) and above devices.
+A simple library to display dialogs and dialog fragments on Android 4.0 (API 14) and above.
 
 <img src="https://raw.githubusercontent.com/pranavpandey/dynamic-dialogs/master/graphics/dynamic-dialogs-preview.png">
 

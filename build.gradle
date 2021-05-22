@@ -24,17 +24,18 @@ buildscript {
             'dynamic'         : '3.4.1',
             'flexbox'         : '2.0.1',
             'fragment'        : '1.2.5',
-            'kotlin'          : '1.4.21',
+            'kotlin'          : '1.5.0',
             'material'        : '1.3.0'
     ]
 
     repositories {
-        jcenter()
+        mavenCentral()
         google()
+        jcenter()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.0-alpha05'
+        classpath 'com.android.tools.build:gradle:7.1.0-alpha01'
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.5'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
     }
@@ -42,8 +43,9 @@ buildscript {
 
 allprojects {
     repositories {
-        jcenter()
+        mavenCentral()
         google()
+        jcenter()
     }
 }
 
@@ -53,10 +55,9 @@ task clean(type: Delete) {
 
 ext {
     projectName = 'dynamic-dialogs'
-    projectDesc = 'A simple library to display dialogs and dialog fragments on Android ' +
-            'devices.'
+    projectDesc = 'A simple library to display dialogs and dialog fragments on Android.'
     versionDesc = 'A simple library to display dialogs and dialog fragments on Android 4.0 ' +
-            '(API 14) and above devices.'
+            '(API 14) and above.'
     referenceTitle = 'Dynamic Dialogs API reference'
 
     siteUrl = 'https://github.com/pranavpandey/dynamic-dialogs'
