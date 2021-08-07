@@ -20,12 +20,12 @@ buildscript {
             'minSdk'          : 14,
             'targetSdk'       : 31,
             'buildTools'      : '31.0.0',
-            'constraintlayout': '2.0.4',
+            'constraintlayout': '2.1.0',
             'dynamic'         : '4.0.1',
             'flexbox'         : '3.0.0',
             'fragment'        : '1.2.5',
-            'kotlin'          : '1.5.10',
-            'material'        : '1.4.0-rc01'
+            'kotlin'          : '1.5.21',
+            'material'        : '1.5.0-alpha01'
     ]
 
     repositories {
