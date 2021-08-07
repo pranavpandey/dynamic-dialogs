@@ -39,6 +39,12 @@
 
     <!-- Custom dialog theme. -->
     <style name="CustomDialogStyle" parent="Theme.AppCompat.Dialog">
+        <!-- Custom width for the dialog. -->
+        <item name="android:windowMinWidthMajor">@dimen/add_dialog_min_width_major</item>
+        <item name="android:windowMinWidthMinor">@dimen/add_dialog_min_width_minor</item>
+        <item name="windowMinWidthMajor">@dimen/add_dialog_min_width_major</item>
+        <item name="windowMinWidthMinor">@dimen/add_dialog_min_width_minor</item>
+        <!-- Custom colors for the dialog. -->
         <item name="colorPrimary">@color/color_primary</item>
         <item name="colorAccent">@color/color_accent</item>
         <item name="android:background">?colorPrimary</item>

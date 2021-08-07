@@ -29,12 +29,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="bottom"
-        android:layoutDirection="locale"
+        android:paddingLeft="@dimen/add_dialog_margin"
+        android:paddingStart="@dimen/add_dialog_margin"
+        android:paddingTop="@dimen/add_dialog_margin_tiny"
+        android:paddingRight="@dimen/add_dialog_margin"
+        android:paddingEnd="@dimen/add_dialog_margin"
+        android:paddingBottom="@dimen/add_dialog_margin_tiny"
         android:orientation="horizontal"
-        android:paddingBottom="4dp"
-        android:paddingLeft="12dp"
-        android:paddingRight="12dp"
-        android:paddingTop="4dp">
+        android:layoutDirection="locale">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@android:id/button3"

@@ -37,5 +37,5 @@
     android:scrollbars="vertical"
     android:textAlignment="viewStart"
     android:gravity="start"
-    app:paddingBottomNoButtons="@dimen/add_dialog_margin_list_no_buttons_button"
-    app:paddingTopNoTitle="@dimen/add_dialog_margin_list_no_title_top" />
+    app:paddingBottomNoButtons="@dimen/add_dialog_list_margin_no_buttons_button"
+    app:paddingTopNoTitle="@dimen/add_dialog_list_margin_no_title_top" />
