@@ -57,12 +57,16 @@ class DynamicDialogsActivity : AppCompatActivity(), View.OnClickListener {
         setSupportActionBar(toolbar)
 
         val fab = findViewById<FloatingActionButton>(R.id.fab)
-        fab.setColorFilter(DynamicColorUtils.getTintColor(
-                ContextCompat.getColor(this, R.color.color_accent)))
+        fab.setColorFilter(
+            DynamicColorUtils.getTintColor(
+                ContextCompat.getColor(this, R.color.color_accent)
+            )
+        )
 
         (findViewById<View>(R.id.gradle) as TextView).text = String.format(
-                getString(R.string.format_version),
-                DynamicPackageUtils.getVersionName(this))
+            getString(R.string.format_version),
+            DynamicPackageUtils.getVersionName(this)
+        )
 
         fab.setOnClickListener(this)
         findViewById<View>(R.id.dialog_message).setOnClickListener(this)
@@ -114,72 +118,98 @@ class DynamicDialogsActivity : AppCompatActivity(), View.OnClickListener {
 
             // Message dialog.
             R.id.dialog_message -> DynamicDialog.Builder(this)
-                    .setTitle(R.string.message_dialog)
-                    .setMessage(R.string.message_dialog_content)
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .show()
+                .setTitle(R.string.message_dialog)
+                .setMessage(R.string.message_dialog_content)
+                .setNegativeButton(android.R.string.cancel, null)
+                .show()
 
             // List dialog.
             R.id.dialog_list -> DynamicDialog.Builder(this)
-                    .setTitle(R.string.list_dialog)
-                    .setItems(R.array.dialog_array
-                    ) { _, i ->
-                        Toast.makeText(this@DynamicDialogsActivity,
-                                String.format(getString(
-                                        R.string.list_click_format), i + 1),
-                                Toast.LENGTH_SHORT).show()
-                    }
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .show()
+                .setTitle(R.string.list_dialog)
+                .setItems(
+                    R.array.dialog_array
+                ) { _, i ->
+                    Toast.makeText(
+                        this@DynamicDialogsActivity,
+                        String.format(
+                            getString(
+                                R.string.list_click_format
+                            ), i + 1
+                        ),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                .setNegativeButton(android.R.string.cancel, null)
+                .show()
 
             // Single choice dialog.
             R.id.dialog_single_choice -> DynamicDialog.Builder(this)
-                    .setTitle(R.string.single_choice_dialog)
-                    .setSingleChoiceItems(R.array.dialog_array, 1
-                    ) { _, i ->
-                        Toast.makeText(this@DynamicDialogsActivity,
-                                String.format(getString(
-                                        R.string.single_choice_click_format), i + 1),
-                                Toast.LENGTH_SHORT).show()
-                    }
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .show()
+                .setTitle(R.string.single_choice_dialog)
+                .setSingleChoiceItems(
+                    R.array.dialog_array, 1
+                ) { _, i ->
+                    Toast.makeText(
+                        this@DynamicDialogsActivity,
+                        String.format(
+                            getString(
+                                R.string.single_choice_click_format
+                            ), i + 1
+                        ),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                .setNegativeButton(android.R.string.cancel, null)
+                .show()
 
             // Multi choice dialog.
             R.id.dialog_multi_choice -> DynamicDialog.Builder(this)
-                    .setTitle(R.string.multi_choice_dialog)
-                    .setMultiChoiceItems(R.array.dialog_array,
-                            booleanArrayOf(true, false, true, false, true, false, true)
-                    ) { _, i, b ->
-                        Toast.makeText(this@DynamicDialogsActivity,
-                                String.format(getString(
-                                        R.string.multi_choice_click_format), i + 1,
-                                        getString(if (b)
-                                            R.string.checked
-                                        else
-                                            R.string.unchecked)),
-                                Toast.LENGTH_SHORT).show()
-                    }
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .show()
+                .setTitle(R.string.multi_choice_dialog)
+                .setMultiChoiceItems(
+                    R.array.dialog_array,
+                    booleanArrayOf(true, false, true, false, true, false, true)
+                ) { _, i, b ->
+                    Toast.makeText(
+                        this@DynamicDialogsActivity,
+                        String.format(
+                            getString(
+                                R.string.multi_choice_click_format
+                            ), i + 1,
+                            getString(
+                                if (b)
+                                    R.string.checked
+                                else
+                                    R.string.unchecked
+                            )
+                        ),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                .setNegativeButton(android.R.string.cancel, null)
+                .show()
 
             // Custom simple dialog.
             R.id.dialog_custom_simple -> {
                 val dialog = DynamicDialog.Builder(this)
-                        .setTitle(R.string.custom_simple_dialog)
-                        .setPositiveButton(android.R.string.ok, null)
-                        // Set a custom view.
-                        .setView(R.layout.dialog_custom_simple)
-                        // Set view root to automatically add scroll dividers.
-                        .setViewRoot(R.id.dialog_custom_simple_root)
-                        .create()
+                    .setTitle(R.string.custom_simple_dialog)
+                    .setPositiveButton(android.R.string.ok, null)
+                    // Set a custom view.
+                    .setView(R.layout.dialog_custom_simple)
+                    // Set view root to automatically add scroll dividers.
+                    .setViewRoot(R.id.dialog_custom_simple_root)
+                    .create()
 
                 dialog.setOnDismissListener {
                     val password = (dialog.window!!.findViewById<View>(
-                            R.id.dialog_custom_simple_edit) as EditText).text.toString()
+                        R.id.dialog_custom_simple_edit
+                    ) as EditText).text.toString()
 
-                    Toast.makeText(this@DynamicDialogsActivity, String.format(getString(
-                            R.string.format_password), password), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this@DynamicDialogsActivity, String.format(
+                            getString(
+                                R.string.format_password
+                            ), password
+                        ), Toast.LENGTH_SHORT
+                    ).show()
                 }
 
                 dialog.show()
@@ -187,77 +217,100 @@ class DynamicDialogsActivity : AppCompatActivity(), View.OnClickListener {
 
             // Custom theme dialog.
             R.id.dialog_custom_theme -> DynamicDialog.Builder(
-                    this, R.style.CustomDialogStyle)
-                    .setTitle(R.string.custom_theme_dialog)
-                    .setMessage(R.string.custom_theme_dialog_content)
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .show()
+                this, R.style.CustomDialogStyle
+            )
+                .setTitle(R.string.custom_theme_dialog)
+                .setMessage(R.string.custom_theme_dialog_content)
+                .setNegativeButton(android.R.string.cancel, null)
+                .show()
 
             // Message dialog fragment.
             R.id.fragment_message -> DynamicDialogFragment.newInstance().setBuilder(
-                    DynamicDialog.Builder(this)
-                            .setTitle(R.string.message_dialog_fragment)
-                            .setMessage(R.string.message_dialog_fragment_content)
-                            .setNegativeButton(android.R.string.cancel, null))
-                    .showDialog(this)
+                DynamicDialog.Builder(this)
+                    .setTitle(R.string.message_dialog_fragment)
+                    .setMessage(R.string.message_dialog_fragment_content)
+                    .setNegativeButton(android.R.string.cancel, null)
+            )
+                .showDialog(this)
 
             // List dialog fragment.
             R.id.fragment_list -> DynamicDialogFragment.newInstance().setBuilder(
-                    DynamicDialog.Builder(this)
-                            .setTitle(R.string.list_dialog_fragment)
-                            .setItems(R.array.dialog_array
-                            ) { _, i ->
-                                Toast.makeText(this@DynamicDialogsActivity,
-                                        String.format(getString(
-                                                R.string.list_click_format), i + 1),
-                                        Toast.LENGTH_SHORT).show()
-                            }
-                            .setNegativeButton(android.R.string.cancel, null))
-                    .showDialog(this)
+                DynamicDialog.Builder(this)
+                    .setTitle(R.string.list_dialog_fragment)
+                    .setItems(
+                        R.array.dialog_array
+                    ) { _, i ->
+                        Toast.makeText(
+                            this@DynamicDialogsActivity,
+                            String.format(
+                                getString(
+                                    R.string.list_click_format
+                                ), i + 1
+                            ),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                    .setNegativeButton(android.R.string.cancel, null))
+                .showDialog(this)
 
             // Single choice dialog fragment.
             R.id.fragment_single_choice -> DynamicDialogFragment.newInstance().setBuilder(
-                    DynamicDialog.Builder(this)
-                            .setTitle(R.string.single_choice_dialog_fragment)
-                            .setSingleChoiceItems(R.array.dialog_array, 1
-                            ) { _, i ->
-                                Toast.makeText(this@DynamicDialogsActivity,
-                                        String.format(getString(
-                                                R.string.single_choice_click_format), i + 1),
-                                        Toast.LENGTH_SHORT).show()
-                            }
-                            .setNegativeButton(android.R.string.cancel, null))
-                    .showDialog(this)
+                DynamicDialog.Builder(this)
+                    .setTitle(R.string.single_choice_dialog_fragment)
+                    .setSingleChoiceItems(
+                        R.array.dialog_array, 1
+                    ) { _, i ->
+                        Toast.makeText(
+                            this@DynamicDialogsActivity,
+                            String.format(
+                                getString(
+                                    R.string.single_choice_click_format
+                                ), i + 1
+                            ),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                    .setNegativeButton(android.R.string.cancel, null))
+                .showDialog(this)
 
             // Multi choice dialog fragment.
             R.id.fragment_multi_choice -> DynamicDialogFragment.newInstance().setBuilder(
-                    DynamicDialog.Builder(this)
-                            .setTitle(R.string.multi_choice_dialog_fragment)
-                            .setMultiChoiceItems(R.array.dialog_array,
-                                    booleanArrayOf(true, false, true, false, true, false, true)
-                            ) { _, i, b ->
-                                Toast.makeText(this@DynamicDialogsActivity,
-                                        String.format(getString(
-                                                R.string.multi_choice_click_format), i + 1,
-                                                getString(if (b)
-                                                    R.string.checked
-                                                else
-                                                    R.string.unchecked)),
-                                        Toast.LENGTH_SHORT).show()
-                            }
-                            .setNegativeButton(android.R.string.cancel, null))
-                    .showDialog(this)
+                DynamicDialog.Builder(this)
+                    .setTitle(R.string.multi_choice_dialog_fragment)
+                    .setMultiChoiceItems(
+                        R.array.dialog_array,
+                        booleanArrayOf(true, false, true, false, true, false, true)
+                    ) { _, i, b ->
+                        Toast.makeText(
+                            this@DynamicDialogsActivity,
+                            String.format(
+                                getString(
+                                    R.string.multi_choice_click_format
+                                ), i + 1,
+                                getString(
+                                    if (b)
+                                        R.string.checked
+                                    else
+                                        R.string.unchecked
+                                )
+                            ),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                    .setNegativeButton(android.R.string.cancel, null))
+                .showDialog(this)
 
             // Custom simple dialog fragment.
             R.id.fragment_custom_simple -> CustomDialogFragment.newInstance().showDialog(this)
 
             // Custom theme dialog fragment.
             R.id.fragment_custom_theme -> DynamicDialogFragment.newInstance().setBuilder(
-                    DynamicDialog.Builder(this, R.style.CustomDialogStyle)
-                            .setTitle(R.string.custom_theme_dialog_fragment)
-                            .setMessage(R.string.custom_theme_dialog_content)
-                            .setNegativeButton(android.R.string.cancel, null))
-                    .showDialog(this)
+                DynamicDialog.Builder(this, R.style.CustomDialogStyle)
+                    .setTitle(R.string.custom_theme_dialog_fragment)
+                    .setMessage(R.string.custom_theme_dialog_content)
+                    .setNegativeButton(android.R.string.cancel, null)
+            )
+                .showDialog(this)
         }
     }
 }

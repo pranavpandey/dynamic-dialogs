@@ -280,6 +280,13 @@ class DynamicAlertController {
     }
 
     /**
+     * Get the view displayed in the dialog.
+     */
+    public @Nullable View getView() {
+        return mView;
+    }
+
+    /**
      * Set the view resource to display in the dialog.
      */
     public void setView(int layoutResId) {
@@ -325,7 +332,7 @@ class DynamicAlertController {
      *
      * @param viewRoot The root view of the custom view.
      */
-    public void setViewRoot(View viewRoot) {
+    public void setViewRoot(@Nullable View viewRoot) {
         mViewRoot = viewRoot;
     }
 
@@ -566,21 +573,19 @@ class DynamicAlertController {
         }
 
         // Update scroll indicators as needed.
+        final int indicators = (hasTopPanel ? ViewCompat.SCROLL_INDICATOR_TOP : 0)
+                | (hasButtonPanel ? ViewCompat.SCROLL_INDICATOR_BOTTOM : 0);
+        final int mask = ViewCompat.SCROLL_INDICATOR_TOP | ViewCompat.SCROLL_INDICATOR_BOTTOM;
+
         if (!hasCustomPanel) {
             final View content = mListView != null ? mListView : mScrollView;
             if (content != null) {
-                final int indicators = (hasTopPanel ? ViewCompat.SCROLL_INDICATOR_TOP : 0)
-                        | (hasButtonPanel ? ViewCompat.SCROLL_INDICATOR_BOTTOM : 0);
-                setScrollIndicators(contentPanel, content, indicators,
-                        ViewCompat.SCROLL_INDICATOR_TOP | ViewCompat.SCROLL_INDICATOR_BOTTOM);
+                setScrollIndicators(contentPanel, content, indicators, mask);
             }
         } else {
             final View content = mViewRoot;
             if (content != null) {
-                final int indicators = (hasTopPanel ? ViewCompat.SCROLL_INDICATOR_TOP : 0)
-                        | (hasButtonPanel ? ViewCompat.SCROLL_INDICATOR_BOTTOM : 0);
-                setScrollIndicators(contentPanel, content, indicators,
-                        ViewCompat.SCROLL_INDICATOR_TOP | ViewCompat.SCROLL_INDICATOR_BOTTOM);
+                setScrollIndicators(contentPanel, content, indicators, mask);
             }
         }
 

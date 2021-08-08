@@ -41,35 +41,39 @@ class CustomDialogFragment : DynamicDialogFragment() {
     }
 
     /**
-     * Customise [DynamicDialog] by overriding this method.
-     */
-    override fun onCustomiseDialog(alertDialog: DynamicDialog,
-                                   savedInstanceState: Bundle?): DynamicDialog {
-        // Set on dismiss listener using dialog fragment method.
-        onDismissListener = DialogInterface.OnDismissListener {
-            val password = (alertDialog.window!!.findViewById<View>(
-                    R.id.dialog_custom_simple_edit) as EditText).text.toString()
-
-            Toast.makeText(context, String.format(getString(
-                    R.string.format_password), password), Toast.LENGTH_SHORT).show()
-        }
-
-        return alertDialog
-    }
-
-
-    /**
-     * Customise [DynamicDialog.Builder] by overriding this
-     * method.
+     * Customise [DynamicDialog.Builder] by overriding this method.
      */
     override fun onCustomiseBuilder(
-            alertDialogBuilder: DynamicDialog.Builder,
-            savedInstanceState: Bundle?): DynamicDialog.Builder {
+        alertDialogBuilder: DynamicDialog.Builder,
+        savedInstanceState: Bundle?
+    ): DynamicDialog.Builder {
         return alertDialogBuilder.setTitle(R.string.custom_simple_dialog_fragment)
-                .setPositiveButton(android.R.string.ok, null)
-                // Set a custom view.
-                .setView(R.layout.dialog_custom_simple)
-                // Set view root to automatically add scroll dividers.
-                .setViewRoot(R.id.dialog_custom_simple_root)
+            .setPositiveButton(android.R.string.ok, null)
+            // Set custom view for the dialog.
+            .setView(R.layout.dialog_custom_simple)
+            // Set view root to automatically add scroll dividers.
+            .setViewRoot(R.id.dialog_custom_simple_root)
+    }
+
+    override fun onCustomiseDialog(
+        alertDialog: DynamicDialog,
+        view: View?, savedInstanceState: Bundle?
+    ) {
+        super.onCustomiseDialog(alertDialog, view, savedInstanceState)
+
+        // Set on dismiss listener by using dthe ialog fragment method.
+        onDismissListener = DialogInterface.OnDismissListener {
+            val password = (alertDialog.window!!.findViewById<View>(
+                R.id.dialog_custom_simple_edit
+            ) as EditText).text.toString()
+
+            Toast.makeText(
+                context, String.format(
+                    getString(
+                        R.string.format_password
+                    ), password
+                ), Toast.LENGTH_SHORT
+            ).show()
+        }
     }
 }

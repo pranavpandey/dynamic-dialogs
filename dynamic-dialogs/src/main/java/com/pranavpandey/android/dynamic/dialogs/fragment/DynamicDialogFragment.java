@@ -16,11 +16,14 @@
 
 package com.pranavpandey.android.dynamic.dialogs.fragment;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.View;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
@@ -30,13 +33,14 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 import androidx.fragment.app.FragmentActivity;
 
 import com.pranavpandey.android.dynamic.dialogs.DynamicDialog;
+import com.pranavpandey.android.dynamic.utils.DynamicSdkUtils;
 
 /**
  * Base dialog fragment to provide all the functionality of {@link DynamicDialog} inside a
  * fragment. It can be extended to customise it further by overriding the supported methods.
  *
  * @see #onCustomiseBuilder(DynamicDialog.Builder, Bundle)
- * @see #onCustomiseBuilder(DynamicDialog.Builder, Bundle)
+ * @see #onCustomiseDialog(DynamicDialog, View, Bundle)
  */
 public class DynamicDialogFragment extends AppCompatDialogFragment {
 
@@ -90,7 +94,7 @@ public class DynamicDialogFragment extends AppCompatDialogFragment {
     /**
      * Initialize the new instance of this fragment.
      *
-     * @return A instance of {@link DynamicDialogFragment}.
+     * @return An instance of {@link DynamicDialogFragment}.
      */
     public static @NonNull DynamicDialogFragment newInstance() {
         return new DynamicDialogFragment();
@@ -148,7 +152,50 @@ public class DynamicDialogFragment extends AppCompatDialogFragment {
             }
         });
 
+        onCustomiseDialog(alertDialog, alertDialog.getView(), savedInstanceState);
         return onCustomiseDialog(alertDialog, savedInstanceState);
+    }
+
+    /**
+     * Override this method to customise the dynamic dialog builder before creating the dialog.
+     *
+     * @param dialogBuilder The current builder to be customised.
+     * @param savedInstanceState The saved state of the fragment to restore it later.
+     *
+     * @return The customised dynamic dialog builder.
+     */
+    protected @NonNull DynamicDialog.Builder onCustomiseBuilder(
+            @NonNull DynamicDialog.Builder dialogBuilder, @Nullable Bundle savedInstanceState) {
+        return dialogBuilder;
+    }
+
+    /**
+     * Override this method to customise the dynamic dialog before attaching it with
+     * this fragment.
+     *
+     * @param alertDialog The current dialog to be customised.
+     * @param view The view used by the dialog.
+     * @param savedInstanceState The saved state of the fragment to restore it later.
+     */
+    protected void onCustomiseDialog(@NonNull DynamicDialog alertDialog,
+            @Nullable View view, @Nullable Bundle savedInstanceState) {
+    }
+
+    /**
+     * Override this method to customise the dynamic dialog before attaching it with
+     * this fragment.
+     *
+     * @param alertDialog The current dialog to be customised.
+     * @param savedInstanceState The saved state of the fragment to restore it later.
+     *
+     * @return The customised dynamic dialog.
+     *
+     * @deprecated Use {@link #onCustomiseDialog(DynamicDialog, View, Bundle)} for better
+     *             customization.
+     */
+    protected @NonNull DynamicDialog onCustomiseDialog(@NonNull DynamicDialog alertDialog,
+            @Nullable Bundle savedInstanceState) {
+        return alertDialog;
     }
 
     @Override
@@ -183,42 +230,6 @@ public class DynamicDialogFragment extends AppCompatDialogFragment {
             getDialog().setDismissMessage(null);
         }
         super.onDestroyView();
-    }
-
-    /**
-     * Override this method to customise the dynamic dialog builder before creating the dialog.
-     *
-     * @param dialogBuilder The current builder to be customised.
-     * @param savedInstanceState The saved state of the fragment to restore it later.
-     *
-     * @return The customised dynamic dialog builder.
-     */
-    protected @NonNull DynamicDialog.Builder onCustomiseBuilder(
-            @NonNull DynamicDialog.Builder dialogBuilder, @Nullable Bundle savedInstanceState) {
-        return dialogBuilder;
-    }
-
-    /**
-     * Override this method to customise the dynamic dialog before attaching it with
-     * this fragment.
-     *
-     * @param alertDialog The current dialog to be customised.
-     * @param savedInstanceState The saved state of the fragment to restore it later.
-     *
-     * @return The customised dynamic dialog.
-     */
-    protected @NonNull DynamicDialog onCustomiseDialog(@NonNull DynamicDialog alertDialog,
-            @Nullable Bundle savedInstanceState) {
-        return alertDialog;
-    }
-
-    /**
-     * Finish the parent activity by calling {@link Activity#finish()}.
-     */
-    protected void finishActivity() {
-        if (getActivity() != null && !requireActivity().isFinishing()) {
-            requireActivity().finish();
-        }
     }
 
     /**
@@ -455,5 +466,23 @@ public class DynamicDialogFragment extends AppCompatDialogFragment {
      */
     public @Nullable DynamicDialog getDynamicDialog() {
         return (DynamicDialog) getDialog();
+    }
+
+    /**
+     * Finish the parent activity by calling {@link Activity#finish()}.
+     *
+     * @see FragmentActivity#supportFinishAfterTransition()
+     */
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    protected void finishActivity() {
+        if (getActivity() != null && !requireActivity().isFinishing()) {
+            if (DynamicSdkUtils.is21()
+                    && (requireActivity().getWindow().getSharedElementEnterTransition() != null
+                    || requireActivity().getWindow().getSharedElementReturnTransition() != null)) {
+                requireActivity().supportFinishAfterTransition();
+            } else {
+                requireActivity().finish();
+            }
+        }
     }
 }
