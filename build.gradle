@@ -70,10 +70,10 @@ ext {
     mavenArtifactId = 'dynamic-dialogs'
     mavenGroup = 'com.pranavpandey.android'
     mavenDir = 'com/pranavpandey/android'
-    mavenInceptionYear = 2017
-    mavenVersion = '4.0.0'
-    mavenVersionCode = 28
-    sampleVersionCode = 29
+    mavenInceptionYear = '2017'
+    mavenVersion = '4.1.0'
+    mavenVersionCode = 29
+    sampleVersionCode = 30
 
     developerId = 'pranavpandey'
     developerName = 'Pranav Pandey'

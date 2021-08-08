@@ -12,6 +12,8 @@ A simple library to display dialogs and dialog fragments on Android 4.0 (API 14)
 
 > Since v2.0.0, it uses [AndroidX][androidx] so, first [migrate][androidx-migrate] your
 project to AndroidX.
+<br/>Since v4.1.0, it is dependent on Java 8 due to the dependency on
+[Dynamic Utils](https://github.com/pranavpandey/dynamic-utils).
 
 ---
 
@@ -38,7 +40,7 @@ It can be installed by adding the following dependency to your `build.gradle` fi
 ```groovy
 dependencies {
     // For AndroidX enabled projects.
-    implementation 'com.pranavpandey.android:dynamic-dialogs:4.0.0'
+    implementation 'com.pranavpandey.android:dynamic-dialogs:4.1.0'
 
     // For legacy projects.
     implementation 'com.pranavpandey.android:dynamic-dialogs:1.3.0'
