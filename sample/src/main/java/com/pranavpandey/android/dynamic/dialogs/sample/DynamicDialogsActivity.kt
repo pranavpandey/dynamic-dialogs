@@ -31,9 +31,9 @@ import androidx.core.content.ContextCompat
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.pranavpandey.android.dynamic.dialogs.DynamicDialog
 import com.pranavpandey.android.dynamic.dialogs.fragment.DynamicDialogFragment
-import com.pranavpandey.android.dynamic.utils.DynamicColorUtils
-import com.pranavpandey.android.dynamic.utils.DynamicLinkUtils
-import com.pranavpandey.android.dynamic.utils.DynamicPackageUtils
+import com.pranavpandey.android.dynamic.util.DynamicColorUtils
+import com.pranavpandey.android.dynamic.util.DynamicLinkUtils
+import com.pranavpandey.android.dynamic.util.DynamicPackageUtils
 
 /**
  * Main activity to show the implementation of [DynamicDialog].

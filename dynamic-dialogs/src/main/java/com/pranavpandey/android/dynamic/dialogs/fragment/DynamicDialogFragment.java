@@ -33,7 +33,7 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 import androidx.fragment.app.FragmentActivity;
 
 import com.pranavpandey.android.dynamic.dialogs.DynamicDialog;
-import com.pranavpandey.android.dynamic.utils.DynamicSdkUtils;
+import com.pranavpandey.android.dynamic.util.DynamicSdkUtils;
 
 /**
  * Base dialog fragment to provide all the functionality of {@link DynamicDialog} inside a
