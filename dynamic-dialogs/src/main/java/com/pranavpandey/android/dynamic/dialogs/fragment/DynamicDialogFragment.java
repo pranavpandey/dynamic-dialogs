@@ -238,7 +238,7 @@ public class DynamicDialogFragment extends AppCompatDialogFragment {
      * @return The {@link DynamicDialogFragment} object to allow for chaining of calls to
      *         set methods.
      */
-    public DynamicDialogFragment setButtonColor(@ColorInt int buttonColor) {
+    public @NonNull DynamicDialogFragment setButtonColor(@ColorInt int buttonColor) {
         this.mButtonColor = buttonColor;
 
         return this;
@@ -262,7 +262,7 @@ public class DynamicDialogFragment extends AppCompatDialogFragment {
      * @return The {@link DynamicDialogFragment} object to allow for chaining of calls to
      *         set methods.
      */
-    public DynamicDialogFragment setIsCancelable(boolean cancelable) {
+    public @NonNull DynamicDialogFragment setIsCancelable(boolean cancelable) {
         this.mIsCancelable = cancelable;
         setCancelable(cancelable);
 
@@ -287,7 +287,7 @@ public class DynamicDialogFragment extends AppCompatDialogFragment {
      * @return The {@link DynamicDialogFragment} object to allow for chaining of calls to
      *         set methods.
      */
-    public DynamicDialogFragment setAutoDismiss(boolean autoDismiss) {
+    public @NonNull DynamicDialogFragment setAutoDismiss(boolean autoDismiss) {
         this.mAutoDismiss = autoDismiss;
 
         return this;
@@ -310,7 +310,7 @@ public class DynamicDialogFragment extends AppCompatDialogFragment {
      * @return The {@link DynamicDialogFragment} object to allow for chaining of calls to
      *         set methods.
      */
-    public DynamicDialogFragment setBuilder(
+    public @NonNull DynamicDialogFragment setBuilder(
             @NonNull DynamicDialog.Builder dynamicAlertDialogBuilder) {
         this.mDynamicDialogBuilder = dynamicAlertDialogBuilder;
 
@@ -334,7 +334,7 @@ public class DynamicDialogFragment extends AppCompatDialogFragment {
      * @return The {@link DynamicDialogFragment} object to allow for chaining of calls to
      *         set methods.
      */
-    public DynamicDialogFragment setOnShowListener(
+    public @NonNull DynamicDialogFragment setOnShowListener(
             @Nullable DynamicDialog.OnShowListener onShowListener) {
         this.mOnShowListener = onShowListener;
 
@@ -358,7 +358,7 @@ public class DynamicDialogFragment extends AppCompatDialogFragment {
      * @return The {@link DynamicDialogFragment} object to allow for chaining of calls to
      *         set methods.
      */
-    public DynamicDialogFragment setOnDismissListener(
+    public @NonNull DynamicDialogFragment setOnDismissListener(
             @Nullable DynamicDialog.OnDismissListener onDismissListener) {
         this.mOnDismissListener = onDismissListener;
 
@@ -382,7 +382,7 @@ public class DynamicDialogFragment extends AppCompatDialogFragment {
      * @return The {@link DynamicDialogFragment} object to allow for chaining of calls to
      *         set methods.
      */
-    public DynamicDialogFragment setOnCancelListener(
+    public @NonNull DynamicDialogFragment setOnCancelListener(
             @Nullable DynamicDialog.OnCancelListener onCancelListener) {
         this.mOnCancelListener = onCancelListener;
 
@@ -406,7 +406,7 @@ public class DynamicDialogFragment extends AppCompatDialogFragment {
      * @return The {@link DynamicDialogFragment} object to allow for chaining of calls to
      *         set methods.
      */
-    public DynamicDialogFragment setOnKeyListener(
+    public @NonNull DynamicDialogFragment setOnKeyListener(
             @Nullable DynamicDialog.OnKeyListener onKeyListener) {
         this.mOnKeyListener = onKeyListener;
 
@@ -420,6 +420,22 @@ public class DynamicDialogFragment extends AppCompatDialogFragment {
      * @param tag The tag for this fragment.
      */
     public void showDialog(@NonNull FragmentActivity fragmentActivity, @Nullable String tag) {
+        if (fragmentActivity.getSupportFragmentManager().isDestroyed()) {
+            return;
+        }
+
+        if (fragmentActivity.getSupportFragmentManager().findFragmentByTag(tag)
+                instanceof AppCompatDialogFragment) {
+            try {
+                final AppCompatDialogFragment fragment;
+                if ((fragment = (AppCompatDialogFragment) fragmentActivity
+                        .getSupportFragmentManager().findFragmentByTag(tag)) != null) {
+                    fragment.dismiss();
+                }
+            } catch (Exception ignored) {
+            }
+        }
+
         show(fragmentActivity.getSupportFragmentManager(), tag);
     }
 
