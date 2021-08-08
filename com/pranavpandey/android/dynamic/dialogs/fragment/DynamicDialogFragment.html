@@ -27,8 +27,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":9,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10};
-var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":9,"i11":10,"i12":10,"i13":10,"i14":10,"i15":42,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -157,7 +157,7 @@ extends androidx.appcompat.app.AppCompatDialogFragment</pre>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="#onCustomiseBuilder(com.pranavpandey.android.dynamic.dialogs.DynamicDialog.Builder,android.os.Bundle)"><code>onCustomiseBuilder(DynamicDialog.Builder, Bundle)</code></a>, 
-<a href="#onCustomiseBuilder(com.pranavpandey.android.dynamic.dialogs.DynamicDialog.Builder,android.os.Bundle)"><code>onCustomiseBuilder(DynamicDialog.Builder, Bundle)</code></a></dd>
+<a href="#onCustomiseDialog(com.pranavpandey.android.dynamic.dialogs.DynamicDialog,android.view.View,android.os.Bundle)"><code>onCustomiseDialog(DynamicDialog, View, Bundle)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -243,7 +243,7 @@ extends androidx.appcompat.app.AppCompatDialogFragment</pre>
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t6" class="tableTab"><span><a href="javascript:show(32);">Deprecated Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
@@ -354,89 +354,101 @@ extends androidx.appcompat.app.AppCompatDialogFragment</pre>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onCustomiseDialog(com.pranavpandey.android.dynamic.dialogs.DynamicDialog,android.os.Bundle)">onCustomiseDialog</a></span>&#8203;(<a href="../DynamicDialog.html" title="class in com.pranavpandey.android.dynamic.dialogs">DynamicDialog</a>&nbsp;alertDialog,
                  <a href="https://developer.android.com/reference/android/os/Bundle.html?is-external=true" title="class or interface in android.os" class="externalLink">Bundle</a>&nbsp;savedInstanceState)</code></th>
 <td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">Use <a href="#onCustomiseDialog(com.pranavpandey.android.dynamic.dialogs.DynamicDialog,android.view.View,android.os.Bundle)"><code>onCustomiseDialog(DynamicDialog, View, Bundle)</code></a> for better
+             customization.</div>
+</div>
+</td>
+</tr>
+<tr id="i16" class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onCustomiseDialog(com.pranavpandey.android.dynamic.dialogs.DynamicDialog,android.view.View,android.os.Bundle)">onCustomiseDialog</a></span>&#8203;(<a href="../DynamicDialog.html" title="class in com.pranavpandey.android.dynamic.dialogs">DynamicDialog</a>&nbsp;alertDialog,
+                 <a href="https://developer.android.com/reference/android/view/View.html?is-external=true" title="class or interface in android.view" class="externalLink">View</a>&nbsp;view,
+                 <a href="https://developer.android.com/reference/android/os/Bundle.html?is-external=true" title="class or interface in android.os" class="externalLink">Bundle</a>&nbsp;savedInstanceState)</code></th>
+<td class="colLast">
 <div class="block">Override this method to customise the dynamic dialog before attaching it with
  this fragment.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onDestroyView()">onDestroyView</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onDismiss(android.content.DialogInterface)">onDismiss</a></span>&#8203;(<a href="https://developer.android.com/reference/android/content/DialogInterface.html?is-external=true" title="class or interface in android.content" class="externalLink">DialogInterface</a>&nbsp;dialog)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onPause()">onPause</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code><a href="DynamicDialogFragment.html" title="class in com.pranavpandey.android.dynamic.dialogs.fragment">DynamicDialogFragment</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setAutoDismiss(boolean)">setAutoDismiss</a></span>&#8203;(boolean&nbsp;autoDismiss)</code></th>
 <td class="colLast">
 <div class="block">Control whether the dialog is auto dismissible.</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code><a href="DynamicDialogFragment.html" title="class in com.pranavpandey.android.dynamic.dialogs.fragment">DynamicDialogFragment</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setBuilder(com.pranavpandey.android.dynamic.dialogs.DynamicDialog.Builder)">setBuilder</a></span>&#8203;(<a href="../DynamicDialog.Builder.html" title="class in com.pranavpandey.android.dynamic.dialogs">DynamicDialog.Builder</a>&nbsp;dynamicAlertDialogBuilder)</code></th>
 <td class="colLast">
 <div class="block">Sets a dynamic dialog builder for this dialog fragment.</div>
 </td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code><a href="DynamicDialogFragment.html" title="class in com.pranavpandey.android.dynamic.dialogs.fragment">DynamicDialogFragment</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setButtonColor(int)">setButtonColor</a></span>&#8203;(int&nbsp;buttonColor)</code></th>
 <td class="colLast">
 <div class="block">Set the button color for the dialog.</div>
 </td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code><a href="DynamicDialogFragment.html" title="class in com.pranavpandey.android.dynamic.dialogs.fragment">DynamicDialogFragment</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setIsCancelable(boolean)">setIsCancelable</a></span>&#8203;(boolean&nbsp;cancelable)</code></th>
 <td class="colLast">
 <div class="block">Control whether the dialog is cancelable.</div>
 </td>
 </tr>
-<tr id="i23" class="rowColor">
+<tr id="i24" class="altColor">
 <td class="colFirst"><code><a href="DynamicDialogFragment.html" title="class in com.pranavpandey.android.dynamic.dialogs.fragment">DynamicDialogFragment</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setOnCancelListener(android.content.DialogInterface.OnCancelListener)">setOnCancelListener</a></span>&#8203;(<a href="https://developer.android.com/reference/android/content/DialogInterface.OnCancelListener.html?is-external=true" title="class or interface in android.content" class="externalLink">DialogInterface.OnCancelListener</a>&nbsp;onCancelListener)</code></th>
 <td class="colLast">
 <div class="block">Set an on cancel listener for the dialog.</div>
 </td>
 </tr>
-<tr id="i24" class="altColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code><a href="DynamicDialogFragment.html" title="class in com.pranavpandey.android.dynamic.dialogs.fragment">DynamicDialogFragment</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setOnDismissListener(android.content.DialogInterface.OnDismissListener)">setOnDismissListener</a></span>&#8203;(<a href="https://developer.android.com/reference/android/content/DialogInterface.OnDismissListener.html?is-external=true" title="class or interface in android.content" class="externalLink">DialogInterface.OnDismissListener</a>&nbsp;onDismissListener)</code></th>
 <td class="colLast">
 <div class="block">Set an on dismiss listener for the dialog.</div>
 </td>
 </tr>
-<tr id="i25" class="rowColor">
+<tr id="i26" class="altColor">
 <td class="colFirst"><code><a href="DynamicDialogFragment.html" title="class in com.pranavpandey.android.dynamic.dialogs.fragment">DynamicDialogFragment</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setOnKeyListener(android.content.DialogInterface.OnKeyListener)">setOnKeyListener</a></span>&#8203;(<a href="https://developer.android.com/reference/android/content/DialogInterface.OnKeyListener.html?is-external=true" title="class or interface in android.content" class="externalLink">DialogInterface.OnKeyListener</a>&nbsp;onKeyListener)</code></th>
 <td class="colLast">
 <div class="block">Set an on key listener for the dialog.</div>
 </td>
 </tr>
-<tr id="i26" class="altColor">
+<tr id="i27" class="rowColor">
 <td class="colFirst"><code><a href="DynamicDialogFragment.html" title="class in com.pranavpandey.android.dynamic.dialogs.fragment">DynamicDialogFragment</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setOnShowListener(android.content.DialogInterface.OnShowListener)">setOnShowListener</a></span>&#8203;(<a href="https://developer.android.com/reference/android/content/DialogInterface.OnShowListener.html?is-external=true" title="class or interface in android.content" class="externalLink">DialogInterface.OnShowListener</a>&nbsp;onShowListener)</code></th>
 <td class="colLast">
 <div class="block">Set an show listener for the dialog.</div>
 </td>
 </tr>
-<tr id="i27" class="rowColor">
+<tr id="i28" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#showDialog(androidx.fragment.app.FragmentActivity)">showDialog</a></span>&#8203;(androidx.fragment.app.FragmentActivity&nbsp;fragmentActivity)</code></th>
 <td class="colLast">
 <div class="block">Show this dialog fragment and attach it to the supplied activity.</div>
 </td>
 </tr>
-<tr id="i28" class="altColor">
+<tr id="i29" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#showDialog(androidx.fragment.app.FragmentActivity,java.lang.String)">showDialog</a></span>&#8203;(androidx.fragment.app.FragmentActivity&nbsp;fragmentActivity,
           java.lang.String&nbsp;tag)</code></th>
@@ -543,7 +555,7 @@ public static&nbsp;<a href="DynamicDialogFragment.html" title="class in com.pran
 <div class="block">Initialize the new instance of this fragment.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>A instance of <a href="DynamicDialogFragment.html" title="class in com.pranavpandey.android.dynamic.dialogs.fragment"><code>DynamicDialogFragment</code></a>.</dd>
+<dd>An instance of <a href="DynamicDialogFragment.html" title="class in com.pranavpandey.android.dynamic.dialogs.fragment"><code>DynamicDialogFragment</code></a>.</dd>
 </dl>
 </li>
 </ul>
@@ -573,6 +585,75 @@ public&nbsp;<a href="https://developer.android.com/reference/android/app/Dialog.
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code>onCreateDialog</code>&nbsp;in class&nbsp;<code>androidx.appcompat.app.AppCompatDialogFragment</code></dd>
+</dl>
+</li>
+</ul>
+<a id="onCustomiseBuilder(com.pranavpandey.android.dynamic.dialogs.DynamicDialog.Builder,android.os.Bundle)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>onCustomiseBuilder</h4>
+<pre class="methodSignature">@NonNull
+protected&nbsp;<a href="../DynamicDialog.Builder.html" title="class in com.pranavpandey.android.dynamic.dialogs">DynamicDialog.Builder</a>&nbsp;onCustomiseBuilder&#8203;(@NonNull
+                                                   <a href="../DynamicDialog.Builder.html" title="class in com.pranavpandey.android.dynamic.dialogs">DynamicDialog.Builder</a>&nbsp;dialogBuilder,
+                                                   @Nullable
+                                                   <a href="https://developer.android.com/reference/android/os/Bundle.html?is-external=true" title="class or interface in android.os" class="externalLink">Bundle</a>&nbsp;savedInstanceState)</pre>
+<div class="block">Override this method to customise the dynamic dialog builder before creating the dialog.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>dialogBuilder</code> - The current builder to be customised.</dd>
+<dd><code>savedInstanceState</code> - The saved state of the fragment to restore it later.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The customised dynamic dialog builder.</dd>
+</dl>
+</li>
+</ul>
+<a id="onCustomiseDialog(com.pranavpandey.android.dynamic.dialogs.DynamicDialog,android.view.View,android.os.Bundle)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>onCustomiseDialog</h4>
+<pre class="methodSignature">protected&nbsp;void&nbsp;onCustomiseDialog&#8203;(@NonNull
+                                 <a href="../DynamicDialog.html" title="class in com.pranavpandey.android.dynamic.dialogs">DynamicDialog</a>&nbsp;alertDialog,
+                                 @Nullable
+                                 <a href="https://developer.android.com/reference/android/view/View.html?is-external=true" title="class or interface in android.view" class="externalLink">View</a>&nbsp;view,
+                                 @Nullable
+                                 <a href="https://developer.android.com/reference/android/os/Bundle.html?is-external=true" title="class or interface in android.os" class="externalLink">Bundle</a>&nbsp;savedInstanceState)</pre>
+<div class="block">Override this method to customise the dynamic dialog before attaching it with
+ this fragment.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>alertDialog</code> - The current dialog to be customised.</dd>
+<dd><code>view</code> - The view used by the dialog.</dd>
+<dd><code>savedInstanceState</code> - The saved state of the fragment to restore it later.</dd>
+</dl>
+</li>
+</ul>
+<a id="onCustomiseDialog(com.pranavpandey.android.dynamic.dialogs.DynamicDialog,android.os.Bundle)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>onCustomiseDialog</h4>
+<pre class="methodSignature">@NonNull
+protected&nbsp;<a href="../DynamicDialog.html" title="class in com.pranavpandey.android.dynamic.dialogs">DynamicDialog</a>&nbsp;onCustomiseDialog&#8203;(@NonNull
+                                          <a href="../DynamicDialog.html" title="class in com.pranavpandey.android.dynamic.dialogs">DynamicDialog</a>&nbsp;alertDialog,
+                                          @Nullable
+                                          <a href="https://developer.android.com/reference/android/os/Bundle.html?is-external=true" title="class or interface in android.os" class="externalLink">Bundle</a>&nbsp;savedInstanceState)</pre>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">Use <a href="#onCustomiseDialog(com.pranavpandey.android.dynamic.dialogs.DynamicDialog,android.view.View,android.os.Bundle)"><code>onCustomiseDialog(DynamicDialog, View, Bundle)</code></a> for better
+             customization.</div>
+</div>
+<div class="block">Override this method to customise the dynamic dialog before attaching it with
+ this fragment.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>alertDialog</code> - The current dialog to be customised.</dd>
+<dd><code>savedInstanceState</code> - The saved state of the fragment to restore it later.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The customised dynamic dialog.</dd>
 </dl>
 </li>
 </ul>
@@ -634,59 +715,6 @@ public&nbsp;<a href="https://developer.android.com/reference/android/app/Dialog.
 </dl>
 </li>
 </ul>
-<a id="onCustomiseBuilder(com.pranavpandey.android.dynamic.dialogs.DynamicDialog.Builder,android.os.Bundle)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>onCustomiseBuilder</h4>
-<pre class="methodSignature">@NonNull
-protected&nbsp;<a href="../DynamicDialog.Builder.html" title="class in com.pranavpandey.android.dynamic.dialogs">DynamicDialog.Builder</a>&nbsp;onCustomiseBuilder&#8203;(@NonNull
-                                                   <a href="../DynamicDialog.Builder.html" title="class in com.pranavpandey.android.dynamic.dialogs">DynamicDialog.Builder</a>&nbsp;dialogBuilder,
-                                                   @Nullable
-                                                   <a href="https://developer.android.com/reference/android/os/Bundle.html?is-external=true" title="class or interface in android.os" class="externalLink">Bundle</a>&nbsp;savedInstanceState)</pre>
-<div class="block">Override this method to customise the dynamic dialog builder before creating the dialog.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>dialogBuilder</code> - The current builder to be customised.</dd>
-<dd><code>savedInstanceState</code> - The saved state of the fragment to restore it later.</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>The customised dynamic dialog builder.</dd>
-</dl>
-</li>
-</ul>
-<a id="onCustomiseDialog(com.pranavpandey.android.dynamic.dialogs.DynamicDialog,android.os.Bundle)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>onCustomiseDialog</h4>
-<pre class="methodSignature">@NonNull
-protected&nbsp;<a href="../DynamicDialog.html" title="class in com.pranavpandey.android.dynamic.dialogs">DynamicDialog</a>&nbsp;onCustomiseDialog&#8203;(@NonNull
-                                          <a href="../DynamicDialog.html" title="class in com.pranavpandey.android.dynamic.dialogs">DynamicDialog</a>&nbsp;alertDialog,
-                                          @Nullable
-                                          <a href="https://developer.android.com/reference/android/os/Bundle.html?is-external=true" title="class or interface in android.os" class="externalLink">Bundle</a>&nbsp;savedInstanceState)</pre>
-<div class="block">Override this method to customise the dynamic dialog before attaching it with
- this fragment.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>alertDialog</code> - The current dialog to be customised.</dd>
-<dd><code>savedInstanceState</code> - The saved state of the fragment to restore it later.</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>The customised dynamic dialog.</dd>
-</dl>
-</li>
-</ul>
-<a id="finishActivity()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>finishActivity</h4>
-<pre class="methodSignature">protected&nbsp;void&nbsp;finishActivity()</pre>
-<div class="block">Finish the parent activity by calling <a href="https://developer.android.com/reference/android/app/Activity.html?is-external=true#finish()" title="class or interface in android.app" class="externalLink"><code>Activity.finish()</code></a>.</div>
-</li>
-</ul>
 <a id="getButtonColor()">
 <!--   -->
 </a>
@@ -708,7 +736,8 @@ public&nbsp;int&nbsp;getButtonColor()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>setButtonColor</h4>
-<pre class="methodSignature">public&nbsp;<a href="DynamicDialogFragment.html" title="class in com.pranavpandey.android.dynamic.dialogs.fragment">DynamicDialogFragment</a>&nbsp;setButtonColor&#8203;(@ColorInt
+<pre class="methodSignature">@NonNull
+public&nbsp;<a href="DynamicDialogFragment.html" title="class in com.pranavpandey.android.dynamic.dialogs.fragment">DynamicDialogFragment</a>&nbsp;setButtonColor&#8203;(@ColorInt
                                             int&nbsp;buttonColor)</pre>
 <div class="block">Set the button color for the dialog.</div>
 <dl>
@@ -743,7 +772,8 @@ public&nbsp;int&nbsp;getButtonColor()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>setIsCancelable</h4>
-<pre class="methodSignature">public&nbsp;<a href="DynamicDialogFragment.html" title="class in com.pranavpandey.android.dynamic.dialogs.fragment">DynamicDialogFragment</a>&nbsp;setIsCancelable&#8203;(boolean&nbsp;cancelable)</pre>
+<pre class="methodSignature">@NonNull
+public&nbsp;<a href="DynamicDialogFragment.html" title="class in com.pranavpandey.android.dynamic.dialogs.fragment">DynamicDialogFragment</a>&nbsp;setIsCancelable&#8203;(boolean&nbsp;cancelable)</pre>
 <div class="block">Control whether the dialog is cancelable.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -775,7 +805,8 @@ public&nbsp;int&nbsp;getButtonColor()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>setAutoDismiss</h4>
-<pre class="methodSignature">public&nbsp;<a href="DynamicDialogFragment.html" title="class in com.pranavpandey.android.dynamic.dialogs.fragment">DynamicDialogFragment</a>&nbsp;setAutoDismiss&#8203;(boolean&nbsp;autoDismiss)</pre>
+<pre class="methodSignature">@NonNull
+public&nbsp;<a href="DynamicDialogFragment.html" title="class in com.pranavpandey.android.dynamic.dialogs.fragment">DynamicDialogFragment</a>&nbsp;setAutoDismiss&#8203;(boolean&nbsp;autoDismiss)</pre>
 <div class="block">Control whether the dialog is auto dismissible.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -807,7 +838,8 @@ protected&nbsp;<a href="../DynamicDialog.Builder.html" title="class in com.prana
 <ul class="blockList">
 <li class="blockList">
 <h4>setBuilder</h4>
-<pre class="methodSignature">public&nbsp;<a href="DynamicDialogFragment.html" title="class in com.pranavpandey.android.dynamic.dialogs.fragment">DynamicDialogFragment</a>&nbsp;setBuilder&#8203;(@NonNull
+<pre class="methodSignature">@NonNull
+public&nbsp;<a href="DynamicDialogFragment.html" title="class in com.pranavpandey.android.dynamic.dialogs.fragment">DynamicDialogFragment</a>&nbsp;setBuilder&#8203;(@NonNull
                                         <a href="../DynamicDialog.Builder.html" title="class in com.pranavpandey.android.dynamic.dialogs">DynamicDialog.Builder</a>&nbsp;dynamicAlertDialogBuilder)</pre>
 <div class="block">Sets a dynamic dialog builder for this dialog fragment.</div>
 <dl>
@@ -840,7 +872,8 @@ protected&nbsp;<a href="https://developer.android.com/reference/android/content/
 <ul class="blockList">
 <li class="blockList">
 <h4>setOnShowListener</h4>
-<pre class="methodSignature">public&nbsp;<a href="DynamicDialogFragment.html" title="class in com.pranavpandey.android.dynamic.dialogs.fragment">DynamicDialogFragment</a>&nbsp;setOnShowListener&#8203;(@Nullable
+<pre class="methodSignature">@NonNull
+public&nbsp;<a href="DynamicDialogFragment.html" title="class in com.pranavpandey.android.dynamic.dialogs.fragment">DynamicDialogFragment</a>&nbsp;setOnShowListener&#8203;(@Nullable
                                                <a href="https://developer.android.com/reference/android/content/DialogInterface.OnShowListener.html?is-external=true" title="class or interface in android.content" class="externalLink">DialogInterface.OnShowListener</a>&nbsp;onShowListener)</pre>
 <div class="block">Set an show listener for the dialog.</div>
 <dl>
@@ -873,7 +906,8 @@ protected&nbsp;<a href="https://developer.android.com/reference/android/content/
 <ul class="blockList">
 <li class="blockList">
 <h4>setOnDismissListener</h4>
-<pre class="methodSignature">public&nbsp;<a href="DynamicDialogFragment.html" title="class in com.pranavpandey.android.dynamic.dialogs.fragment">DynamicDialogFragment</a>&nbsp;setOnDismissListener&#8203;(@Nullable
+<pre class="methodSignature">@NonNull
+public&nbsp;<a href="DynamicDialogFragment.html" title="class in com.pranavpandey.android.dynamic.dialogs.fragment">DynamicDialogFragment</a>&nbsp;setOnDismissListener&#8203;(@Nullable
                                                   <a href="https://developer.android.com/reference/android/content/DialogInterface.OnDismissListener.html?is-external=true" title="class or interface in android.content" class="externalLink">DialogInterface.OnDismissListener</a>&nbsp;onDismissListener)</pre>
 <div class="block">Set an on dismiss listener for the dialog.</div>
 <dl>
@@ -906,7 +940,8 @@ protected&nbsp;<a href="https://developer.android.com/reference/android/content/
 <ul class="blockList">
 <li class="blockList">
 <h4>setOnCancelListener</h4>
-<pre class="methodSignature">public&nbsp;<a href="DynamicDialogFragment.html" title="class in com.pranavpandey.android.dynamic.dialogs.fragment">DynamicDialogFragment</a>&nbsp;setOnCancelListener&#8203;(@Nullable
+<pre class="methodSignature">@NonNull
+public&nbsp;<a href="DynamicDialogFragment.html" title="class in com.pranavpandey.android.dynamic.dialogs.fragment">DynamicDialogFragment</a>&nbsp;setOnCancelListener&#8203;(@Nullable
                                                  <a href="https://developer.android.com/reference/android/content/DialogInterface.OnCancelListener.html?is-external=true" title="class or interface in android.content" class="externalLink">DialogInterface.OnCancelListener</a>&nbsp;onCancelListener)</pre>
 <div class="block">Set an on cancel listener for the dialog.</div>
 <dl>
@@ -939,7 +974,8 @@ protected&nbsp;<a href="https://developer.android.com/reference/android/content/
 <ul class="blockList">
 <li class="blockList">
 <h4>setOnKeyListener</h4>
-<pre class="methodSignature">public&nbsp;<a href="DynamicDialogFragment.html" title="class in com.pranavpandey.android.dynamic.dialogs.fragment">DynamicDialogFragment</a>&nbsp;setOnKeyListener&#8203;(@Nullable
+<pre class="methodSignature">@NonNull
+public&nbsp;<a href="DynamicDialogFragment.html" title="class in com.pranavpandey.android.dynamic.dialogs.fragment">DynamicDialogFragment</a>&nbsp;setOnKeyListener&#8203;(@Nullable
                                               <a href="https://developer.android.com/reference/android/content/DialogInterface.OnKeyListener.html?is-external=true" title="class or interface in android.content" class="externalLink">DialogInterface.OnKeyListener</a>&nbsp;onKeyListener)</pre>
 <div class="block">Set an on key listener for the dialog.</div>
 <dl>
@@ -987,7 +1023,7 @@ protected&nbsp;<a href="https://developer.android.com/reference/android/content/
 <a id="getDynamicDialog()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getDynamicDialog</h4>
 <pre class="methodSignature">@Nullable
@@ -996,6 +1032,20 @@ public&nbsp;<a href="../DynamicDialog.html" title="class in com.pranavpandey.and
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The <a href="../DynamicDialog.html" title="class in com.pranavpandey.android.dynamic.dialogs"><code>DynamicDialog</code></a> shown by this fragment.</dd>
+</dl>
+</li>
+</ul>
+<a id="finishActivity()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>finishActivity</h4>
+<pre class="methodSignature">protected&nbsp;void&nbsp;finishActivity()</pre>
+<div class="block">Finish the parent activity by calling <a href="https://developer.android.com/reference/android/app/Activity.html?is-external=true#finish()" title="class or interface in android.app" class="externalLink"><code>Activity.finish()</code></a>.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><code>FragmentActivity.supportFinishAfterTransition()</code></dd>
 </dl>
 </li>
 </ul>
@@ -1027,7 +1077,7 @@ public&nbsp;<a href="../DynamicDialog.html" title="class in com.pranavpandey.and
 <li><a href="../../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><h5>4.0.0</h5></div>
+<div class="aboutLanguage"><h5>null</h5></div>
 </div>
 <div class="subNav">
 <ul class="navList" id="allclasses_navbar_bottom">
