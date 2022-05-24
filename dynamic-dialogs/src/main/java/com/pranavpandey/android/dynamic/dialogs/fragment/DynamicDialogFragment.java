@@ -20,8 +20,10 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.KeyEvent;
 import android.view.View;
 
@@ -42,7 +44,8 @@ import com.pranavpandey.android.dynamic.util.DynamicSdkUtils;
  * @see #onCustomiseBuilder(DynamicDialog.Builder, Bundle)
  * @see #onCustomiseDialog(DynamicDialog, View, Bundle)
  */
-public class DynamicDialogFragment extends AppCompatDialogFragment {
+public class DynamicDialogFragment extends AppCompatDialogFragment
+        implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     /**
      * Default button color. it will be used internally if there is no button color is applied.
@@ -82,7 +85,7 @@ public class DynamicDialogFragment extends AppCompatDialogFragment {
     private boolean mAutoDismiss = false;
 
     /**
-     * Dialog builder to customise this fragment according to the need.
+     * Dialog builder to customise this fragment according to the requirements.
      */
     private DynamicDialog.Builder mDynamicDialogBuilder;
 
@@ -228,8 +231,33 @@ public class DynamicDialogFragment extends AppCompatDialogFragment {
         return alertDialog;
     }
 
+    /**
+     * Returns whether to register a shared preferences listener for this fragment.
+     *
+     * @return {@code true} to register a {@link SharedPreferences.OnSharedPreferenceChangeListener}
+     *         to receive preference change callback.
+     */
+    public boolean isOnSharedPreferenceChangeListener() {
+        return false;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        if (isOnSharedPreferenceChangeListener() && getContext() != null) {
+            PreferenceManager.getDefaultSharedPreferences(requireContext())
+                    .registerOnSharedPreferenceChangeListener(this);
+        }
+    }
+
     @Override
     public void onPause() {
+        if (isOnSharedPreferenceChangeListener() && getContext() != null) {
+            PreferenceManager.getDefaultSharedPreferences(requireContext())
+                    .unregisterOnSharedPreferenceChangeListener(this);
+        }
+
         if (mAutoDismiss) {
             dismiss();
         }
@@ -406,7 +434,7 @@ public class DynamicDialogFragment extends AppCompatDialogFragment {
     /**
      * The dynamic dialog builder set for this fragment.
      *
-     * @return The dialog builder to customise this fragment according to the need.
+     * @return The dialog builder to customise this fragment according to the requirements.
      */
     protected @Nullable DynamicDialog.Builder getBuilder() {
         return mDynamicDialogBuilder;
@@ -584,4 +612,7 @@ public class DynamicDialogFragment extends AppCompatDialogFragment {
             }
         }
     }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) { }
 }
