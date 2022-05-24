@@ -17,6 +17,9 @@
 
 <resources>
 
+    <!-- The dynamic dialog style. -->
+    <attr name="add_alertDialogStyle" format="reference" />
+
     <!-- The set of attributes that describe a DynamicDialog's theme. -->
     <declare-styleable name="DynamicDialog">
         <attr name="android:layout" />

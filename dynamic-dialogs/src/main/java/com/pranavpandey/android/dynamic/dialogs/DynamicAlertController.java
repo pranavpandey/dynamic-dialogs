@@ -191,7 +191,7 @@ class DynamicAlertController {
         mHandler = new ButtonHandler(di);
 
         final TypedArray a = context.obtainStyledAttributes(null,
-                R.styleable.DynamicDialog, R.attr.alertDialogStyle, 0);
+                R.styleable.DynamicDialog, R.attr.add_alertDialogStyle, 0);
 
         mAlertDialogLayout = a.getResourceId(
                 R.styleable.DynamicDialog_android_layout, 0);
