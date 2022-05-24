@@ -55,6 +55,21 @@ public class DynamicDialogFragment extends AppCompatDialogFragment {
     private @ColorInt int mButtonColor = ADS_DEFAULT_BUTTON_COLOR;
 
     /**
+     * Positive button text used by the dialog.
+     */
+    private CharSequence mPositiveButtonText;
+
+    /**
+     * Negative button text used by the dialog.
+     */
+    private CharSequence mNegativeButtonText;
+
+    /**
+     * Neutral button text used by the dialog.
+     */
+    private CharSequence mNeutralButtonText;
+
+    /**
      * {@code true} to make the dialog cancelable.
      * <p>The default value is {@code true}.
      */
@@ -121,16 +136,31 @@ public class DynamicDialogFragment extends AppCompatDialogFragment {
                     if (alertDialog.getButton(AlertDialog.BUTTON_POSITIVE) != null) {
                         alertDialog.getButton(AlertDialog.BUTTON_POSITIVE)
                                 .setTextColor(mButtonColor);
+
+                        if (mPositiveButtonText != null) {
+                            alertDialog.getButton(AlertDialog.BUTTON_POSITIVE)
+                                    .setText(mPositiveButtonText);
+                        }
                     }
 
                     if (alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE) != null) {
                         alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE)
                                 .setTextColor(mButtonColor);
+
+                        if (mPositiveButtonText != null) {
+                            alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE)
+                                    .setText(mNegativeButtonText);
+                        }
                     }
 
                     if (alertDialog.getButton(AlertDialog.BUTTON_NEUTRAL) != null) {
                         alertDialog.getButton(AlertDialog.BUTTON_NEUTRAL)
                                 .setTextColor(mButtonColor);
+
+                        if (mPositiveButtonText != null) {
+                            alertDialog.getButton(AlertDialog.BUTTON_NEUTRAL)
+                                    .setText(mNeutralButtonText);
+                        }
                     }
                 }
 
@@ -233,9 +263,9 @@ public class DynamicDialogFragment extends AppCompatDialogFragment {
     }
 
     /**
-     * Get the button color for the dialog.
+     * Get the button color set for the dialog.
      *
-     * @return The button color used by this dialog fragment.
+     * @return The button color set for the dialog.
      */
     public @ColorInt int getButtonColor() {
         return mButtonColor;
@@ -251,6 +281,75 @@ public class DynamicDialogFragment extends AppCompatDialogFragment {
      */
     public @NonNull DynamicDialogFragment setButtonColor(@ColorInt int buttonColor) {
         this.mButtonColor = buttonColor;
+
+        return this;
+    }
+
+    /**
+     * Get the positive button text set for the dialog.
+     *
+     * @return The positive button text set for the dialog.
+     */
+    public @Nullable CharSequence getPositiveButtonText() {
+        return mPositiveButtonText;
+    }
+
+    /**
+     * Set the positive button text set for the dialog.
+     *
+     * @param text The positive button text to be set.
+     *
+     * @return The {@link DynamicDialogFragment} object to allow for chaining of calls to
+     *         set methods.
+     */
+    public @NonNull DynamicDialogFragment setPositiveButtonText(@Nullable CharSequence text) {
+        this.mPositiveButtonText = text;
+
+        return this;
+    }
+
+    /**
+     * Get the negative button text set for the dialog.
+     *
+     * @return The negative button text set for the dialog.
+     */
+    public @Nullable CharSequence getNegativeButtonText() {
+        return mNegativeButtonText;
+    }
+
+    /**
+     * Set the negative button text set for the dialog.
+     *
+     * @param text The negative button text to be set.
+     *
+     * @return The {@link DynamicDialogFragment} object to allow for chaining of calls to
+     *         set methods.
+     */
+    public @NonNull DynamicDialogFragment setNegativeButtonText(@Nullable CharSequence text) {
+        this.mNegativeButtonText = text;
+
+        return this;
+    }
+
+    /**
+     * Get the neutral button text set for the dialog.
+     *
+     * @return The neutral button text set for the dialog.
+     */
+    public @Nullable CharSequence getNeutralButtonText() {
+        return mNeutralButtonText;
+    }
+
+    /**
+     * Set the neutral button text set for the dialog.
+     *
+     * @param text The neutral button text to be set.
+     *
+     * @return The {@link DynamicDialogFragment} object to allow for chaining of calls to
+     *         set methods.
+     */
+    public @NonNull DynamicDialogFragment setNeutralButtonText(@Nullable CharSequence text) {
+        this.mNeutralButtonText = text;
 
         return this;
     }
