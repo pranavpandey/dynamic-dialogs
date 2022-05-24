@@ -211,7 +211,8 @@ DynamicDialogFragment.newInstance()
 
 ### Dependency
 
-It depends on the [dynamic-utils][dynamic-utils] to perform various internal operations.
+It depends on the [dynamic-utils][dynamic-utils] to perform various internal operations. So, its 
+functions can also be used to perform other useful operations.
 
 ---
 
