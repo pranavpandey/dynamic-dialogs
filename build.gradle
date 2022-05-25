@@ -71,9 +71,9 @@ ext {
     mavenGroup = 'com.pranavpandey.android'
     mavenDir = 'com/pranavpandey/android'
     mavenInceptionYear = '2017'
-    mavenVersion = '4.2.0'
-    mavenVersionCode = 30
-    sampleVersionCode = 31
+    mavenVersion = '4.2.1'
+    mavenVersionCode = 31
+    sampleVersionCode = 32
 
     developerId = 'pranavpandey'
     developerName = 'Pranav Pandey'
