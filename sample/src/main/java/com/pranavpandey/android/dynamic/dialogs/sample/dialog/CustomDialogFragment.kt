@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.pranavpandey.android.dynamic.dialogs.sample
+package com.pranavpandey.android.dynamic.dialogs.sample.dialog
 
 import android.content.DialogInterface
 import android.os.Bundle
@@ -24,6 +24,7 @@ import android.widget.Toast
 
 import com.pranavpandey.android.dynamic.dialogs.DynamicDialog
 import com.pranavpandey.android.dynamic.dialogs.fragment.DynamicDialogFragment
+import com.pranavpandey.android.dynamic.dialogs.sample.R
 
 /**
  * Example of a custom [DynamicDialogFragment].
@@ -61,7 +62,7 @@ class CustomDialogFragment : DynamicDialogFragment() {
     ) {
         super.onCustomiseDialog(alertDialog, view, savedInstanceState)
 
-        // Set on dismiss listener by using dthe ialog fragment method.
+        // Set on dismiss listener by using the dialog fragment method.
         onDismissListener = DialogInterface.OnDismissListener {
             val password = (alertDialog.window!!.findViewById<View>(
                 R.id.dialog_custom_simple_edit

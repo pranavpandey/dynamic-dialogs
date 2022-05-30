@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.pranavpandey.android.dynamic.dialogs.sample
+package com.pranavpandey.android.dynamic.dialogs.sample.dialog
 
 import android.os.Build
 import android.os.Bundle
@@ -28,6 +28,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.pranavpandey.android.dynamic.dialogs.DynamicDialog
 import com.pranavpandey.android.dynamic.dialogs.fragment.DynamicDialogFragment
+import com.pranavpandey.android.dynamic.dialogs.sample.R
 import com.pranavpandey.android.dynamic.util.DynamicLinkUtils
 
 /**
@@ -97,6 +98,8 @@ class AboutDialogFragment : DynamicDialogFragment() {
         alertDialog: DynamicDialog,
         view: View?, savedInstanceState: Bundle?
     ) {
+        super.onCustomiseDialog(alertDialog, view, savedInstanceState)
+
         // Customise the custom view.
         val message = view?.findViewById<TextView>(R.id.dialog_about_text)
 

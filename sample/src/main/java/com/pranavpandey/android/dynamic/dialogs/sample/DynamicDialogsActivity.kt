@@ -24,13 +24,14 @@ import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.annotation.Nullable
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.pranavpandey.android.dynamic.dialogs.DynamicDialog
 import com.pranavpandey.android.dynamic.dialogs.fragment.DynamicDialogFragment
+import com.pranavpandey.android.dynamic.dialogs.sample.dialog.AboutDialogFragment
+import com.pranavpandey.android.dynamic.dialogs.sample.dialog.CustomDialogFragment
 import com.pranavpandey.android.dynamic.util.DynamicColorUtils
 import com.pranavpandey.android.dynamic.util.DynamicLinkUtils
 import com.pranavpandey.android.dynamic.util.DynamicPackageUtils
@@ -88,7 +89,7 @@ class DynamicDialogsActivity : AppCompatActivity(), View.OnClickListener {
      *
      * https://issuetracker.google.com/issues/140602653
      */
-    override fun applyOverrideConfiguration(@Nullable overrideConfiguration: Configuration?) {
+    override fun applyOverrideConfiguration(overrideConfiguration: Configuration?) {
         if (overrideConfiguration != null) {
             val uiMode = overrideConfiguration.uiMode
             overrideConfiguration.setTo(resources.configuration)

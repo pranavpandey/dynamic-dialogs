@@ -49,7 +49,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_weight="1.0"
-            android:visibility="invisible"/>
+            android:visibility="invisible" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@android:id/button2"
