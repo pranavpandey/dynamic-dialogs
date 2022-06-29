@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/pranavpandey/dynamic-dialogs/master/graphics/dynamic-dialogs.png" width="160" height="160" align="right" hspace="20">
+<img src="./graphics/icon.png" width="160" height="160" align="right" hspace="20">
 
 # Dynamic Dialogs
 
@@ -8,7 +8,7 @@
 
 A simple library to display dialogs and dialog fragments on Android 4.0 (API 14) and above.
 
-<img src="https://raw.githubusercontent.com/pranavpandey/dynamic-dialogs/master/graphics/dynamic-dialogs-preview.png">
+<img src="./graphics/preview.png">
 
 > Since v2.0.0, it uses [AndroidX][androidx] so, first [migrate][androidx-migrate] your
 project to AndroidX.
