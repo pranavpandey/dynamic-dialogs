@@ -19,17 +19,17 @@ project to AndroidX.
 
 ## Contents
 
-- [Installation](https://github.com/pranavpandey/dynamic-dialogs#installation)
-- [Usage](https://github.com/pranavpandey/dynamic-dialogs#usage)
-    - [Setup](https://github.com/pranavpandey/dynamic-dialogs#setup)
-    - [DynamicDialog](https://github.com/pranavpandey/dynamic-dialogs#dynamicdialog)
-    - [DynamicDialogFragment](https://github.com/pranavpandey/dynamic-dialogs#dynamicdialogfragment)
-        - [Show dialog](https://github.com/pranavpandey/dynamic-dialogs#show-dialog)
-        - [Dialog state](https://github.com/pranavpandey/dynamic-dialogs#dialog-state)
-        - [Dialog builder](https://github.com/pranavpandey/dynamic-dialogs#dialog-builder)
-        - [Dialog callbacks](https://github.com/pranavpandey/dynamic-dialogs#dialog-callbacks)
-    - [Dependency](https://github.com/pranavpandey/dynamic-dialogs#dependency)
-- [License](https://github.com/pranavpandey/dynamic-dialogs#license)
+- [Installation](#installation)
+- [Usage](#usage)
+    - [Setup](#setup)
+    - [DynamicDialog](#dynamicdialog)
+    - [DynamicDialogFragment](#dynamicdialogfragment)
+        - [Show dialog](#show-dialog)
+        - [Dialog state](#dialog-state)
+        - [Dialog builder](#dialog-builder)
+        - [Dialog callbacks](#dialog-callbacks)
+    - [Dependency](#dependency)
+- [License](#license)
 
 ---
 
