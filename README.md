@@ -40,7 +40,7 @@ It can be installed by adding the following dependency to your `build.gradle` fi
 ```groovy
 dependencies {
     // For AndroidX enabled projects.
-    implementation 'com.pranavpandey.android:dynamic-dialogs:4.3.1'
+    implementation 'com.pranavpandey.android:dynamic-dialogs:4.3.2'
 
     // For legacy projects.
     implementation 'com.pranavpandey.android:dynamic-dialogs:1.3.0'
@@ -228,7 +228,7 @@ Pranav Pandey
 
 ## License
 
-    Copyright 2017-2022 Pranav Pandey
+    Copyright 2017-2023 Pranav Pandey
     Copyright 2015 The Android Open Source Project
 
     Licensed under the Apache License, Version 2.0 (the "License");
