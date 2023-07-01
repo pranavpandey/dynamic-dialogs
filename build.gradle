@@ -71,13 +71,13 @@ ext {
     mavenGroup = 'com.pranavpandey.android'
     mavenDir = 'com/pranavpandey/android'
     mavenInceptionYear = '2017'
-    mavenVersion = '4.3.2'
-    mavenVersionCode = 34
-    sampleVersionCode = 35
+    mavenVersion = '4.4.0'
+    mavenVersionCode = 35
+    sampleVersionCode = 36
 
     developerId = 'pranavpandey'
     developerName = 'Pranav Pandey'
-    developerEmail = 'pranavpande92@gmail.com'
+    developerEmail = 'dynamic@pranavpandey.com'
 
     licenseName = 'The Apache Software License, Version 2.0'
     licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
