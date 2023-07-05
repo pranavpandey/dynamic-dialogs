@@ -25,7 +25,7 @@ buildscript {
             'flexbox'         : '3.0.0',
             'fragment'        : '1.5.6',
             'kotlin'          : '1.8.22',
-            'material'        : '1.10.0-alpha05'
+            'material'        : '1.11.0-alpha01'
     ]
 
     repositories {
