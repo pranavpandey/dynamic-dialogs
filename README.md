@@ -14,6 +14,7 @@ A simple library to display dialogs and dialog fragments on Android 4.0 (API 14)
 project to AndroidX.
 <br/>Since v4.1.0, it is dependent on Java 8 due to the dependency on
 [Dynamic Utils](https://github.com/pranavpandey/dynamic-utils).
+<br/>Since v4.4.1, it is targeting Java 17 to provide maximum compatibility.
 
 ---
 
