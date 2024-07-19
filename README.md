@@ -229,7 +229,7 @@ Pranav Pandey
 
 ## License
 
-    Copyright 2017-2023 Pranav Pandey
+    Copyright 2017-2024 Pranav Pandey
     Copyright 2015 The Android Open Source Project
 
     Licensed under the Apache License, Version 2.0 (the "License");
