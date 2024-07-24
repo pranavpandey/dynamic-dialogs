@@ -36,6 +36,8 @@ import androidx.fragment.app.FragmentActivity;
 
 import com.pranavpandey.android.dynamic.dialogs.DynamicDialog;
 import com.pranavpandey.android.dynamic.util.DynamicSdkUtils;
+import com.pranavpandey.android.dynamic.util.product.DynamicFlavor;
+import com.pranavpandey.android.dynamic.util.product.DynamicProductFlavor;
 
 /**
  * Base dialog fragment to provide all the functionality of {@link DynamicDialog} inside a
@@ -45,7 +47,7 @@ import com.pranavpandey.android.dynamic.util.DynamicSdkUtils;
  * @see #onCustomiseDialog(DynamicDialog, View, Bundle)
  */
 public class DynamicDialogFragment extends AppCompatDialogFragment
-        implements SharedPreferences.OnSharedPreferenceChangeListener {
+        implements DynamicProductFlavor, SharedPreferences.OnSharedPreferenceChangeListener {
 
     /**
      * Default button color. it will be used internally if there is no button color is applied.
@@ -229,6 +231,11 @@ public class DynamicDialogFragment extends AppCompatDialogFragment
     protected @NonNull DynamicDialog onCustomiseDialog(@NonNull DynamicDialog alertDialog,
             @Nullable Bundle savedInstanceState) {
         return alertDialog;
+    }
+
+    @Override
+    public @DynamicFlavor String getProductFlavor() {
+        return DynamicFlavor.DEFAULT;
     }
 
     /**
