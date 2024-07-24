@@ -40,7 +40,7 @@ buildscript {
 }
 
 plugins {
-    id("io.github.gradle-nexus.publish-plugin") version "1.1.0"
+    id("io.github.gradle-nexus.publish-plugin") version "2.0.0"
 }
 
 allprojects {
@@ -71,9 +71,9 @@ ext {
     mavenGroup = 'com.pranavpandey.android'
     mavenDir = 'com/pranavpandey/android'
     mavenInceptionYear = '2017'
-    mavenVersion = '4.4.1'
-    mavenVersionCode = 36
-    sampleVersionCode = 37
+    mavenVersion = '4.5.0'
+    mavenVersionCode = 37
+    sampleVersionCode = 38
 
     developerId = 'pranavpandey'
     developerName = 'Pranav Pandey'
