@@ -1,4 +1,4 @@
-<img src="./graphics/icon.png" width="160" height="160" align="right" hspace="20">
+<img src="./graphics/icon.png" height="160">
 
 # Dynamic Dialogs
 
@@ -6,16 +6,17 @@
 [![Build Status](https://travis-ci.org/pranavpandey/dynamic-dialogs.svg?branch=master)](https://travis-ci.org/pranavpandey/dynamic-dialogs)
 [![Release](https://img.shields.io/maven-central/v/com.pranavpandey.android/dynamic-dialogs)](https://search.maven.org/artifact/com.pranavpandey.android/dynamic-dialogs)
 
-A simple library to display dialogs and dialog fragments on Android 4.0 (API 14) and above.
+**A simple library to display dialogs and dialog fragments on Android 4.0 (API 14) and above.**
 
-<img src="./graphics/preview.png">
-
+> [!IMPORTANT]
 > Since v2.0.0, it uses [AndroidX][androidx] so, first [migrate][androidx-migrate] your
 project to AndroidX.
 <br/>Since v4.1.0, it is dependent on Java 8 due to the dependency on
 [Dynamic Utils](https://github.com/pranavpandey/dynamic-utils).
 <br/>Since v4.4.1, it is targeting Java 17 to provide maximum compatibility.
 <br/>Since v4.5.0, the minimum SDK is Android 4.4 (API 19) to comply with the latest policies.
+
+<img src="./graphics/preview.png">
 
 ---
 
